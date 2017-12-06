@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _text.scss
+
+
+
+
+/**************************************/
+/*                text                */
+/**************************************/
+
+// text-def-layout
+%text-def-layout {
+    box-sizing: border-box;
+    line-height: 1;
+}
+// text-def-layout end
+
+
+// text-def-padding
+%text-def-padding {
+    @include remCalc("padding", $base-forms-padding-size);
+}
+// text-def-padding end
+
+
+// test-def-height
+%test-def-height {
+    @include remCalc("height", 40);
+}
+// test-def-height end
+
+
+// test-def-font-size
+%test-def-font-size {
+    @include font-size($base-font-size);
+}
+// test-def-font-size end
+
+
+// test-def-color
+%test-def-color {
+    background-color: #ffffff;
+    color: $base-text-color;
+}
+// test-def-color end
+
+
+// text-def-border
+%text-def-border {
+    @include remCalc("border-radius", $base-forms-border-radius);
+    @include remCalc("border", (1 solid $base-forms-border-color));
+
+    // focus
+    &:focus {
+        border-color: $base-color;
+    }
+    // focus end
+
+    // valid
+    &:valid {}
+    // valid end
+
+    // not(:placeholder-shown)
+    &:not(:placeholder-shown) {}
+    // not(:placeholder-shown) end
+
+    // invalid:not(:focus):not(:placeholder-shown) error
+    &:invalid:not(:focus):not(:placeholder-shown) {
+        border-color: $base-forms-error-color;
+    }
+    // invalid:not(:focus):not(:placeholder-shown) end
+
+    // invalid:focus:not(:placeholder-shown)
+    &:invalid:focus:not(:placeholder-shown) {}
+    // invalid:focus:not(:placeholder-shown) end
+}
+// text-def-border end

@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// content.scss
+
+
+
+/**************************************/
+/*              content               */
+/**************************************/
+
+// ui_shopblock
+.ui_shopblock {
+
+    // content
+    > .content {
+        // max-screen
+        @include max-screen($base-max-screen){}
+        // max-screen end
+
+        // ui_shoplist
+        > .ui_shoplist {
+            > li {
+                border: none;
+                background-color: #f4f4f4;
+                @include remCalc("margin", 0 0 15);
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                > a {
+                    position: relative;
+                    @include remCalc("padding", 0 40 0 0);
+                    // img
+                    > .img {
+                        @include remCalc("width", 70);
+                    }
+                    // img end
+                    // content
+                    > .content {
+                        // info, region
+                        > .info,
+                        > .region {
+                            display: none;
+                        }
+                        // info, region end
+                    }
+                    // content end
+
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        @include position-center(top);
+                        @include remCalc("right", 10);
+                        content: "";
+                    }
+                    &:before {
+                        @include remCalc("width", 20);
+                        @include remCalc("height", 20);
+                        border-radius: 50%;
+                        background-color: $base-color;
+                    }
+                    &:after {
+                        @include remCalc("margin", -2 8);
+                        @include triangles("arrow", "left", #ffffff, 6, 2);
+                    }
+                }
+            }
+        }
+        // ui_shoplist end
+    }
+    // content end
+}
+// ui_shopblock end

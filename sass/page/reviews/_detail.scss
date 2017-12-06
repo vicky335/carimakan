@@ -1,0 +1,66 @@
+//sass style
+//-----------------------------------
+// _detail.scss
+
+
+
+/**************************************/
+/*               detail               */
+/**************************************/
+
+.reviews {
+    // detail
+    &.detail {
+        padding-top: 0;
+        // header
+        > .header {
+            @include remCalc("margin-bottom", 8);
+
+            > .main {
+                display: flex;
+                align-items: center;
+                @include remCalc("margin", 0 -10);
+                @include remCalc("padding", 10);
+                @include remCalc("border-bottom", (1 solid #dddddd));
+
+                // user_img
+                > .user_img {
+                    @include remCalc("width", 60);
+                    @include remCalc("height", 60);
+                    @include remCalc("margin-right", 10);
+                }
+                // user_img end
+
+                // content
+                > .content {
+                    flex: 1;
+
+                    // grade
+                    > .grade {
+                        text-transform: capitalize;
+                    }
+                    // grade end
+
+                    // title
+                    > .title {
+                        @include font-size(14);
+                        font-weight: 500;
+                        line-height: 1.43;
+                    }
+                    // title end
+                }
+                // content end
+            }
+        }
+        // header end
+
+        // content
+        > .content {}
+        // content end
+
+        // footer
+        > .footer {}
+        // footer end
+    }
+    // detail end
+}

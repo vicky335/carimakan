@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// layout.scss
+
+
+
+/**************************************/
+/*              layout                */
+/**************************************/
+
+// layout
+// layout end
+
+// ui_mask
+.ui_mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9;
+    transition: opacity .15s linear;
+}
+// ui_mask end
+
+// ui_dialog
+.ui_dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    z-index: 10;
+    @include opacity(100);
+    transition: opacity .15s linear;
+    width: 100%;
+    @include remCalc("max-width", 500);
+
+    // max-screen
+    @include max-screen($base-max-screen){}
+    // max-screen end
+
+    // ui_dialog_popup
+    > .ui_dialog_popup {
+        transform: translate(0, 0);
+        transition: transform .3s ease-out;
+    }
+    // ui_dialog_popup end
+
+    // hidden
+    &.hidden {
+        @include opacity(0);
+
+        // ui_dialog_popup
+        > .ui_dialog_popup {
+            transform: translate(0, -25%);
+        }
+        // ui_dialog_popup end
+    }
+    // hidden end
+
+    // layout
+    .tc {
+        text-align: center;
+    }
+    // layout end
+}
+// ui_dialog end
+
+// ui_dialog_popup
+.ui_dialog_popup {
+    @include remCalc("padding", 20 16);
+    @include remCalc("border-radius", 3);
+    @include remCalc("border", (1 solid rgba(255, 255, 255, 0.8)));
+    @include remCalc("box-shadow", (0 24 24 0 rgba(0, 0, 0, 0.3), 0 24 24 0 rgba(0, 0, 0, 0.22)));
+    background-color: #ffffff;
+
+    // max-screen
+    @include max-screen($base-max-screen){
+        @include remCalc("margin", 0 16);
+    }
+    // max-screen end
+
+    // header
+    > .header {
+        @include remCalc("margin-bottom", 10);
+        // title
+        > .title {
+            // text-align: center;
+            color: $base-heading-color;
+            @include font-size(20);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        // title end
+    }
+    // header end
+
+    // main
+    > .main {}
+    // main end
+
+    // footer
+    > .footer {
+        @include remCalc("margin-top", 10);
+
+        // btn
+        > .btn {
+            text-align: center;
+
+            > .ui_btn {
+                @include remCalc("margin", 0 10);
+            }
+        }
+        // btn end
+    }
+    // footer end
+}
+// ui_dialog_popup end

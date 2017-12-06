@@ -1,0 +1,29 @@
+//sass style
+//-----------------------------------
+// _comments.scss
+
+
+
+/**************************************/
+/*               comments             */
+/**************************************/
+
+// comments
+> .comments {
+    display: flex;
+    align-items: center;
+    @include remCalc("margin-top", 5);
+
+    // stars
+    > .stars {
+        @extend %review-stars;
+    }
+    // stars end
+
+    // comment
+    > .comment {
+        color: $base-text-color2;
+    }
+    // comment end
+}
+// comments end

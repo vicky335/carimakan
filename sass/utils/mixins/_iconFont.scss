@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _iconFont.scss
+
+
+/**************************************/
+/*             Icon Font              */
+/**************************************/
+
+@mixin icon-font($icon: '', $alignment: middle){
+
+    @if $alignment {
+        @include inline-block($alignment);
+    }
+
+    font-family: $icons-font-name !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    color: inherit;
+    font-size: inherit;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
+
+    @if $icon {
+        content: $icon;
+    }
+}
+
+@mixin icons-font() {
+    @if $use-icons-font {
+        @include font-face($icons-font-name, $icons-font-path, normal, normal);
+
+        [class^="ui_icon_font"], [class*=" ui_icon_font"] {
+            @include icon-font;
+        }
+    }
+}

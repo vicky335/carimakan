@@ -1,0 +1,8 @@
+創建vendors/文件夾，主要用來包含來自外部的庫和框架的CSS文件。比如Bootstrap,jQueryUI，FancyCarouselSliderjQueryPowered等等。把這些文件放在同一個文件夾中。
+
+例如：
+bootstrap.scss
+jquery-ui.scss
+select2.scss
+
+還可以創建一個vendors-extensions/文件夾，用來放置一些覆蓋從外部引入進來的庫和框架中的小組件。例如，我們可以在_bootstrap.scss文件中用來覆蓋Bootstrap框架中的一些小組件。這為了避免和外部直接引來的組件升級造成的衝突，或許這不是一個很好的方案。

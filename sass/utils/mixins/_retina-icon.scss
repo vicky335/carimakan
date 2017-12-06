@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@import compass-retina-sprites.scss
+
+//匯入普通版的icons
+$icons-spacing: 1px
+$icons-sprite-dimensions: true
+@import "icons/*.png"
+@include all-icons-sprites
+
+//匯入2x size的icons
+$icons2x-spacing: 1px
+$icons2x-sprite-dimensions: true
+@import "icons2x/*.png"
+@include all-icons2x-sprites
+
+//製作成retina款式
+@include all-retina-sprites($icons-sprites, $icons2x-sprites)

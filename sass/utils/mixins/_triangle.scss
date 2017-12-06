@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _triangle.scss
+
+
+
+
+/**************************************/
+/*            triangle                */
+/**************************************/
+
+
+// example: @include arrow("left", #cccccc, 10);
+@mixin arrow($direction, $color, $size, $borderSize) {
+    @if not unitless($size) { // unitless(12)=>true,unitless(12px)=>false
+        $size: strip-units($size); //去掉 $size单位
+    }
+    @if not unitless($borderSize) { // unitless(12)=>true,unitless(12px)=>false
+        $borderSize: strip-units($borderSize); //去掉 $size单位
+    }
+
+    // $pxSize: $size * 1px;
+    // $remSize: ($size / 10) * 1rem;
+
+    // @include font-size(0);
+    @include inline-block;
+    content: "";
+
+    // width: $pxSize;
+    // height: $pxSize;
+    // width: $remSize;
+    // height: $remSize;
+    // @include emCalc("width", $size);
+    // @include emCalc("height", $size);
+    @include remCalc("width", $size);
+    @include remCalc("height", $size);
+
+    border-style: solid;
+    border-color: $color;
+
+    box-sizing: border-box;
+    transform: rotate(315deg);
+    transform-origin: 33.3% 33.3%;
+
+    @if $direction == "left" or $direction == left{
+        // border-width: 0 $pxSize $pxSize 0;
+        // border-width: 0 $remSize $remSize 0;
+        // @include emCalc("border-width", 0 $borderSize $borderSize 0);
+        @include remCalc("border-width", 0 $borderSize $borderSize 0);
+    }@else if $direction == "right" or $direction == right{
+        // border-width: $pxSize 0 0 $pxSize;
+        // border-width: $remSize 0 0 $remSize;
+        // @include emCalc("border-width", $borderSize 0 0 $borderSize);
+        @include remCalc("border-width", $borderSize 0 0 $borderSize);
+    }@else if $direction == "up" or $direction == up or $direction == top{
+        // border-width: $pxSize $pxSize 0 0;
+        // border-width: $remSize $remSize 0 0;
+        // @include emCalc("border-width", $borderSize $borderSize 0 0);
+        @include remCalc("border-width", $borderSize $borderSize 0 0);
+    }@else if $direction == "down" or $direction == down or $direction == bottom{
+        // border-width: 0 0 $pxSize $pxSize;
+        // border-width: 0 0 $remSize $remSize;
+        // @include emCalc("border-width", 0 0 $borderSize $borderSize);
+        @include remCalc("border-width", 0 0 $borderSize $borderSize);
+    }
+}
+
+
+
+// example: @include triangle("left", #cccccc, 10);
+@mixin triangle($direction, $color, $size) {
+    @if not unitless($size) { // unitless(12)=>true,unitless(12px)=>false
+        $size: strip-units($size); //去掉 $size单位
+    }
+
+    // $pxSize: $size * 1px;
+    // $remSize: ($size / 10) * 1rem;
+
+    @include inline-block;
+
+    width: 0;
+    height: 0;
+    // border-width: $pxSize;
+    // border-width: $remSize;
+    // @include emCalc("border-width", $size);
+    @include remCalc("border-width", $size);
+    box-sizing: border-box;
+
+    // @include font-size(0);
+    content: "";
+
+    @if $direction == "left" or $direction == left{
+        border-style: dashed solid dashed dashed;
+        border-color: transparent $color transparent transparent;
+    }@else if $direction == "right" or $direction == right{
+        border-style: dashed dashed dashed solid;
+        border-color: transparent transparent transparent $color;
+    }@else if $direction == "up" or $direction == up or $direction == top{
+        border-style: dashed dashed solid;
+        border-color: transparent transparent $color;
+    }@else if $direction == "down" or $direction == down or $direction == bottom{
+        border-style: solid dashed dashed;
+        border-color: $color transparent transparent;
+    }
+}
+
+
+
+// 三角形
+// $type：樣式 - solid(實心) arrow(箭頭)
+// example: @include triangles("solid", "left", #cccccc, 10);
+@mixin triangles($type, $direction, $color, $size: 1, $borderSize: 1) {
+    @if $type == "solid" {
+        @include triangle($direction, $color, $size);
+    } @else if $type == "arrow" {
+        @include arrow($direction, $color, $size, $borderSize);
+    }
+}

@@ -1,0 +1,44 @@
+//sass style
+//-----------------------------------
+// _meta.scss
+
+
+
+/**************************************/
+/*                 meta               */
+/**************************************/
+
+// footer
+> .footer {
+    @include remCalc("margin-top", 10);
+    @include remCalc("border-top", (1 solid #cccccc));
+
+    // list
+    > .list {
+        display: flex;
+        align-items: center;
+
+        // li
+        > li {
+            line-height: 0.86;
+            @include remCalc("padding", 13 0);
+            @include remCalc("margin-right", 15);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            // more
+            &.more {
+                display: flex;
+                flex: 1;
+                justify-content: flex-end;
+                color: $base-heading-color;
+            }
+            // more end
+        }
+        // li end
+    }
+    // list end
+}
+// footer end

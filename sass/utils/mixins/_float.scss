@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _float.scss
+
+
+
+
+/**************************************/
+/*               float                */
+/**************************************/
+
+// 浮動
+@mixin float($side: left){
+    float: unquote($side);
+    @if $legacy-support-for-ie {
+        _display:inline;
+    }
+}
+// 左浮動（可使用@extend或@include來調用）
+@mixin pull-left{
+    @include float(left);
+}
+%pull-left {
+    @include float(left);
+}
+// 右浮動（可使用@extend或@include來調用）
+@mixin pull-right{
+    @include float(right);
+}
+%pull-right {
+    @include float(right);
+}
+// 重置浮動
+@mixin reset-float($display:block){
+    float: none;
+    display: $display;
+}
+// 清除浮動（可使用@extend來調用）
+@mixin clearfix {
+    @if $legacy-support-for-ie {
+        & {
+            *zoom: 1;
+        }
+    }
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+        overflow: hidden;
+    }
+}
+%clearfix {
+    @include clearfix;
+}

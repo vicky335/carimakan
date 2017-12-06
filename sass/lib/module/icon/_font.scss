@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+// _icon.scss
+@include font-face($icons-font-name, $icons-font-path, normal, normal);
+
+[class^="ui_icon_font"], [class*=" ui_icon_font"] {
+	@include icon-font;
+}

@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _center.scss
+
+
+
+
+/**************************************/
+/*           block center             */
+/**************************************/
+
+// 未知宽度单个或多个子元素水平居中
+@mixin center_ib {
+    display: block;
+    text-align: center;
+    // 解决间隙问题
+    @include font-size(0);
+
+    .centered{
+        @include font-size($base-font-size);
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    // 让 chrome 支持 12px 以下的字体
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        -webkit-text-size-adjust: 100%;
+        @include font-size(1);
+    }
+}
+%center_ib{
+    @include center_ib;
+}
+
+// 未知高度单个或多个子元素水平居中
+@mixin vertical{
+    @include font-size(0);
+    &:after{
+        width: 0;
+        height: 100%;
+        display: inline-block;
+        content: "";
+    }
+
+    .center{
+        text-align: center;
+        border: none;
+        display: inline-block;
+        @include font-size($base-font-size);
+    }
+}
+%vertical{
+    @include vertical;
+}
+
+// 未知高度单个或多个子元素水平居中
+@mixin vertical2{
+    display: table;
+    *position: relative;
+    .hack {
+        display: table-cell;
+        vertical-align: middle;
+        *position: absolute;
+        *top: 50%;
+
+        .centered {
+            *position: relative;
+            *top: -50%;
+        }
+    }
+}
+%vertical2{
+    @include vertical2;
+}
+
+// 未知高度单个或多个子元素水平居中
+@mixin vertical3{
+    position: relative;
+
+    .center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        margin-bottom: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
+%vertical3{
+    @include vertical3;
+}
+
+// block元素水平居中
+// example: @include margin-auto();
+@mixin margin-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+%margin-center {
+    @include margin-center;
+}
+
+// 元素定位居中
+@mixin position-center($style: all, $position: absolute){
+    @if $position and $position != none {
+        position: $position;
+    }
+    @if $style == left{
+        left: 50%;
+        margin-right: -50%;
+        transform: translateX(-50%);
+    } @else if $style == top{
+        top: 50%;
+        transform: translateY(-50%);
+    } @else if $style == all{
+        left: 50%;
+        top: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+}

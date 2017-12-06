@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _bottom.scss
+
+
+/**************************************/
+/*               bottom               */
+/**************************************/
+
+// footer
+> .wrap_footer {
+
+    // bottom
+    > .bottom {
+        @include font-size(12);
+    }
+    // bottom end
+}
+// footer end

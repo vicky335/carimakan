@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CariMakan</title>
+    <meta charset="utf-8">
+    <!--[if IE ]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="ie-stand">
+    <![endif]-->
+
+    <meta http-equiv="Window-target" content="_top" />
+    <meta name="viewport" content="width=device-width, target-densitydpi=high-dpi, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="tencent-x5-page-direction" content="landscape">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="PixPO">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+
+    <!-- DNS預解析 -->
+    <link rel="preconnect" href="//www.carimakan.co.id">
+    <link rel="preconnect" href="//image.carimakan.co.id">
+
+    <link rel="dns-prefetch" href="//www.carimakan.co.id">
+    <link rel="dns-prefetch" href="//image.carimakan.co.id">
+
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <link rel="dns-prefetch" href="//partner.gooleadservices.com">
+    <link rel="dns-prefetch" href="//google.com.tw">
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="//google-analytics.com">
+    <link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="//pubads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="//graph.facebook.com">
+    <link rel="dns-prefetch" href="//facebook.com">
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <!--/ end DNS預解析 -->
+
+    <meta name=robots content=noarchive>
+    <meta name=google content=notranslate>
+
+    <meta property="fb:pages" content="" />
+    <meta property="fb:app_id" content="" />
+
+    <meta name="Copyright" content="©2017 CariMakan All Rights Reserved."/>
+    <meta name="description" content="description" />
+    <meta name="keywords" content="keywords" />
+    <meta property="og:site_name" content="og:site_name" />
+    <meta property="og:title" content="og:title" />
+    <meta property="og:url" content="og:url" />
+    <meta property="og:description" content="og:description" />
+
+    <script type="text/javascript">
+    if (top != self) {
+        top.location.href = self.location.href;
+    }
+    </script>
+
+    <!--[if lt IE 9]>-->
+        <script type="text/javascript" src="/js/lib/html5.js"></script>
+        <script type="text/javascript" src="/js/lib/css3-mediaqueries.js"></script>
+    <!--[endif]-->
+
+    <!-- favicon -->
+    <link rel="icon" href="/images/favicon.png" />
+    <link rel="shortcut icon" href="/images/favicon.png" />
+    <link rel="bookmark" href="/images/favicon.png" />
+    <!--/ end favicon -->
+
+    <!-- css -->
+    <!-- layout css -->
+    <link rel="stylesheet" type="text/css" href="/css/layout.css" />
+    <!--/ end layout css -->
+
+    <!-- restaurant css -->
+    <link rel="stylesheet" type="text/css" href="/css/restaurant.css" />
+    <!--/ end restaurant css -->
+    <!--/ end css -->
+</head>
+
+<body>
+    <div id="fb-root"></div>
+
+    <!-- wrap -->
+    <div id="wrap" class="wrap">
+        <!-- header -->
+        <header id="header" class="wrap_header">
+            <!-- container -->
+            <div class="container">
+                <!-- nav -->
+                <section class="nav">
+                    <!-- tools -->
+                    <ul class="tools">
+                        <li>
+                            <!-- goback -->
+                            <a class="goback">
+                                <svg class="ui_icon ui_icon_svg">
+                                    <use xlink:href="#icon_arrowback"></use>
+                                </svg>
+                            </a>
+                            <!--/ end goback -->
+                        </li>
+                    </ul>
+                    <!-- tools -->
+
+                    <!-- tools -->
+                    <ul class="tools">
+                        <li>
+                            <a class="saved">
+                                <svg class="ui_icon ui_icon_svg save">
+                                    <use xlink:href="#icon_save"></use>
+                                </svg>
+                                <svg class="ui_icon ui_icon_svg save cur">
+                                    <use xlink:href="#icon_save"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="share">
+                                <svg class="ui_icon ui_icon_svg">
+                                    <use xlink:href="#icon_share"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--/ end tools -->
+                </section>
+                <!--/ end nav -->
+            </div>
+            <!--/ end container -->
+        </header>
+        <!--/ end header -->
+
+        <!-- container -->
+        <div id="container" class="wrap_container">
+            <!-- restaurant -->
+            <div class="restaurant detail container">
+                <!-- ui_block baseinfo -->
+                <section class="ui_block baseinfo">
+                    <!-- header -->
+                    <header class="header">
+                        <!-- title -->
+                        <h1 class="title">
+                            <span>
+                                Moksh Restaurant & Lounge
+                            </span>
+                            <svg class="ui_icon ui_icon_svg">
+                                <use xlink:href="#icon_nonhalal"></use>
+                            </svg>
+                        </h1>
+                        <!--/ end title -->
+                        <!-- meta -->
+                        <div class="meta">
+                            <ul class="list">
+                                <!-- comments -->
+                                <li class="comments">
+                                    <!-- stars -->
+                                    <div class="stars block">
+                                        <!-- width = 個數 * 12 -->
+                                        <i class="star" style="width: calc(4*12px);"></i>
+                                    </div>
+                                    <!--/ end stars -->
+
+                                    <!-- review -->
+                                    <div class="review block">
+                                        Food 8.8 ‧ Look & Feel 8.9 ‧ Service 9.0
+                                    </div>
+                                    <!--/ end review -->
+                                </li>
+                                <!--/ end comments -->
+
+                                <!-- info -->
+                                <li class="info">
+                                    <!-- price -->
+                                    <div class="price block">
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_money"></use>
+                                        </svg>
+                                        <span>
+                                            Rp 15k/ Orang
+                                        </span>
+                                    </div>
+                                    <!--/ end price -->
+                                    <!-- cate -->
+                                    <div class="cate block">
+                                        Italian Cuisines
+                                    </div>
+                                    <!--/ end cate -->
+                                </li>
+                                <!--/ end info -->
+                            </ul>
+                        </div>
+                        <!--/ end meta -->
+
+                    </header>
+                    <!--/ end header -->
+
+                    <!-- content -->
+                    <div class="content">
+                        <!-- shoppics -->
+                        <div class="shoppics">
+                            <!-- block -->
+                            <div class="block">
+                                <!-- img -->
+                                <div class="img">
+                                    <!-- img size: 250 * 250 -->
+                                    <img src="https://qcloud.dpfile.com/pc/v6TCFD-2Tf-DXYHSDV-zUJBcGgQ11JtQWm1moPYZ8ECPcd7Ne6CwT1EpdSf39GdfTYGVDmosZWTLal1WbWRW3A.jpg" />
+                                </div>
+                                <!--/ end img -->
+                            </div>
+                            <!--/ end block -->
+                            <!-- block -->
+                            <div class="block">
+                                <!-- img -->
+                                <div class="img">
+                                    <!-- img size: 124 * 124 -->
+                                    <img src="https://qcloud.dpfile.com/pc/v6TCFD-2Tf-DXYHSDV-zUJBcGgQ11JtQWm1moPYZ8ECPcd7Ne6CwT1EpdSf39GdfTYGVDmosZWTLal1WbWRW3A.jpg" />
+                                </div>
+                                <!--/ end img -->
+
+                                <!-- img -->
+                                <div class="img">
+                                    <!-- img size: 124 * 124 -->
+                                    <img src="https://qcloud.dpfile.com/pc/v6TCFD-2Tf-DXYHSDV-zUJBcGgQ11JtQWm1moPYZ8ECPcd7Ne6CwT1EpdSf39GdfTYGVDmosZWTLal1WbWRW3A.jpg" />
+
+                                    <!-- more -->
+                                    <a href="/photos.html" class="more">
+                                        View All (234)
+                                    </a>
+                                    <!--/ end more -->
+                                </div>
+                                <!--/ end img -->
+                            </div>
+                            <!--/ end block -->
+                        </div>
+                        <!--/ end shoppics -->
+
+                        <!-- shoppics nopic -->
+                        <div class="shoppics nopic">
+                            <div class="content">
+                                <svg class="ui_icon ui_icon_svg">
+                                    <use xlink:href="#icon_photo"></use>
+                                </svg>
+                                <p class="txt">
+                                    Foto belum tersedia,
+                                    Jadilah yang pertama!
+                                </p>
+                                <a class="ui_btn btn2">
+                                    Unggah Foto
+                                </a>
+                            </div>
+                        </div>
+                        <!--/ end shoppics nopic -->
+                    </div>
+                    <!--/ end content -->
+
+                    <!-- footer -->
+                    <div class="footer">
+                        <!-- list -->
+                        <ul class="list">
+                            <!-- region -->
+                            <li class="region">
+                                <a href="/maps.html">
+                                    <svg class="ui_icon ui_icon_svg location">
+                                        <use xlink:href="#icon_location"></use>
+                                    </svg>
+                                    <div class="txt">
+                                        <p>
+                                            Grand Indonesia, East Mall, Lt. Lower Ground, Jl. M.H. Thamrin No. 1
+                                        </p>
+                                        <p class="position">
+                                            910m dari lokasi anda
+                                        </p>
+                                    </div>
+                                    <div class="img">
+                                        <!-- img size: 90 * 60 -->
+                                        <img src="https://qcloud.dpfile.com/pc/v6TCFD-2Tf-DXYHSDV-zUJBcGgQ11JtQWm1moPYZ8ECPcd7Ne6CwT1EpdSf39GdfTYGVDmosZWTLal1WbWRW3A.jpg" />
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- region -->
+                            <!-- phone -->
+                            <li class="phone">
+                                <a href="tel:+85225550628">
+                                    <div class="txt">
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_call"></use>
+                                        </svg>
+                                        <span>
+                                            +852 2555 0628
+                                        </span>
+                                    </div>
+                                    <span class="ui_btn btn2">
+                                        Call
+                                    </span>
+                                </a>
+                            </li>
+                            <!-- phone -->
+                            <!-- viewinfo -->
+                            <li class="viewinfo">
+                                <a class="btn_go" data-type="information">
+                                    <div class="txt">
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_shop"></use>
+                                        </svg>
+                                        <span>
+                                            View More Information
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- viewinfo -->
+                        </ul>
+                        <!--/ end list -->
+                    </div>
+                    <!--/ end footer -->
+                </section>
+                <!--/ end ui_block baseinfo -->
+
+                <!-- ui_block dishes -->
+                <section class="ui_block dishes">
+                    <!-- title -->
+                    <h2 class="title">
+                        Dishes / Recommended Dishes
+                    </h2>
+                    <!-- title -->
+                    <!-- content  -->
+                    <div class="content">
+                        <ul class="list">
+                            <!-- loop list -->
+                            <li>
+                                <span class="txt">
+                                    name (like)
+                                </span>
+                            </li>
+                            <!--/ end loop list -->
+                            <li class="hasimg">
+                                <div class="img">
+                                    <!-- img size: 110 * 110 -->
+                                    <img src="https://qcloud.dpfile.com/pc/v6TCFD-2Tf-DXYHSDV-zUJBcGgQ11JtQWm1moPYZ8ECPcd7Ne6CwT1EpdSf39GdfTYGVDmosZWTLal1WbWRW3A.jpg" />
+                                    <span class="like">
+                                        875 Like
+                                    </span>
+                                </div>
+                                <h3 class="title">
+                                    Chicken Pizza
+                                </h3>
+                            </li>
+                            <li>
+                                <span class="txt">
+                                    Bannoffee Pie (675)
+                                </span>
+                            </li>
+                            <li>
+                                <span class="txt">
+                                    Tiramisu (77)
+                                </span>
+                            </li>
+                            <li>
+                                <span class="txt">
+                                    Meat balls with chili
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/ end content -->
+                </section>
+                <!--/ end ui_block dishes -->
+
+                <!-- ui_block reviews -->
+                <section class="ui_block reviews">
+                    <!-- title -->
+                    <h2 class="title">
+                        Reviews / Reviews (841)
+                    </h2>
+                    <!-- title -->
+                    <!-- content  -->
+                    <div class="content">
+
+                        <!-- 請按實際需要渲染頁面 -->
+                        <!-- commentslist -->
+                        <div class="include" file="_commentslist.html"></div>
+                        <!--/ end commentslist -->
+                        <!--/ end 請按實際需要渲染頁面 -->
+
+                    </div>
+                    <!--/ end content -->
+
+                    <!-- content no reviews  -->
+                    <div class="content noreviews">
+                        <p>
+                            Pernah Makan Di Tempat Ini? Yuk, Tulis Ulasanmu!
+                        </p>
+                        <a class="ui_btn btn2">
+                            Write a Review
+                        </a>
+                    </div>
+                    <!--/ end content -->
+                </section>
+                <!--/ end ui_block reviews -->
+
+                <!-- ui_block information -->
+                <section class="ui_block information">
+                    <!-- title -->
+                    <h2 class="title">
+                        Information
+                    </h2>
+                    <!-- title -->
+                    <!-- content  -->
+                    <div class="content">
+                        <!-- block -->
+                        <div class="block">
+                            <!-- title -->
+                            <h3 class="title">
+                                Open Hours
+                            </h3>
+                            <!-- title -->
+                            <!-- content  -->
+                            <div class="content">
+                                <p>
+                                    Tue to Fri  11:00 - 20:00
+                                </p>
+                                <p>
+                                    Sat to Sun 11:00 - 03:00
+                                </p>
+                            </div>
+                            <!--/ end content -->
+                        </div>
+                        <!--/ end block -->
+
+                        <!-- block -->
+                        <div class="block">
+                            <!-- title -->
+                            <h3 class="title">
+                                Cuisines
+                            </h3>
+                            <!-- title -->
+                            <!-- content  -->
+                            <div class="content">
+                                <p>
+                                    Bistro, Fast Food, Pizza, Pasta, Cake
+                                </p>
+                            </div>
+                            <!--/ end content -->
+                        </div>
+                        <!--/ end block -->
+
+                        <!-- block -->
+                        <div class="block">
+                            <!-- title -->
+                            <h3 class="title">
+                                Number of seats
+                            </h3>
+                            <!-- title -->
+                            <!-- content  -->
+                            <div class="content">
+                                <p>
+                                    80 seats, 5 Private room
+                                </p>
+                            </div>
+                            <!--/ end content -->
+                        </div>
+                        <!--/ end block -->
+
+                        <!-- block -->
+                        <div class="block">
+                            <!-- title -->
+                            <h3 class="title">
+                                Suitable for
+                            </h3>
+                            <!-- title -->
+                            <!-- content  -->
+                            <div class="content">
+                                <p>
+                                    Family Eating ,  Relaxing ,  Takeaway
+                                </p>
+                            </div>
+                            <!--/ end content -->
+                        </div>
+                        <!--/ end block -->
+
+                        <!-- block -->
+                        <div class="block">
+                            <!-- content  -->
+                            <div class="content">
+                                <ul class="list">
+                                    <!-- loop list -->
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_creditcard"></use>
+                                        </svg>
+                                        <span>
+                                            Credit Card
+                                        </span>
+                                    </li>
+                                    <!--/ end loop list -->
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_allday"></use>
+                                        </svg>
+                                        <span>
+                                            24 hours
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_wifi"></use>
+                                        </svg>
+                                        <span>
+                                            Free Wifi
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_socket"></use>
+                                        </svg>
+                                        <span>
+                                            Electric socket
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_ac"></use>
+                                        </svg>
+                                        <span>
+                                            Air conditioner
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_seat"></use>
+                                        </svg>
+                                        <span>
+                                            Outdoor seating
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_tax"></use>
+                                        </svg>
+                                        <span>
+                                            Tax
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_smoke"></use>
+                                        </svg>
+                                        <span>
+                                            Smoking area
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_motorparking"></use>
+                                        </svg>
+                                        <span>
+                                            Motorcycle parking
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_carparking"></use>
+                                        </svg>
+                                        <span>
+                                            Car parking
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_booth"></use>
+                                        </svg>
+                                        <span>
+                                            Private room
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_wc"></use>
+                                        </svg>
+                                        <span>
+                                            Toilet
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_reserve"></use>
+                                        </svg>
+                                        <span>
+                                            Received Reservation
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_pet"></use>
+                                        </svg>
+                                        <span>
+                                            Pet
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_takeaway"></use>
+                                        </svg>
+                                        <span>
+                                            Take-away service
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_child"></use>
+                                        </svg>
+                                        <span>
+                                            Child seat
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_delivery"></use>
+                                        </svg>
+                                        <span>
+                                            Delivery
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <svg class="ui_icon ui_icon_svg">
+                                            <use xlink:href="#icon_group"></use>
+                                        </svg>
+                                        <span>
+                                            Suitable for groups
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--/ end content -->
+                        </div>
+                        <!--/ end block -->
+
+                    </div>
+                    <!--/ end content -->
+                </section>
+                <!--/ end ui_block information -->
+
+                <!-- ui_block neararea -->
+                <section class="ui_block neararea">
+                    <!-- title -->
+                    <h2 class="title">
+                        Near Area
+                    </h2>
+                    <!-- title -->
+                    <!-- content  -->
+                    <div class="content">
+                        <a class="block" href="/maps.html">
+                            <p>
+                                Atlantic Street Center
+                            </p>
+                            <span class="ui_btn btn1">
+                                Total 29 restaurants
+                            </span>
+                        </a>
+                    </div>
+                    <!--/ end content -->
+                </section>
+                <!--/ end ui_block neararea -->
+
+                <!-- ui_block recommend -->
+                <section class="ui_block recommend">
+                    <!-- title -->
+                    <h2 class="title">
+                        Popular Food in Jakarta
+                    </h2>
+                    <!-- title -->
+                    <!-- content  -->
+                    <div class="content">
+
+                        <!-- 請按實際需要渲染頁面 -->
+                        <!-- shoplist -->
+                        <div class="include" file="_shoplist.html"></div>
+                        <!--/ end shoplist -->
+                        <!--/ end 請按實際需要渲染頁面 -->
+
+                    </div>
+                    <!--/ end content -->
+                </section>
+                <!--/ end ui_block recommend -->
+
+                <!-- tools -->
+                <section class="ui_block tools">
+                    <!-- content -->
+                    <div class="content">
+                        <ul class="list">
+                            <li>
+                                <a>
+                                    <svg class="ui_icon ui_icon_svg">
+                                        <use xlink:href="#icon_chechin"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <svg class="ui_icon ui_icon_svg">
+                                        <use xlink:href="#icon_camera"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <svg class="ui_icon ui_icon_svg">
+                                        <use xlink:href="#icon_review"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/ end content -->
+                </section>
+                <!--/ end tools -->
+            </div>
+            <!--/ end restaurant -->
+        </div>
+        <!--/ end container -->
+
+        <!-- footer -->
+        <footer id="footer" class="wrap_footer"></footer>
+        <!--/ end footer -->
+    </div>
+    <!--/ end wrap -->
+
+
+    <!-- script js -->
+    <script type="text/javascript" src="/js/lib/plugin.js"></script>
+    <script type="text/javascript" src="/js/lib/OMIS.js"></script>
+    <!-- <script type="text/javascript" src="/js/platform/fb.js"></script> -->
+    <script type="text/javascript" src="/js/com.js"></script>
+    <!--/ end script js -->
+
+
+    <!-- 請按實際需要渲染頁面 -->
+    <!-- common_jsTpl -->
+    <div class="include" file="_common_jsTpl.html"></div>
+    <!--/ end common_jsTpl -->
+    <!--/ end 請按實際需要渲染頁面 -->
+
+
+    <!-- 為了方便快捷建立靜態html，特使用jQuery load方法，加載公用html文件。 -->
+    <!-- 不作為實際渲染頁面時使用，實際使用時請刪除！！！ -->
+    <!-- 請按實際情況渲染頁面 -->
+    <script type="text/javascript">
+        $(".include").each(function(){
+            if(!!$(this).attr("file")) {
+                var $includeObj = $(this);
+                $(this).load($(this).attr("file"), function(html){
+                    $includeObj.after(html).remove();
+                })
+            }
+        });
+    </script>
+    <!--/ end 為了方便快捷建立靜態html，特使用jQuery load方法，加載公用html文件。 -->
+
+</body>
+
+</html>

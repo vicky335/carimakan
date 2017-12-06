@@ -1,0 +1,29 @@
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+// ui_postlist
+.ui_postlist {
+    // li
+    > li {
+
+        > a {
+            // content
+            > .content {
+                @include remCalc("padding", 10);
+
+                // max-screen
+                @include max-screen($base-max-screen){}
+                // max-screen end
+            }
+            // content end
+        }
+    }
+    // li end
+}
+// ui_postlist end

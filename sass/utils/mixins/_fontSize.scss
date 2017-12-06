@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _fontSize.scss
+
+
+/**************************************/
+/*             fontSize              */
+/**************************************/
+
+// 字體大小
+// example: @include font-size(12);
+@mixin font-size($size: $base-font-size){
+    @if not unitless($size) { // unitless(12)=>true,unitless(12px)=>false
+        $size: strip-units($size); //去掉 $px单位
+    }
+    font-size: $size * 1px;
+    // font-size: ($size / 10) * 1rem;
+    font-size: ($size / $browser-default-font-size) * 1rem;
+}

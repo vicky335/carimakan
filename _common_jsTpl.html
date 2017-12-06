@@ -1,0 +1,72 @@
+<!-- tpl -->
+<!-- tpl_ui_popup_window -->
+<script id="tpl_ui_popup_window" type="text/x-jsrender">
+    <section class="ui_dialog_popup">
+        {{if title}}
+        <!-- header -->
+        <header class="header">
+            <h2 class="title">
+                {{:title}}
+            </h2>
+        </header>
+        <!--/ end header -->
+        {{/if}}
+        <!-- main -->
+        <div class="main">
+            {{:content}}
+        </div>
+        <!--/ end main -->
+        {{if doneBtn ||  cancelBtn}}
+        <!-- footer -->
+        <footer class="footer">
+            <div class="btn">
+                {{if doneBtn}}
+                <a class="ui_btn btn1 dialog_done">
+                    {{:doneBtnText}}
+                </a>
+                {{/if}}
+                {{if cancelBtn}}
+                <a class="ui_btn btn_cancel btn_close dialog_cancel">
+                    {{:cancelBtnText}}
+                </a>
+                {{/if}}
+            </div>
+        </footer>
+        <!--/ end footer -->
+        {{/if}}
+    </section>
+</script>
+<!-- /end tpl_ui_popup_window -->
+
+<!-- tpl_selectcity -->
+<script id="tpl_selectcity" type="text/x-jsrender">
+    <div class="selectcity">
+        <ul class="list">
+            <!-- loop list -->
+            <li>
+                <a href="#">
+                    <svg class="ui_icon ui_icon_svg">
+                        <use xlink:href="#icon_check"></use>
+                    </svg>
+                    <span>
+                        West Jakarta
+                    </span>
+                </a>
+            </li>
+            <!--/ end loop list -->
+            <li class="cur">
+                <a href="#">
+                    <svg class="ui_icon ui_icon_svg">
+                        <use xlink:href="#icon_check"></use>
+                    </svg>
+                    <span>
+                        North Jakarta
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</script>
+<!-- /end tpl_selectcity -->
+
+<!--/ end tpl -->

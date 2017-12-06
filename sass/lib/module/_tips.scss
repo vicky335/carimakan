@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// loading.scss
+
+
+
+/**************************************/
+/*               tips                */
+/**************************************/
+// ui_tips
+.ui_tips {
+    display: block;
+//  position: absolute;
+    position: fixed;
+//  bottom: 100px;
+    top: 50%;
+    left: 0;
+    z-index: 9;
+    margin: 0 auto;
+    padding: 5px 15px;
+    color: #FFFFFF;
+    min-height: 20px;
+    opacity: 1;
+//  background-color: rgba(0, 0, 0, 0.8);
+    background-color: #857B80;
+    border-radius: 5px;
+//  border: 1px rgba(0, 0, 0, .5) solid;
+
+    &.copy_success {
+        min-width: 130px;
+        padding: 15px;
+        text-align: center;
+        // max-screen
+        @include max-screen($base-max-screen){
+            &.ui_dialog_default {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        // max-screen end
+    }
+}

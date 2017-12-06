@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _pxToEm.scss
+
+
+/**************************************/
+/*              pxToEm                */
+/**************************************/
+
+// px转em
+// 将px转换成em
+// 当元素的父元素没有重置字体大小时，相对于16px计算，如果你要将12px转换成em时，可以写成`pxToem(12px)`
+// 当元素的父元素重置了字体大小时，如24px，如果你要将12px转换成em时,可以写成`pxToem(12px,24px)`
+// 另外你还可以不显式的写也单位`px`
+
+@function pxToEm($px, $context: $base-font-size) {
+	@if not unitless($px) { // unitless(12)=>true,unitless(12px)=>false
+	    $px: strip-units($px); //去掉 $px单位
+	}
+	@if not unitless($context) {
+	    $context: strip-units($context); // 去掉 $context单位
+	}
+	@return ($px / $context) * 1em;
+}
+
+// px转rem
+@function pxToRem($px, $context: $base-font-size) {
+    @if not unitless($px) { // unitless(12)=>true,unitless(12px)=>false
+        $px: strip-units($px); //去掉 $px单位
+    }
+	// @return $px / 10 * 1rem; // Use this if you've set HTML font size value to 62.5%
+    @return ($px / $context) * 1rem;
+}

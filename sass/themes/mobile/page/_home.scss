@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// home.scss
+
+
+// _utils.scss
+@import "../../../utils/_utils";
+
+/**************************************/
+/*                home                */
+/**************************************/
+
+// _layout.scss
+@import "_layout";
+
+// _home.scss
+@import "../../../page/_home";

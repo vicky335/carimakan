@@ -1,0 +1,48 @@
+//sass style
+//-----------------------------------
+// _img.scss
+
+
+
+/**************************************/
+/*                 img                */
+/**************************************/
+// ui_shoplist
+.ui_shoplist {
+    // li
+    > li {
+        > a {
+            // img
+            > .img {
+                text-align: center;
+                overflow: hidden;
+                @include remCalc("margin-right", 10);
+                @include remCalc("width", 95);
+
+                // max-screen
+                @include max-screen($base-max-screen){}
+                // max-screen end
+
+                // > a {
+                //     display: block;
+
+                    > img {
+                        // transition: all .7s;
+
+                        &.lazyload {}
+
+                        &.lazyloaded {}
+
+                        &:hover {
+                            transition: all .7s;
+                            transform: scale(1.05);
+                        }
+                    }
+                // }
+            }
+            // img end
+        }
+    }
+    // li end
+}
+// ui_shoplist end

@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _compassBg.scss
+
+
+/**************************************/
+/*             compassBg              */
+/**************************************/
+
+// sprites圖片默認參數
+@import "compass/utilities/sprites";
+$default-sprite-separator: "_";   // 連結符號
+// 自動取得sprite圖片中你指定的圖檔位置（$folder：合併圖檔的所屬資料夾；$subFolder：子資料夾；$icon：要取得的圖檔的原始名稱）
+@mixin img_sprite($folder, $subFolder, $icon_name, $type: icon, $lineHeight: true) {
+    $bgIcons: sprite-map("#{$folder}/#{$subFolder}/*.png", $layout: smart);
+//  $bgRetinaIcons: sprite-map("#{$folder}/#{$subFolder}_retina/*.png", $layout: smart);
+    & {
+        width: image-width("#{$folder}/#{$subFolder}/#{$icon_name}.png");
+        height: image-height("#{$folder}/#{$subFolder}/#{$icon_name}.png");
+        background: sprite($bgIcons, $icon_name) no-repeat;
+        overflow: hidden;
+        white-space: nowrap;
+        @if $type == bg {
+            @if $lineHeight {
+                line-height: image-height("#{$folder}/#{$subFolder}/#{$icon_name}.png");
+            }
+            text-indent: 0;
+        } @else {
+            @include inline-block;
+            text-indent: -999em;
+        }
+    }
+}
+
+// sprites icon默認參數
+$icon: sprite-map("sprites/icon/*.png", $layout: smart, $repeat: no-repeat, $dimensions: true);
+$icon-sprite-dimensions: true; // 固定輸出對應的寬高（默認：false，但要指定Folder name）
+$icon-repeat: no-repeat;
+//@import "sprites/icon/*.png";
+$icon-sprite: sprite-path($icon);
+$icon-url: sprite-url($icon);
+
+// sprites icon-retina默認參數
+$iconRetina: sprite-map("sprites/icon_retina/*.png", $layout: smart, $repeat: no-repeat, $dimensions: true);
+$iconRetina-sprite-dimensions: true; // 固定輸出對應的寬高（默認：false，但要指定Folder name）
+$iconRetina-repeat: no-repeat;
+//@import "sprites/icon_retina/*.png";
+$iconRetina-sprite: sprite-path($iconRetina);
+$iconRetina-url: sprite-url($iconRetina);
+
+@mixin all-retina-sprites($map: $icon, $map2x: $iconRetina, $type: icon) {
+    $base-class: sprite-map-name($map);
+    .#{$base-class}_sprites {
+        background-image: sprite-url($map);
+    }
+    @each $sprite in sprite-names($map) {
+        .#{$base-class}_#{$sprite} {
+
+            @extend .#{$base-class}_sprites;
+
+            $iconPath: sprite-file($map, $sprite); // 图标文件的路径
+            $iconWidth: image-width($iconPath);
+            $iconHeight: image-height($iconPath);
+
+            width: $iconWidth;
+            height: $iconHeight;
+            background-position: sprite-position($map, $sprite);
+        }
+    }
+    @media (min--moz-device-pixel-ratio: 1.5),
+        (-o-min-device-pixel-ratio: 3/2),
+        (-webkit-min-device-pixel-ratio: 1.5),
+        (min-device-pixel-ratio: 1.5),
+        (min-resolution: 1.5dppx) {
+
+        .#{$base-class}_sprites_retina {
+            background-image: sprite-url($map2x);
+            @include background-size(ceil(image-width(sprite-path($map2x)) / 2) auto);
+        }
+
+        @each $sprite in sprite-names($icon) {
+            .#{$base-class}_#{$sprite} {
+                @extend .#{$base-class}_sprites_retina;
+
+                $position: sprite-position($map2x, $sprite);
+                background-position: nth($position, 1) / 2 nth($position, 2) / 2;
+            }
+        }
+    }
+
+}
+@mixin img_bg($icon_name, $type: icon, $map: $icon, $map2x: $iconRetina) {
+    $iconPath: sprite-file($map, $icon_name); // 图标文件的路径
+    $iconWidth: image-width($iconPath);
+    $iconHeight: image-height($iconPath);
+    width: $iconWidth;
+    height: $iconHeight;
+    background-repeat: no-repeat;
+    background-image: sprite-url($map);
+    background-position: sprite-position($map, $icon_name);
+    @include inline-block;
+    @if $type == bg {
+        line-height: $iconHeight;
+        text-indent: 0;
+    } @else {
+        text-indent: -999em;
+    }
+
+    @media (min--moz-device-pixel-ratio: 1.5),
+        (-o-min-device-pixel-ratio: 3/2),
+        (-webkit-min-device-pixel-ratio: 1.5),
+        (min-device-pixel-ratio: 1.5),
+        (min-resolution: 1.5dppx) {
+          background-image: sprite-url($map2x);
+          @include background-size(ceil(sprite-width($map2x) / 2) auto);
+//        @include background-size(ceil(image-width(#{$iconRetina-sprite}) / 2) auto);
+          $position: sprite-position($map2x, $icon_name);
+          background-position: nth($position, 1) / 2 nth($position, 2) / 2;
+    }
+
+//  @include inline-block;
+//  @include icon-sprite($icon_name);
+//  width: icon-sprite-width(#{$icon_name});
+//  height: icon-sprite-height(#{$icon_name});
+//  width: image-width(sprite-file($map, #{$icon_name}));
+//  height: image-height(sprite-file($map, #{$icon_name}));
+//
+//  background-image: #{$icon-url};
+//  background-position: sprite-position($icon, #{$icon_name});
+//  @if $type == bg {
+//      line-height: icon-sprite-height(#{$icon_name});
+//      text-indent: 0;
+//  } @else {
+//      text-indent: -999em;
+//  }
+//  @media (min--moz-device-pixel-ratio: 1.5),
+//      (-o-min-device-pixel-ratio: 3/2),
+//      (-webkit-min-device-pixel-ratio: 1.5),
+//      (min-device-pixel-ratio: 1.5),
+//      (min-resolution: 1.5dppx) {
+//        background-image: #{$iconRetina-url};
+//        @include background-size(ceil(image-width(#{$iconRetina-sprite}) / 2) auto);
+//        $position: sprite-position($iconRetina, #{$icon_name});
+//        background-position: nth($position, 1) / 2 nth($position, 2) / 2;
+//  }
+//  background-repeat: no-repeat;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+$svgIconNames: line, google, facebook, facebook2, facebook3, twitter, linkedin, pinterest;
+@mixin icon_svgAndPng($width: 20, $height: 20){
+    & {
+        width: $width + px;
+        height: $height + px;
+        background-image: url('../../images/sprites/svg/sprite.svg');
+        background-repeat: no-repeat;
+        @for $i from 1 through length($svgIconNames){
+            &.icon_#{nth($svgIconNames, $i)}{
+                background-position: 0  (-(ceil(($height / 20) * (($i - 1) * 20))) + px);
+            }
+        }
+
+    }
+
+}

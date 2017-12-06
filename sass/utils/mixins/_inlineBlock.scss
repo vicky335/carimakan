@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _inlineBlock.scss
+
+
+/**************************************/
+/*            inlineBlock             */
+/**************************************/
+
+// inline-block
+// example: @include inline-block();
+@mixin inline-block($alignment: middle){
+    display: -moz-inline-stack;
+    display: inline-block;
+    @if $alignment and $alignment != none {
+    	vertical-align: $alignment;
+    }
+    @if $legacy-support-for-ie {
+    	*vertical-align: auto;
+    	zoom: 1;
+    	*display: inline;
+    }
+}

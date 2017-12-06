@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// title.scss
+
+
+
+/**************************************/
+/*               title                */
+/**************************************/
+
+// ui_block
+.ui_block {
+
+    // title
+    > .title {
+        @include font-size($ui-block-title-font-size);
+        @include remCalc("margin-bottom", 15);
+        @each $prop, $value in $ui-block-title-style {
+            #{$prop}: $value;
+        }
+
+        // max-screen
+        @include max-screen($base-max-screen){}
+        // max-screen end
+    }
+    // title end
+}
+// ui_block end

@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/**************************************/
+/*              Normalize             */
+/**************************************/
+
+html,
+body {
+    color: $base-text-color;
+    background-color: $base-background-color;
+}
+html {
+    // font-size: 10px;
+    // font-size: 62.5%; // 10 / 16 * 100 = 62.5
+    font-size: $browser-default-font-size;
+    font-size: ($browser-default-font-size / 16) * 100%; // 10 / 16 * 100 = 62.5
+}
+body {
+    font-family: $base-font-stack;
+    @include font-size($base-font-size);
+    line-height: $base-line-height;
+}
+
+// link樣式
+a {
+    color: $base-link-color;
+    background-color : transparent;
+    transition: all .3s;
+    cursor: pointer;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active{
+        text-decoration: none;
+    }
+
+    &:hover{
+        // cursor: pointer;
+        // color: $base-link-hover-color;
+        // text-decoration: $base-link-hover-decoration;
+
+        @each $prop, $value in $base-link-hover-style {
+            // @include emCalc("#{$prop}", $value);
+            @include remCalc("#{$prop}", $value);
+        }
+
+        &.ui_icon,
+        > .ui_icon,
+        &.ui_btn,
+        > .ui_btn {
+            text-decoration: none;
+
+            // &+span {
+            //     color: $base-link-hover-color;
+            //     text-decoration: $base-link-hover-decoration;
+            // }
+        }
+    }
+
+    // max-screen
+    @include max-screen($base-max-screen){
+        transition: none;
+    }
+    // max-screen end
+}
+
+// 輸出h1~h3的字體大小
+@each $header, $size in $base-headings {
+    #{$header} {
+        font-weight: normal;
+        @include font-size($size);
+        color: $base-heading-color;
+        line-height: $base-line-height;
+    }
+}
+
+input, button, textarea, select {
+    font-family: $base-font-stack;
+    @include font-size($base-font-size);
+    line-height: $base-line-height;
+    color: $base-forms-text-color;
+    background: transparent;
+}
+input[type="radio"],
+input[type="checkbox"] {
+    background: initial;
+}
+
+input,
+textarea {
+    @include input-placeholder {
+        color: $base-forms-placeholder-color;
+    }
+}
+
+
+
+
+
+/**************************************/
+/*              Meta Class            */
+/**************************************/
+
+
+

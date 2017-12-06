@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// btn.scss
+
+
+
+/**************************************/
+/*                btn                 */
+/**************************************/
+
+.ui_btn{
+    @include inline-block;
+    // *vertical-align: auto;
+    // *zoom: 1;
+    // *display:inline;
+    // *overflow: visible;
+    text-align: center;
+    color: #ffffff;
+    box-sizing: border-box;
+    cursor: pointer;
+    @include remCalc("padding", 11 32);
+    @include remCalc("border-radius", 100);
+    @include remCalc("border", (1 solid transparent));
+    font-weight: 500;
+    background-color: transparent;
+    transition: all .3s;
+    line-height: 1;
+
+    // max-screen
+    @include max-screen($base-max-screen){
+        transition: none;
+    }
+    // max-screen end
+
+    &:hover,
+    &:active {
+        text-decoration:none;
+        color: #ffffff;
+    }
+
+    &:hover {
+        // @include opacity(90);
+    }
+
+    // btn1
+    &.btn1 {
+        background-color: $base-color;
+        border-color: $base-color;
+
+        &:hover {
+            background-color: rgba($base-color, .9);
+            border-color: rgba($base-color, .9);
+        }
+    }
+    // btn1 end
+
+    // btn2
+    &.btn2 {
+        border-color: #999999;
+        color: $base-text-color;
+        background-color: #ffffff;
+
+        &:hover {}
+    }
+    // btn2 end
+
+    // base btn colors
+    @each $btn, $props in $base-btn-colors {
+        &.btn_#{$btn} {
+            @each $prop, $value in $props {
+                #{$prop}: $value;
+                &:hover {
+                    #{$prop}: rgba($value, .9);
+                }
+            }
+        }
+    }
+    // base btn colors end
+
+    // disabled, btn_cancel
+    &.btn_cancel,
+    &.disabled {
+        background-color: $base-text-color2;
+
+        &:hover,
+        &.hover,
+        &:active,
+        &.active{
+            background-color: $base-text-color2;
+        }
+    }
+    // disabled, btn_cancel end
+}

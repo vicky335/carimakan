@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+/**************************************/
+/*                Reset               */
+/**************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    // outline: 0;
+    outline: none;
+
+    font-size: 100%;
+
+    vertical-align: baseline;
+
+    box-sizing: border-box;
+
+    word-wrap: break-word;
+    word-break: break-word;
+
+    // -webkit-text-size-adjust: none;
+    // text-size-adjust: none;
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+
+    // 屏蔽陰影
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+:focus {
+    outline: 0;
+}
+
+article, aside, details, figcaption, figure, footer,
+header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+html {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: none;
+}
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+    content: "";
+    content: none;
+}
+
+strong, em, i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ins {
+    text-decoration: underline;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+mark {
+    background: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+    -webkit-touch-callout : none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    cursor: pointer;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+html, body {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+
+    // 使用“原生”的滚动方式
+    overflow: auto;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+input[type="text"], textarea {
+    -webkit-user-modify: read-write-plaintext-only;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    // appearance: none;
+}
+input:-ms-clear{
+    display: none !important;
+    display: none;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+// 優化顯示文本
+body, input, textarea, select, button,
+[class^="ui_icon"], [class*=" ui_icon"],
+[class^="ui_btn"], [class*=" ui_btn"] {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
+
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    // appearance: none;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+textarea,
+select,
+[class^="ui_icon"], [class*=" ui_icon"],
+[class^="ui_btn"], [class*=" ui_btn"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    // transition: all .3s;
+}
+
+// max-screen
+@include max-screen($base-max-screen){
+    // 隱藏滾動條
+    ::-webkit-scrollbar{
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}
+// max-screen end

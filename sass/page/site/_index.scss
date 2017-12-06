@@ -1,0 +1,32 @@
+//sass style
+//-----------------------------------
+// _index.scss
+
+
+
+/**************************************/
+/*                Index               */
+/**************************************/
+
+.site {
+    // index
+    &.index {
+        // postlist
+        > .postlist {
+            @include remCalc("padding", 10 0 0 10);
+            background-color: transparent;
+            // content
+            > .content {
+                // list
+                > .list {
+                    display: flex;
+                    @extend %scroll-x-layout;
+                }
+                // list end
+            }
+            // content end
+        }
+        // postlist end
+    }
+    // index end
+}

@@ -1,0 +1,59 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// post
+.post {
+    // detail
+    &.detail {
+        // content
+        > .content {
+            line-height: 1.43;
+
+            blockquote {
+                color: $base-text-color2;
+                @include remCalc("margin", 0 0 32);
+                @include remCalc("padding-left", 16);
+                @include remCalc("border-left", (5 solid $base-border-color));
+
+                * {
+                    color: $base-text-color2;
+                    @include font-size(16);
+                }
+            }
+
+            p {
+                color: $base-text-color;
+                @include remCalc("margin", 0 0 15);
+
+                // max-screen
+                @include max-screen($base-max-screen) {}
+                // max-screen end
+            }
+
+            img {
+                vertical-align: middle;
+                -ms-interpolation-mode: bicubic;
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            iframe,
+            object,
+            embed,
+            video {
+                width: 100%;
+                max-height: 100%;
+            }
+        }
+        // content end
+    }
+    // detail end
+}
+// post end

@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _tools.scss
+
+
+
+
+/**************************************/
+/*                tools               */
+/**************************************/
+
+// tools
+%tools {
+    // btn, ui_btn
+    > .btn,
+    > .ui_btn {
+        @include inline-block;
+        text-align: center;
+        $table-tool-btn-font-size: 14;
+        @include font-size($table-tool-btn-font-size);
+        // @include emCalc("margin", 5 5 5 0, $table-tool-btn-font-size);
+        // @include emCalc("padding", 5 8, $table-tool-btn-font-size);
+        // @include emCalc("min-width", 50, $table-tool-btn-font-size);
+        @include remCalc("margin", 5 5 5 0);
+        @include remCalc("padding", 5 8);
+        @include remCalc("min-width", 50);
+        line-height: 1.14;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        // max-screen
+        @include max-screen($base-max-screen){
+            // @include emCalc("margin", 0 5 0 0, $table-tool-btn-font-size);
+            // @include emCalc("min-width", 50, $table-tool-btn-font-size);
+            @include remCalc("margin", 0 5 0 0);
+            @include remCalc("min-width", 50);
+        }
+        // max-screen end
+
+        // ui_icon
+        > .ui_icon {
+            // @include emCalc("width", 15, $table-tool-btn-font-size);
+            // @include emCalc("height", 15, $table-tool-btn-font-size);
+            @include remCalc("width", 15);
+            @include remCalc("height", 15);
+
+            // max-screen
+            @include max-screen($base-max-screen){
+                // @include emCalc("width", 14, $table-tool-btn-font-size);
+                // @include emCalc("height", 14, $table-tool-btn-font-size);
+                @include remCalc("width", 14);
+                @include remCalc("height", 14);
+            }
+            // max-screen end
+        }
+        // ui_icon
+    }
+    // btn, ui_btn end
+
+    // btn
+    > .btn {
+        padding: 0;
+    }
+    // btn end
+}
+// tools end

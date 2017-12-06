@@ -1,0 +1,43 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// con
+> .con {
+    @include remCalc("margin-top", 10);
+
+    // max-screen
+    @include max-screen($base-max-screen){}
+    // max-screen end
+
+    // content
+    > .content {
+        line-height: 1.43;
+    }
+    // content end
+
+    // imgs
+    > .imgs {
+        @include remCalc("margin-top", 10);
+        display: flex;
+        flex-wrap: wrap;
+        // img
+        > .img {
+            flex: 0 0 floor((100 - ((5 / $base-font-size) * 3)) / 3) * 1%;
+            @include remCalc("margin", 0 5 5 0);
+
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+        // img end
+    }
+    // imgs end
+}
+// con end

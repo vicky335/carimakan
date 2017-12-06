@@ -1,0 +1,40 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// _layout.scss
+@import "content/layout";
+
+// ui_shoplist
+.ui_shoplist {
+    // li
+    > li {
+        > a {
+            // content
+            > .content {
+
+                // _title.scss
+                @import "content/title";
+
+                // _comments.scss
+                @import "content/comments";
+
+                // _info.scss
+                @import "content/info";
+
+                // _region.scss
+                @import "content/region";
+
+            }
+            // content end
+        }
+    }
+    // li end
+}
+// ui_shoplist end

@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _linearGradient.scss
+
+/**************************************/
+
+
+/*          linearGradient            */
+
+
+/**************************************/
+
+// 背景漸變
+@mixin linear-gradient($angle, $color-stops...) {
+    $_angle-with-vendor-prefix: "";
+    $_angle: "";
+    @if $angle=="to top" or $angle=="bottom" {
+        $_angle-with-vendor-prefix: bottom;
+        $_angle: to top;
+    }
+    @else if $angle=="to right" or $angle=="left" {
+        $_angle-with-vendor-prefix: left;
+        $_angle: to right;
+    }
+    @else if $angle=="to bottom" or $angle=="top" {
+        $_angle-with-vendor-prefix: top;
+        $_angle: to bottom;
+    }
+    @else if $angle=="to left" or $angle=="right" {
+        $_angle-with-vendor-prefix: right;
+        $_angle: to left;
+    }
+    @else if $angle=="to top right" or $angle=="bottom left" {
+        $_angle-with-vendor-prefix: bottom left;
+        $_angle: to top right;
+    }
+    @else if $angle=="to bottom right" or $angle=="top left" {
+        $_angle-with-vendor-prefix: top left;
+        $_angle: to bottom right;
+    }
+    @else if $angle=="to bottom left" or $angle=="top right" {
+        $_angle-with-vendor-prefix: top right;
+        $_angle: to bottom left;
+    }
+    @else if $angle=="to top left" or $angle=="bottom right" {
+        $_angle-with-vendor-prefix: bottom right;
+        $_angle: to top left;
+    }
+    @else {
+        $_angle-with-vendor-prefix: $angle % 360;
+        $_angle: (90 - $angle) % 360;
+    }
+    // background-image:: -webkit-linear-gradient($_angle-with-vendor-prefix, $color-stops);
+    // background-image:: -moz-linear-gradient($_angle-with-vendor-prefix, $color-stops);
+    // background-image:: -o-linear-gradient($_angle-with-vendor-prefix, $color-stops);
+    background-image:: linear-gradient($_angle, $color-stops);
+    background-image: -ms-linear-gradient($direction, $from, $to); // W3C
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=0); // IE6-9
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=0);
+}
+
+// @mixin linear-gradient($from, $to, $stop: none, $direction: top) {
+//     // Fallback for sad browsers
+//     background-color: $to;
+//     @if $legacy-support-for-ie {
+//         // IE filter （startColorstr：表示起點顏色；endColorstr：表示終點顏色；GradientType：表示漸變類型[0：垂直漸變，1：水平漸變]）
+//         @if $direction==top {
+//             // IE6,IE7
+//             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=0); // IE8
+//             -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=0);
+//         }
+//         @else {
+//             // IE6,IE7
+//             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=1); // IE8
+//             -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}', GradientType=1);
+//         }
+//     }
+//     @if $stop !=none {
+//         @include background(linear-gradient($direction, $from, $stop, $to)); // Mozilla Firefox
+//         //  background-image:-moz-linear-gradient($from, $to);
+//         // Opera
+//         background-image: -o-linear-gradient($direction, $from, $stop, $to); // WebKit (Safari 4+, Chrome 1+)
+//         //  background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+//         // WebKit (Chrome 11+)
+//         //  background-image: -webkit-linear-gradient($from, $to);
+//         // IE10
+//         background-image: -ms-linear-gradient($direction, $from, $stop, $to); // W3C
+//         //  background-image: linear-gradient($from, $to);
+//     }
+//     @else {
+//         @include background(linear-gradient($direction, $from, $to)); // Mozilla Firefox
+//         //  background-image:-moz-linear-gradient($from, $to);
+//         // Opera
+//         background-image: -o-linear-gradient($direction, $from, $to); // WebKit (Safari 4+, Chrome 1+)
+//         //  background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+//         // WebKit (Chrome 11+)
+//         //  background-image: -webkit-linear-gradient($from, $to);
+//         // IE10
+//         background-image: -ms-linear-gradient($direction, $from, $to); // W3C
+//         //  background-image: linear-gradient($from, $to);
+//     }
+// }

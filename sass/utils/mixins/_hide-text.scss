@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _center.scss
+
+
+
+
+/**************************************/
+/*           block center             */
+/**************************************/
+
+// 隱藏文字
+// example: @include hide-text();
+@mixin hide-text() {
+    position: relative;
+    display: inline-block;
+    text-indent: -99999em;
+}

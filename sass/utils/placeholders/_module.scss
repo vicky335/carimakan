@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _module.scss
+
+
+
+
+/**************************************/
+/*               module               */
+/**************************************/
+
+// _layout.scss
+@import "module/_layout";
+
+// _tools.scss
+@import "module/_tools";
+
+// _text.scss
+@import "module/_text";
+
+// _list.scss
+@import "module/_list";

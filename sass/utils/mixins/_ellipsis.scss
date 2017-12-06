@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _ellipsis.scss
+
+
+/**************************************/
+/*             ellipsis               */
+/**************************************/
+
+// 文本顯示行數
+// ellipsis(2, 14, 1.5, true, true);
+@mixin ellipsis($line: $base-ellipsis-lines, $fontSize: $base-font-size, $lineHeight: $base-line-height, $isShowHeight: $base-ellipsis-set-max-height, $isMobileHeightAuto: $base-ellipsis-set-mobile-height-auto){
+
+    line-height: $lineHeight;
+
+    @include font-size($fontSize);
+
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+
+    $ellipsis-max-height: $lineHeight * $fontSize * $line;
+
+    // max-height: ($ellipsis-max-height) * 1px;
+    // @include emCalc("max-height", $ellipsis-max-height, $fontSize);
+    @include remCalc("max-height", $ellipsis-max-height);
+
+    @if $isShowHeight {
+    	// height: ($ellipsis-max-height) * 1px;
+        // @include emCalc("height", $ellipsis-max-height, $fontSize);
+        @include emCalc("height", $ellipsis-max-height);
+
+        @if $isMobileHeightAuto {
+        	// max-screen
+            @include max-screen($base-max-screen){
+            	height: auto;
+            }
+            // max-screen end
+        }
+    }
+}

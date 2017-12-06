@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _minHeight.scss
+
+
+/**************************************/
+/*             minHeight              */
+/**************************************/
+
+// 最小高度
+@mixin min-height($height, $fontSize: $base-font-size){
+    @if not unitless($height) { // unitless(12)=>true,unitless(12px)=>false
+        $height: strip-units($height); //去掉 $px单位
+    }
+    height: auto !important;
+    min-height: $height * 1px;
+    // @include emCalc("min-height", $height, $fontSize);
+    @include remCalc("min-height", $height);
+    @if $legacy-support-for-ie {
+        _height: $height * 1px;
+        // @include emCalc("_height", $height, $fontSize);
+        @include remCalc("_height", $height);
+    }
+}
