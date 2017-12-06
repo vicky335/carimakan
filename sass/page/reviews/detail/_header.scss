@@ -8,14 +8,15 @@
 /*                header              */
 /**************************************/
 
-// post
-.post {
+// reviews
+.reviews {
     // detail
     &.detail {
         // header
         > .header {
             @include remCalc("margin-bottom", 8);
 
+            // main
             > .main {
                 display: flex;
                 align-items: center;
@@ -51,9 +52,78 @@
                 }
                 // content end
             }
+            // main end
+            // meta
+            > .meta {
+                @include remCalc("margin-top", 10);
+                // quality
+                > .quality {
+                    display: flex;
+                    align-items: center;
+                    @include remCalc("margin-bottom", 5);
+                    text-transform: uppercase;
+                    @include font-size(10);
+                    font-weight: 500;
+                    line-height: 0.96;
+                    color: #4492d8;
+
+                    &:before {
+                        @include remCalc("margin-right", 3);
+                        @include remCalc("width", 12);
+                        @include remCalc("height", 12);
+                        background-image: url($bast-images-path + 'review/bg_qualityreview.png');
+                        background-repeat: no-repeat;
+                        background-position: 0 0;
+                        background-size: 100% 100%;
+                        content: "";
+                    }
+
+                    > .txt {}
+                }
+                // quality end
+
+                // content
+                > .content {
+                    display: flex;
+                    align-items: center;
+
+                    // comments
+                    > .comments {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+
+                        // stars
+                        > .stars {
+                            @extend %review-stars;
+                        }
+                        // stars end
+
+                        // price
+                        > .price {
+                            @include remCalc("margin-left", 10);
+                            font-weight: 500;
+                            line-height: 1.43;
+                            color: $base-heading-color;
+                        }
+                        // price end
+                    }
+                    // comments end
+
+                    // time
+                    > .time {
+                        @include font-size(12);
+                        color: $base-text-color2;
+                        line-height: 1.33;
+                    }
+                    // time end
+                }
+                // content end
+            }
+            // meta end
         }
         // header end
     }
     // detail end
 }
-// post end
+// reviews end
