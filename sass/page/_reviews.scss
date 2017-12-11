@@ -13,8 +13,11 @@
 /*               reviews              */
 /**************************************/
 
+// _layout.scss
+@import "reviews/_layout";
+
 // _all.scss
 @import "reviews/_all";
 
 // _detail.scss
-@import "reviews/_detail";
+// @import "reviews/_detail";

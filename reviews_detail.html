@@ -148,16 +148,17 @@
 
                         <!-- content -->
                         <div class="content">
-                            <!-- grade -->
-                            <div class="grade">
-                                <svg class="ui_icon ui_icon_svg">
-                                    <use xlink:href="#icon_expert"></use>
-                                </svg>
+                            <!-- rank -->
+                            <div class="rank">
+                                <!-- rank class: icon_rank icon_rank_{name} -->
+                                <!-- class name 與 排名 一致 -->
+                                <i class="ui_icon icon_rank icon_rank_expert"></i>
                                 <span>
+                                    <!-- class name 與 排名 一致 -->
                                     expert
                                 </span>
                             </div>
-                            <!--/ end grade -->
+                            <!--/ end rank -->
                             <!-- title -->
                             <h2 class="title">
                                 Jesse McCormick
@@ -244,8 +245,55 @@
                 </div>
                 <!--/ end content -->
                 <!-- footer -->
-                <div class="footer"></div>
+                <div class="footer">
+                    <h3 class="title">
+                        Love this place? Save it to your list!
+                    </h3>
+
+                    <!-- content -->
+                    <div class="content">
+                        <!-- 請按實際需要渲染頁面 -->
+                        <!-- shoplist -->
+                        <div class="include" file="_shoplist.html"></div>
+                        <!--/ end shoplist -->
+                        <!--/ end 請按實際需要渲染頁面 -->
+                        <!-- tools -->
+                        <div class="tools">
+                            <a class="btn btn_save">
+                                <svg class="ui_icon ui_icon_svg save">
+                                    <use xlink:href="#icon_save"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <!--/ end tools -->
+                    </div>
+                    <!--/ end content -->
+
+                </div>
                 <!--/ end footer -->
+
+                <!-- share -->
+                <div class="share">
+                    <ul class="list">
+                        <li class="btn_like">
+                            <svg class="ui_icon ui_icon_svg like">
+                                <use xlink:href="#icon_like"></use>
+                            </svg>
+                            <span>
+                                2 Like
+                            </span>
+                        </li>
+                        <li class="btn_comment">
+                            <svg class="ui_icon ui_icon_svg">
+                                <use xlink:href="#icon_comment"></use>
+                            </svg>
+                            <span>
+                                12 Comments
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <!--/ end share -->
             </article>
             <!--/ end reviews detail -->
         </div>

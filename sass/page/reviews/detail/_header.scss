@@ -36,11 +36,18 @@
                 > .content {
                     flex: 1;
 
-                    // grade
-                    > .grade {
+                    // rank
+                    > .rank {
                         text-transform: capitalize;
+
+                        // icon_rank
+                        > .icon_rank {
+                            @include remCalc("width", 20);
+                            @include remCalc("height", 20);
+                        }
+                        // icon_rank end
                     }
-                    // grade end
+                    // rank end
 
                     // title
                     > .title {

@@ -17,12 +17,12 @@
             background-color: transparent;
             // content
             > .content {
-                // list
-                > .list {
+                // ui_postlist
+                > .ui_postlist {
                     display: flex;
                     @extend %scroll-x-layout;
                 }
-                // list end
+                // ui_postlist end
             }
             // content end
         }
