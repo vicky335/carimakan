@@ -25,8 +25,8 @@
 
         > a {
             display: block;
-            @include remCalc("border-radius", 3.6);
-            @include remCalc("border", (1.2 solid #dddddd));
+            @include remCalc("border-radius", 3);
+            @include remCalc("border", (1 solid #dddddd));
         }
     }
     // li end

@@ -190,7 +190,7 @@
                 > .list {
                     // li
                     > li {
-                        @include remCalc("border-bottom", (1 solid rgba(0, 0, 0, 0.12)));
+                        @include remCalc("border-bottom", (0.5 solid rgba(0, 0, 0, 0.12)));
 
                         &:last-child {
                             border-bottom: none;

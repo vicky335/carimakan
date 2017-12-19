@@ -11,20 +11,3 @@
 /*                post                */
 /**************************************/
 
-// post-detail-block-margin
-%post-detail-block-margin {
-    @include remCalc("margin-top", 24);
-
-    // max-screen
-    @include max-screen($base-max-screen) {
-        @include remCalc("margin-top", 16);
-    }
-    // max-screen end
-}
-// post-detail-block-margin end
-
-// post-detail-block-border-radius
-%post-detail-block-border-radius{
-    @include remCalc("border-radius", 3);
-}
-// post-detail-block-border-radius end

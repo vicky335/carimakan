@@ -45,3 +45,126 @@
     }
 }
 // review-stars end
+
+
+// review-footer
+%review-footer {
+    @include remCalc("margin-top", 10);
+    @include remCalc("border-top", (0.5 solid $base-border-color));
+
+    // list
+    > .list {
+        display: flex;
+        align-items: center;
+
+        // li
+        > li {
+            line-height: 0.86;
+            @include remCalc("padding", 13 0);
+            @include remCalc("margin-right", 15);
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            // more
+            &.more {
+                display: flex;
+                flex: 1;
+                justify-content: flex-end;
+                color: $base-heading-color;
+            }
+            // more end
+        }
+        // li end
+    }
+    // list end
+}
+// review-footer end
+
+
+// post-content
+%post-content {
+    line-height: 1.43;
+    color: $base-text-color;
+
+    blockquote {
+        color: $base-text-color2;
+        @include remCalc("margin", 0 0 20);
+        @include remCalc("padding-left", 16);
+        @include remCalc("border-left", (5 solid $base-border-color));
+
+        * {
+            color: $base-text-color2;
+            @include font-size(16);
+        }
+    }
+
+    a {}
+
+    p {
+        color: $base-text-color;
+        @include remCalc("margin", 0 0 10);
+
+        // max-screen
+        @include max-screen($base-max-screen) {}
+        // max-screen end
+    }
+
+    img {
+        vertical-align: middle;
+        -ms-interpolation-mode: bicubic;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    iframe,
+    object,
+    embed,
+    video {
+        width: 100%;
+        max-height: 100%;
+    }
+}
+// post-content end
+
+
+// post-imgs
+%post-imgs {
+    display: flex;
+    flex-wrap: wrap;
+
+    // img
+    > .img {
+        flex: 0 0 floor((100 - ((5 / $base-font-size) * 3)) / 3) * 1%;
+        @include remCalc("margin", 0 5 5 0);
+
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+    // img end
+
+    &.one {
+        > .img {
+            flex: 0 0 100%;
+            margin-right: 0;
+        }
+    }
+
+    &.two {
+        > .img {
+            flex: 0 0 floor((100 - ((5 / $base-font-size) * 2)) / 2) * 1%;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            &:nth-child(3n) {
+                @include remCalc("margin", 0 5 5 0);
+            }
+        }
+    }
+}
+// post-imgs end
+
+

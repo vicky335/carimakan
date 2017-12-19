@@ -14,7 +14,7 @@
         display: flex;
         @include remCalc("margin", 0 -10);
         @include remCalc("padding", 10 10 20);
-        @include remCalc("border-bottom", (1 solid #dddddd));
+        @include remCalc("border-bottom", (0.5 solid $base-border-color));
 
         &:first-child {
             padding-top: 0;

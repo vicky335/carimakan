@@ -11,26 +11,3 @@
 /*                 my                 */
 /**************************************/
 
-// my-block-margin
-%my-block-margin {
-    @include remCalc("margin-top", 24);
-
-    // max-screen
-    @include max-screen($base-max-screen) {
-        @include remCalc("margin-top", 16);
-    }
-    // max-screen end
-
-    &:first-child {
-        margin-top: 0;
-    }
-}
-// my-block-margin end
-
-// %my-content-announce-tips-layout
-%my-content-announce-tips-layout {
-    @include remCalc("padding", 16);
-    @include remCalc("border", (1 solid transparent));
-    @include remCalc("border-radius", 3);
-}
-// %my-content-announce-tips-layout end

@@ -9,5 +9,141 @@
 /**************************************/
 
 // content
-> .content {}
+> .content {
+    @include remCalc("padding", 0 16);
+
+    // rank
+    > .rank {
+        @include remCalc("margin-top", 5);
+        text-align: center;
+        @include font-size(12);
+        color: $base-color;
+        text-transform: capitalize;
+
+        // icon_rank
+        > .icon_rank {
+            @include remCalc("width", 20);
+            @include remCalc("height", 20);
+        }
+        // icon_rank end
+    }
+    // rank end
+
+    // title
+    > .title {
+        text-align: center;
+        @include font-size(20);
+        font-weight: 500;
+        line-height: 1.4;
+    }
+    // title end
+
+    // con
+    > .con {
+        @include remCalc("margin-top", 20);
+        @include font-size(12);
+        color: $base-text-color2;
+        text-align: center;
+    }
+    // con end
+
+    // meta
+    > .meta {
+        @include remCalc("margin-top", 20);
+        text-align: center;
+
+        // list
+        > .list {
+            > li {
+                @include inline-block;
+                @include remCalc("padding", 0 20);
+                color: rgba(156, 156, 156, 0.87);
+                @include font-size(12);
+                line-height: 1;
+                @include remCalc("border-right", (1 dotted #999999));
+
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                    border: none;
+                }
+
+                // num
+                > .num {
+                    @include inline-block(bottom);
+                    @include remCalc("margin-right", 7);
+                    color: $base-heading-color;
+                    @include font-size(16);
+                }
+                // num end
+            }
+        }
+        // list end
+    }
+    // meta end
+
+    // tools
+    > .tools {
+        @include remCalc("margin-top", 20);
+        text-align: center;
+
+        // ui_btn
+        > .ui_btn {
+            @include remCalc("padding", 10 20);
+            @include remCalc("margin-right", 10);
+            font-weight: 500;
+            line-height: 1;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            // ui_icon
+            > .ui_icon {
+                @include remCalc("width", 16);
+                @include remCalc("height", 16);
+            }
+            // ui_icon end
+
+            // follow
+            &.follow {
+                @include remCalc("padding", 0 20);
+                > .succssful {
+                    display: none;
+                }
+                > .txt {
+                    @include inline-block;
+                    @include remCalc("padding", 11 0);
+                }
+
+                &.succssful {
+                    @include remCalc("padding", 0 10);
+                    > .succssful {
+                        @include inline-block;
+                        @include remCalc("padding", 10 10 10 0);
+                        @include remCalc("margin-right", 10);
+                        @include remCalc("border-right", (1 solid rgba(#ffffff, 0.2)));
+                        // ui_icon
+                        > .ui_icon {
+                            @include remCalc("width", 16);
+                            @include remCalc("height", 16);
+                        }
+                        // ui_icon end
+
+                        > .txt {
+                            @include remCalc("padding", 10 0);
+                        }
+                    }
+                }
+            }
+            // follow end
+        }
+        // ui_btn end
+    }
+    // tools end
+}
 // content end

@@ -11,60 +11,6 @@
 /*               layout               */
 /**************************************/
 
-$header-nav-font-size: 14;
-
-// header-nav-list
-%header-nav-list {
-    // list
-    > .list {
-        display: flex;
-
-        // li
-        > li {
-            // display: flex;
-
-            > a {
-                display: flex;
-                align-items: center;
-                width: 100%;
-                height: 100%;
-                line-height: 1.25;
-                color: #ffffff;
-                // @include emCalc("padding", 16, $header-nav-font-size);
-                @include remCalc("padding", 16);
-                @include font-size($header-nav-font-size);
-
-                &:hover {
-                    text-decoration: none;
-                    background-color: rgba(0,0,0,0.1);
-                }
-
-            }
-
-            // cur
-            &.cur {
-                > a {
-                    background-color: rgba(0,0,0,0.1);
-                }
-            }
-            // cur end
-
-            // no_pc
-            .no_pc {
-                // max-screen
-                @include min-screen($base-max-screen){
-                    display: none;
-                }
-                // max-screen end
-            }
-            // no_pc end
-        }
-        // li end
-    }
-    // list end
-}
-// header-nav-list end
-
 // layout-container
 %layout-container{
     max-width: $base-pages-max-width * 1px;
@@ -73,17 +19,3 @@ $header-nav-font-size: 14;
     box-sizing: border-box;
 }
 // layout-container end
-
-
-// page-styles
-%page-styles {
-    // @include emCalc("padding", 24 0);
-    @include remCalc("padding", 24 0);
-
-    // max-screen
-    @include max-screen($base-max-screen){
-        @include remCalc("padding", 16);
-    }
-    // max-screen end
-}
-// page-styles end

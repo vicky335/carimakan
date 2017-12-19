@@ -82,13 +82,16 @@
     // disabled, btn_cancel
     &.btn_cancel,
     &.disabled {
-        background-color: $base-text-color2;
+        border-color: #cccccc;
+        background-color: #cccccc;
+        color: rgba(255, 255, 255, 0.87);
 
         &:hover,
         &.hover,
         &:active,
         &.active{
-            background-color: $base-text-color2;
+            background-color: #cccccc;
+            color: rgba(255, 255, 255, 0.87);
         }
     }
     // disabled, btn_cancel end

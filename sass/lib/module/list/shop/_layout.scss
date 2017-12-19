@@ -12,7 +12,7 @@
     // li
     > li {
         @include remCalc("margin", 0 -10);
-        @include remCalc("border-top", (1 solid rgba($base-border-color, .5)));
+        @include remCalc("border-top", (0.5 solid $base-border-color));
         // background-color: #ffffff;
 
         &:first-child {

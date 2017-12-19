@@ -38,7 +38,7 @@
             stroke: currentcolor;
             &.cur {
                 fill: $base-color;
-                stroke: none;
+                stroke: $base-color;
             }
         }
     }

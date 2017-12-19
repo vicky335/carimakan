@@ -19,8 +19,8 @@ $ui-filter-list-height: 52;
         > .list {
             position: relative;
             display: flex;
-            @include remCalc("border-top", (1 solid rgba($base-border-color, .5)));
-            @include remCalc("border-bottom", (1 solid rgba($base-border-color, .5)));
+            @include remCalc("border-top", (1 solid $base-border-color));
+            @include remCalc("border-bottom", (1 solid $base-border-color));
             background-color: #ffffff;
             @include remCalc("height", $ui-filter-list-height);
 
