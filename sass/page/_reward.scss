@@ -1,0 +1,213 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// reward.scss
+
+
+
+// _utils.scss
+// @import "utils/_utils";
+
+/**************************************/
+/*                reward              */
+/**************************************/
+
+// reward
+.reward {
+    // rewardlist
+    > .rewardlist {
+        // content
+        > .content {
+            // list
+            > .list {
+                @include remCalc("margin-top", 20);
+
+                > li {
+                    display: flex;
+                    @include remCalc("margin-bottom", 5);
+                    @include remCalc("border-radius", 3);
+                    @include remCalc("border", (1 solid #eeeeee));
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    // left
+                    > .left {
+                        flex: 0 0 35%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        @include remCalc("border-radius", 3 0 0 3);
+                        @include remCalc("padding", 10);
+                        background-color: #f4f4f4;
+
+                        // icon
+                        > .icon {
+                            @include remCalc("padding", 7);
+                            background-color: #ffffff;
+                            border-radius: 50%;
+                        }
+                        // icon end
+
+                        // title
+                        > .title {
+                            @include remCalc("margin-top", 1);
+                            @include font-size(16);
+                            line-height: 1.5;
+                            color: $base-text-color;
+                            text-transform: capitalize;
+                        }
+                        // title end
+                    }
+                    // left end
+
+                    // content
+                    > .content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        @include remCalc("padding", 13 10);
+
+                        // top
+                        > .top {
+                            @include ellipsis(3, 12, 1.33, true);
+                        }
+                        // top end
+
+                        // bottom
+                        > .bottom {
+                            @include remCalc("margin-top", 8);
+                            color: $base-text-color2;
+                            line-height: 1.33;
+                            @include font-size(12);
+
+                            // sub
+                            > .sub {
+                                color: $base-text-color;
+                            }
+                            // sub end
+                        }
+                        // bottom end
+                    }
+                    // content end
+
+                    &.cur {
+                        // left
+                        > .left {
+                            position: relative;
+                            background-image: linear-gradient(to bottom, #fdbc00, $base-color);
+
+                            // icon
+                            > .icon {}
+                            // icon end
+
+                            // title
+                            > .title {
+                                color: #ffffff;
+                            }
+                            // title end
+
+                            &:before {
+                                position: absolute;
+                                @include remCalc("top", 3);
+                                @include remCalc("left", 2);
+                                @include remCalc("width", 24);
+                                @include remCalc("height", 24);
+                                background: url($bast-images-path + '/icon_flag.png') no-repeat 0 0;
+                                background-size: 100% 100%;
+                                content: '';
+                            }
+                        }
+                        // left end
+
+                        // content
+                        > .content {
+
+                            // top
+                            > .top {}
+                            // top end
+
+                            // bottom
+                            > .bottom {
+                                // sub
+                                > .sub {
+                                    font-weight: 500;
+                                }
+                                // sub end
+                            }
+                            // bottom end
+                        }
+                        // content end
+                    }
+                }
+            }
+            // list end
+        }
+        // content end
+    }
+    // rewardlist end
+
+    // pointslist
+    > .pointslist {
+        // content
+        > .content {
+            // list
+            > .list {
+                @include remCalc("margin-top", 20);
+
+                > li {
+                    display: flex;
+                    align-items: center;
+                    @include remCalc("padding", 5 0);
+                    @include remCalc("border-radius", 3);
+                    @include remCalc("border-bottom", (1 solid #cccccc));
+
+                    // title
+                    > .title {
+                        flex: 1;
+                        color: #666666;
+                        @include font-size(12);
+                        line-height: 1.33;
+                    }
+                    // title end
+
+                    // content
+                    > .content {
+                        flex: 0 0 30%;
+                        display: flex;
+                        align-items: center;
+                        @include remCalc("margin-left", 10);
+
+                        // icon
+                        > .icon {
+                            @include remCalc("padding", 4);
+                            background-color: #f4f4f4;
+                            border-radius: 50%;
+                            color: $base-text-color2;
+                        }
+                        // icon end
+
+                        // con
+                        > .con {
+                            flex: 1;
+                            @include remCalc("margin-left", 10);
+                            font-weight: 500;
+                            line-height: 1.33;
+                            @include font-size(12);
+                        }
+                        // con end
+                    }
+                    // content end
+                }
+            }
+            // list end
+        }
+        // content end
+    }
+    // pointslist end
+}
+// reward end

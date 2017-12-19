@@ -1,0 +1,41 @@
+//sass style
+//-----------------------------------
+// _footer.scss
+
+
+
+/**************************************/
+/*                footer              */
+/**************************************/
+
+// footer
+> .footer {
+    @include remCalc("margin-top", 10);
+    line-height: 1.43;
+
+    // num
+    > .num {
+        @include font-size(20);
+        font-weight: 500;
+        line-height: 1.4;
+        color: $base-color;
+    }
+    // num end
+
+    // txt
+    > .txt {
+        @include font-size(20);
+        line-height: 1.4;
+    }
+    // txt end
+
+    // tips
+    > .tips {
+        @include remCalc("margin-top", 20);
+        @include font-size(12);
+        line-height: 1.67;
+        color: #666666;
+    }
+    // tips end
+}
+// footer end

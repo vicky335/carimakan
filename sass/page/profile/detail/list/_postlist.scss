@@ -1,0 +1,165 @@
+//sass style
+//-----------------------------------
+// _postlist.scss
+
+
+
+/**************************************/
+/*              postlist              */
+/**************************************/
+
+// postlist
+&.postlist {
+    // list
+    > .list {
+        > li {
+            @include remCalc("margin-bottom", 10);
+            @include remCalc("border-top", (0.5 solid #eeeeee));
+            @include remCalc("border-bottom", (0.5 solid #eeeeee));
+            background-color: #ffffff;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            // header
+            > .header {
+                display: flex;
+                align-items: center;
+                @include remCalc("padding", 15 10 0);
+
+                // user_img
+                > .user_img {
+                    @include remCalc("margin-right", 10);
+                    @include remCalc("width", 40);
+                    @include remCalc("height", 40);
+                }
+                // user_img end
+
+                // title
+                > .title {
+                    flex: 1;
+                    font-weight: 500;
+                    line-height: 1.71;
+                }
+                // title end
+
+                // time
+                > .time {
+                    @include remCalc("margin-left", 10);
+                    @include font-size(12);
+                    color: $base-text-color2;
+                }
+                // time end
+            }
+            // header end
+
+            // content
+            > .content {
+                @include remCalc("margin-top", 10);
+                @include remCalc("padding", 0 10);
+
+                @extend %post-content;
+
+                // reviews
+                > .reviews {
+                    display: flex;
+                    align-items: center;
+                    @include remCalc("margin", 0 0 10);
+
+                    // stars
+                    > .stars {
+                        @extend %review-stars;
+                    }
+                    // stars end
+
+                    // price
+                    > .price {
+                        @include remCalc("margin-left", 10);
+                        flex: 1;
+                    }
+                    // price end
+                }
+                // reviews end
+
+                // imgs
+                > .imgs {
+                    @include remCalc("margin", 0 0 10);
+                    @extend %post-imgs;
+                }
+                // imgs end
+
+                // checkin
+                > .checkin {
+                    // ui_shoplist
+                    > .ui_shoplist {
+                        > li {
+                            padding: 0;
+                            @include remCalc("margin", 0 0 15);
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+
+                            > a {
+                                flex-wrap: wrap;
+                                padding: 0;
+                                @include remCalc("border-radius", 3);
+                                @include remCalc("border", (1 solid #dddddd));
+                                @include remCalc("box-shadow", (0 2 2 0 #f4f4f4));
+
+                                // img
+                                > .img {
+                                    width: 100%;
+                                    margin-right: 0;
+                                    @include remCalc("border-radius", 3 3 0 0);
+                                }
+                                // img end
+
+                                // content
+                                > .content {
+                                    flex: 0 0 100%;
+                                    @include remCalc("padding", 10);
+
+                                    // title
+                                    > .title {
+                                        @include ellipsis(1, 14, 1.43);
+                                    }
+                                    // title end
+
+                                    // comments
+                                    > .comments {}
+                                    // comments end
+
+                                    // info
+                                    > .info {
+                                        display: none;
+                                    }
+                                    // info end
+                                    // region
+                                    > .region {
+                                        display: none;
+                                    }
+                                    // region end
+                                }
+                                // content end
+                            }
+                        }
+                    }
+                    // ui_shoplist end
+                }
+                // checkin end
+            }
+            // content end
+
+            // footer
+            > .footer {
+                @extend %review-footer;
+                @include remCalc("padding", 0 10);
+            }
+            // footer end
+        }
+    }
+    // list end
+}
+// postlist end

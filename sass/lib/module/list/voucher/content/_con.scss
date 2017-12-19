@@ -1,0 +1,17 @@
+//sass style
+//-----------------------------------
+// _con.scss
+
+
+
+/**************************************/
+/*                  con               */
+/**************************************/
+
+// con
+> .con {
+    // @include remCalc("margin-top", 5);
+    @include ellipsis(2, 12, 1.33, true);
+    color: $base-text-color2;
+}
+// con end

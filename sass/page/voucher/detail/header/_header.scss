@@ -1,0 +1,17 @@
+//sass style
+//-----------------------------------
+// _header.scss
+
+
+
+/**************************************/
+/*                header              */
+/**************************************/
+
+// header
+> .header {
+    @include font-size(16);
+    font-weight: 500;
+    line-height: 1.5;
+}
+// header end

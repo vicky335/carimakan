@@ -1,0 +1,42 @@
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+// ui_voucherlist
+.ui_voucherlist {
+    // li
+    > li {
+        @include remCalc("margin", 0 -10);
+        @include remCalc("border-top", (0.5 solid rgba(0, 0, 0, .24)));
+        // background-color: #ffffff;
+
+        &:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        // max-screen
+        @include max-screen($base-max-screen){}
+        // max-screen end
+
+        > a {
+            display: flex;
+            align-items: flex-start;
+            @include remCalc("padding", 15 10);
+        }
+
+
+        &:first-child {
+            > a {
+                padding-top: 0;
+            }
+        }
+    }
+    // li end
+}
+// ui_voucherlist end
