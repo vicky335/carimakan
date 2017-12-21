@@ -44,7 +44,6 @@
             // search
             > .search {
                 flex: 1;
-                @include remCalc("margin-right", 36);
                 // ui_text
                 .ui_text {
                     > .input {
@@ -70,6 +69,7 @@
             > .nav {
                 // flex: 1;
                 @extend %scroll-x-layout;
+                @include remCalc("margin-left", 36);
                 > .list {
                     display: flex;
                     align-items: center;

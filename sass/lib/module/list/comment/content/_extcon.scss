@@ -13,12 +13,6 @@
     display: flex;
     align-items: center;
 
-    // stars
-    > .stars {
-        @extend %review-stars;
-    }
-    // stars end
-
     // price
     > .price {
         @include remCalc("margin-left", 10);

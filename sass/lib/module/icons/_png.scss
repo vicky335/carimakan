@@ -1,1 +1,35 @@
 @charset "utf-8";
+
+//sass style
+//-----------------------------------
+// png.scss
+
+
+
+/**************************************/
+/*                png                 */
+/**************************************/
+
+// icon_stars
+&.icon_stars {
+    @extend %review-stars;
+}
+// icon_stars end
+
+// icon_rank
+&.icon_rank {
+    background-position: center center;
+    background-size: 100% 100%;
+    @include remCalc("width", 40);
+    @include remCalc("height", 40);
+
+    $rankNames: newbie, apprentice, reviewer, spotter, explorer, superstar, expert, master, gourmet;
+
+    @each $name in $rankNames {
+        &_#{$name} {
+            background-image: url($bast-images-path + '/rank/#{$name}.png');
+        }
+    }
+}
+// icon_rank end
+

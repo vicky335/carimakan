@@ -82,6 +82,54 @@
                 @include ellipsis(1, 20, 1.4);
             }
             // title end
+
+            // search
+            > .search {
+                @include remCalc("padding", 0 70);
+
+                // ui_text
+                .ui_text {
+                    > .input {
+                        border-color: transparent;
+                        @include remCalc("border-radius", 100);
+                        @include remCalc("padding", 6 6 6 28);
+                        @include font-size(14);
+                        height: auto;
+                        line-height: 1.43;
+                        color: $base-heading-color;
+                    }
+                    > .ui_icon {
+                        @include remCalc("left", 8);
+                        @include remCalc("width", 16);
+                        @include remCalc("height", 16);
+                        color: $base-color;
+                    }
+                }
+                // ui_text end
+            }
+            // search end
+
+            // nav_search
+            &.nav_search {
+                background-color: $base-color;
+
+                // tools
+                > .tools {
+                    > li {
+                        > a {
+                            color: #ffffff;
+                        }
+                    }
+                }
+                // tools end
+
+                // search
+                > .search {
+                    @include remCalc("padding", 0 0 0 34);
+                }
+                // search end
+            }
+            // nav_search end
         }
         // nav end
     }

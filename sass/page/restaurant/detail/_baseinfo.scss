@@ -61,12 +61,6 @@
 
                             // comments
                             &.comments {
-                                // stars
-                                > .stars {
-                                    @extend %review-stars;
-                                }
-                                // stars end
-
                                 // review
                                 > .review {
                                     @include font-size(12);
