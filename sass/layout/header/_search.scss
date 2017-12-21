@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _search.scss
+
+
+/**************************************/
+/*               search               */
+/**************************************/
+
+// search
+> .wrap_header {
+
+    // container
+    > .container {
+
+        // search
+        > .search {
+            // position: relative;
+            // @include remCalc("padding", 16 10);
+            // @include remCalc("box-shadow", (0 0.5 0 0 rgba(0, 0, 0, 0.24)));
+            // // background-color: #ffffff;
+            // @include min-height(59);
+
+            // // tools
+            // > .tools {
+            //     position: absolute;
+            //     // top: 0;
+            //     display: flex;
+            //     align-items: center;
+            //     @include position-center(top);
+            //     // flex: 1;
+
+            //     // :not(:first-child):not(:last-child)
+            //     &:not(:first-child):not(:last-child) {
+            //         // justify-content: center;
+            //     }
+            //     // :not(:first-child):not(:last-child) end
+
+            //     // first-child
+            //     &:first-child {
+            //         @include remCalc("left", 10);
+            //     }
+            //     // first-child end
+
+            //     // last-child
+            //     &:last-child {
+            //         @include remCalc("right", 10);
+            //     }
+            //     // last-child end
+
+            //     > li {
+            //         @include remCalc("margin-left", 18);
+            //         &:first-child {
+            //             margin-left: 0;
+            //         }
+
+            //         > a {
+            //             color: #ffffff;
+
+            //             // ui_icon
+            //             > .ui_icon {
+            //                 @include remCalc("width", 24);
+            //                 @include remCalc("height", 24);
+            //             }
+            //             // first-child end
+            //         }
+            //     }
+            // }
+            // // tools end
+
+
+        }
+        // search end
+    }
+    // container end
+
+}
+// search end
