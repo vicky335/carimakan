@@ -69,52 +69,55 @@
 </script>
 <!-- /end tpl_selectcity -->
 
-<!-- tpl_preview_picture -->
-<script id="tpl_preview_picture" type="text/x-jsrender">
-    <div class="preview_picture">
-        <!-- img -->
-        <div class="img">
-            <img src="https://qcloud.dpfile.com/pc/v6TCFD-2Tf-DXYHSDV-zUJBcGgQ11JtQWm1moPYZ8ECPcd7Ne6CwT1EpdSf39GdfTYGVDmosZWTLal1WbWRW3A.jpg" />
-        </div>
-        <!--/ end img -->
-        <!-- content -->
-        <div class="content">
-            <!-- title -->
-            <h3 class="title">
-                Cream Cheese Strawberry Waffles
-            </h3>
-            <!--/ end title -->
-            <!-- meta -->
-            <div class="meta">
-                <ul class="list">
-                    <li class="name"></li>
-                    <li class="time"></li>
-                    <li class="tools">
-                        <a href="">
-                            <svg class="ui_icon ui_icon_svg">
-                                <use xlink:href="#icon_like"></use>
-                            </svg>
-                        </a>
-                        <a href="">
-                            <svg class="ui_icon ui_icon_svg">
-                                <use xlink:href="#icon_download"></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!--/ end meta -->
-        </div>
-        <!-- content -->
-
-        <a class="btn_close dialog_close">
-            <svg class="ui_icon ui_icon_svg">
-                <use xlink:href="#icon_close"></use>
-            </svg>
-        </a>
+<!-- tpl_viewpic -->
+<script id="tpl_viewpic" type="text/x-jsrender">
+    <!-- img -->
+    <div class="img">
+        <img src="{{:src}}" />
     </div>
+    <!--/ end img -->
+
+    <!-- content -->
+    <div class="content">
+        <!-- title -->
+        <h3 class="title">
+            {{:title}}
+        </h3>
+        <!--/ end title -->
+        <!-- meta -->
+        <div class="meta">
+            <ul class="list">
+                <li class="name">
+                    {{:name}}
+                </li>
+                <li class="time">
+                    {{:time}}
+                </li>
+                <li class="tools">
+                    <a class="btn_like">
+                        <svg class="ui_icon ui_icon_svg like">
+                            <use xlink:href="#icon_like"></use>
+                        </svg>
+                    </a>
+                    <a href="{{:src}}" download target="_blank">
+                        <svg class="ui_icon ui_icon_svg">
+                            <use xlink:href="#icon_download"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--/ end meta -->
+    </div>
+    <!-- content -->
+
+    <a class="btn_close dialog_close">
+        <svg class="ui_icon ui_icon_svg">
+            <use xlink:href="#icon_close"></use>
+        </svg>
+    </a>
 </script>
-<!-- /end tpl_preview_picture -->
+<!-- /end tpl_viewpic -->
 
 <!-- tpl_getAppsDialog -->
 <script id="tpl_getAppsDialog" type="text/x-jsrender">
@@ -144,5 +147,40 @@
     </div>
 </script>
 <!-- /end tpl_getAppsDialog -->
+
+<!-- tpl_share -->
+<script id="tpl_share" type="text/x-jsrender">
+    <!-- title -->
+    <h2 class="title">
+        Share to
+    </h2>
+    <!--/ end title -->
+
+    <!-- content -->
+    <div class="content">
+        <a class="ui_btn btn1 btn_share">
+            <svg class="ui_icon ui_icon_svg">
+                <use xlink:href="#icon_facebook"></use>
+            </svg>
+        </a>
+        <a class="ui_btn btn1 btn_share">
+            <svg class="ui_icon ui_icon_svg">
+                <use xlink:href="#icon_instagram"></use>
+            </svg>
+        </a>
+        <a class="ui_btn btn1 btn_share">
+            <svg class="ui_icon ui_icon_svg">
+                <use xlink:href="#icon_whatsapp"></use>
+            </svg>
+        </a>
+        <a class="ui_btn btn1 btn_share">
+            <svg class="ui_icon ui_icon_svg">
+                <use xlink:href="#icon_line"></use>
+            </svg>
+        </a>
+    </div>
+    <!-- content -->
+</script>
+<!-- /end tpl_share -->
 
 <!--/ end tpl -->

@@ -18,6 +18,9 @@ var Com = {
 
 		// getAppsDialog
 		this.getAppsDialog();
+
+		// bindViewPic
+		this.bindViewPic();
 	},
 
 	/**
@@ -289,20 +292,32 @@ var Com = {
 		$('#wrap').on('click', '.btn_getAppsDialog', function() {
 			var $this = $(this);
 
-
-			var getAppsDialogHtml = $.templates("#tpl_getAppsDialog");
-
 			OMIS.dialog({
 				id: 'win_getAppsDialog',
-				html: $.templates("#tpl_getAppsDialog").render(),
-				mask: true,
-				// ev: opt.ev,
-				// offset: opt.offset,
-				// timeOut: opt.expiry,
-				// onShow: opt.onShow, //弹层显示后回调
-				// onBeforeShow: opt.onBeforeShow, //弹层显示前回调
-				// onHide: opt.onHide, //弹层关闭后回调
-				// onBeforeHide: opt.onBeforeHide, //弹层关闭前回调
+				html: $.templates("#tpl_getAppsDialog").render()
+			});
+
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 圖片預覽彈層
+	 */
+	bindViewPic: function(args) {
+		var self = this;
+		$('#wrap').on('click', '.btn_viewpic', function() {
+			var $this = $(this);
+
+			OMIS.dialog({
+				id: 'win_viewPic',
+				html: $.templates("#tpl_viewpic").render({
+					src: $this.attr('data-src'),
+					title: $this.attr('data-title'),
+					name: $this.attr('data-name'),
+					time: $this.attr('data-time')
+				})
 			});
 
 		});
