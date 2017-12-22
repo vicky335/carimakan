@@ -231,6 +231,27 @@ var Com = {
 				dataType: "html"
 			}
 		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 加載google map api
+	 */
+	loadGoogleMapsApi: function(args) {
+		var script = document.createElement('script'),
+			callback = args.callback,
+			region = args.region || 'TW',
+			language = args.language || 'zh-TW',
+			googleApi = 'https://maps.googleapis.com/maps/api/js',
+			key = 'AIzaSyALV-sVn_vRMQdB8_gMY9iDj-NvbxWLnAg';
+
+		script.id = 'googleMapsApi';
+		script.async = 'async';
+		script.defer = 'defer';
+		script.type = 'text/javascript';
+		script.src = googleApi + '?key=' + key + '&region=' + region + '&language=' + language + '&callback=' + callback;
+		document.body.appendChild(script);
 	}
 
 };
