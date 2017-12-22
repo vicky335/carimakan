@@ -217,18 +217,30 @@
                                 // position end
                             }
                             // txt end
-                            // img
-                            > .img {
-                                @include remCalc("margin-left", 10);
-                                @include remCalc("width", 90);
-                            }
-                            // img end
                         }
 
                         // region
                         &.region {
                             > a {
                                 align-items: flex-start;
+
+                                // map
+                                > .map {
+                                    position: relative;
+                                    @include remCalc("margin-left", 10);
+                                    @include remCalc("width", 90);
+                                    @include remCalc("height", 60);
+
+                                    // googlemaps
+                                    > .googlemaps {
+                                        position: relative;
+                                        width: 100%;
+                                        height: 100%;
+                                        overflow: hidden;
+                                    }
+                                    // googlemaps end
+                                }
+                                // map end
                             }
                         }
                         // region end

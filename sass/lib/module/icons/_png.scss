@@ -12,7 +12,28 @@
 
 // icon_stars
 &.icon_stars {
-    @extend %review-stars;
+    // @extend %review-stars;
+    position: relative;
+    @include remCalc("width", 12 * 5);
+    @include remCalc("height", 12);
+    // width: 72px;
+    // height: 12px;
+    background-image: url($bast-images-path + 'review/bg_review_star.png');
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-size: contain;
+
+    > .star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include remCalc("height", 12);
+        height: 12px;
+        background-image: url($bast-images-path + 'review/bg_review_star_full.png');
+        background-repeat: repeat-x;
+        background-position: 0 0;
+        background-size: contain;
+    }
 }
 // icon_stars end
 

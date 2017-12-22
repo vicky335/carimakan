@@ -29,6 +29,7 @@
     }
 
     > p {
+        @include font-size(14);
         line-height: 1.43;
         color: $base-text-color2;
     }

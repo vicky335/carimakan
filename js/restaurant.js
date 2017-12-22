@@ -5,7 +5,7 @@ var Restaurant = {
     init: function(args) {
         // loadGoogleMapsApi
         Com.loadGoogleMapsApi({
-            callback: 'Maps.loadGoogleMapsApiCallback'
+            callback: 'Restaurant.loadGoogleMapsApiCallback'
         });
     },
 
