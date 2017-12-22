@@ -12,6 +12,12 @@ var Com = {
 
 		// 頭部
 		// this.fnHeader();
+
+		// downloadApp
+		this.downloadApp();
+
+		// getAppsDialog
+		this.getAppsDialog();
 	},
 
 	/**
@@ -252,6 +258,54 @@ var Com = {
 		script.type = 'text/javascript';
 		script.src = googleApi + '?key=' + key + '&region=' + region + '&language=' + language + '&callback=' + callback;
 		document.body.appendChild(script);
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 下載app
+	 */
+	downloadApp: function(args) {
+		var self = this;
+		$('#wrap').on('click', '.btn_downloadapp', function() {
+			var url = '';
+			if (OMIS.os.ios) {
+				url = '下載 ios app';
+			} else {
+				url = '下載 android app';
+			}
+			alert(url);
+			// self.popupCenter(url, 685, 500);
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 下載app彈層
+	 */
+	getAppsDialog: function(args) {
+		var self = this;
+		$('#wrap').on('click', '.btn_getAppsDialog', function() {
+			var $this = $(this);
+
+
+			var getAppsDialogHtml = $.templates("#tpl_getAppsDialog");
+
+			OMIS.dialog({
+				id: 'win_getAppsDialog',
+				html: $.templates("#tpl_getAppsDialog").render(),
+				mask: true,
+				// ev: opt.ev,
+				// offset: opt.offset,
+				// timeOut: opt.expiry,
+				// onShow: opt.onShow, //弹层显示后回调
+				// onBeforeShow: opt.onBeforeShow, //弹层显示前回调
+				// onHide: opt.onHide, //弹层关闭后回调
+				// onBeforeHide: opt.onBeforeHide, //弹层关闭前回调
+			});
+
+		});
 	}
 
 };

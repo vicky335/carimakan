@@ -11,16 +11,17 @@
 // con
 > .con {
     @include remCalc("margin-top", 10);
+    line-height: 1.43;
 
     // max-screen
     @include max-screen($base-max-screen){}
     // max-screen end
 
-    // content
-    > .content {
-        line-height: 1.43;
+    // p
+    > p {
+        @include remCalc("margin-bottom", 5);
     }
-    // content end
+    // p end
 
     // imgs
     > .imgs {

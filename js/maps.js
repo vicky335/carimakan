@@ -54,7 +54,9 @@ var Maps = {
             marker = new google.maps.Marker({ // 此程式碼以在地圖上放置標記。 position 屬性可設定標記的位置
                 position: latlng,
                 map: mapObj,
-                title: 'Restaurant position'
+                title: 'Restaurant position',
+                icon: '../images/maps/icon_target.png' //,
+                    // '../images/maps/icon_nearby.png'
             });
 
         marker.addListener('click', function() {
