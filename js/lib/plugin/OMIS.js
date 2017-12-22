@@ -262,11 +262,14 @@ dialog.prototype = {
 		target.css(style);
 	},
 	showMask: function(container, opts) {
-		var mask = "<div id=\"" + opts.id + "_mask\" class=\"dialog_mask ui_mask hidden\"></div>";
+		var that = this,
+			mask = "<div id=\"" + opts.id + "_mask\" class=\"dialog_mask ui_mask hidden\"></div>";
 		container.append(mask);
 		$("#" + opts.id + "_mask").css({
 			"z-index": OMIS.dialog.maxZ++
-		}).removeClass("hidden");
+		}).removeClass("hidden").on('click', function(e) {
+			that.hide();
+		});
 	},
 	hideMask: function(container, opts) {
 		$("#" + opts.id + "_mask").remove();

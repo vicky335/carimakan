@@ -221,21 +221,21 @@ dialog.prototype = {
 			container = $(opts.container),
 			eventType = "click";
 		if (opts.type == "alert") {
-			that.target.find(".dialog_cancel").bind(eventType, function(e) {
+			that.target.find(".dialog_cancel").on(eventType, function(e) {
 				that.hide();
 			});
 		}
 		if (opts.type == "confirm") {
-			that.target.find(".dialog_done").bind(eventType, function(e) {
+			that.target.find(".dialog_done").on(eventType, function(e) {
 				that.hide();
 				opts.doneCallback.call(that, opts);
 			});
-			that.target.find(".dialog_cancel").bind(eventType, function(e) {
+			that.target.find(".dialog_cancel").on(eventType, function(e) {
 				that.hide();
 				opts.cancelCallback.call(that, opts);
 			});
 		}
-		that.target.find(".dialog_close").bind(eventType, function(e) {
+		that.target.find(".dialog_close").on(eventType, function(e) {
 			that.hide();
 		});
 		if (opts.timeOut) {
@@ -262,7 +262,8 @@ dialog.prototype = {
 		target.css(style);
 	},
 	showMask: function(container, opts) {
-		var mask = "<div id=\"" + opts.id + "_mask\" class=\"dialog_mask ui_mask hidden\"></div>";
+		var that = this,
+			mask = "<div id=\"" + opts.id + "_mask\" class=\"dialog_mask ui_mask hidden\"></div>";
 		container.append(mask);
 		$("#" + opts.id + "_mask").css({
 			"z-index": OMIS.dialog.maxZ++
@@ -401,7 +402,7 @@ String.prototype.sub = function(n) {
 };
 
 
-
+// 顏色
 String.prototype.colorHex = function() {
 	var that = this;
 	if (/^(rgb|RGB)/.test(that)) {
@@ -437,14 +438,15 @@ String.prototype.colorHex = function() {
 
 // 監聽事件
 OMIS.addEvent = function(el, type, callback, useCapture) {
-		if (el.dispatchEvent) { // w3c方式优先
-			el.addEventListener(type, callback, !!useCapture);
-		} else {
-			el.attachEvent("on" + type, callback);
-		}
-		return callback; // 返回callback方便卸载时用
+	if (el.dispatchEvent) { // w3c方式优先
+		el.addEventListener(type, callback, !!useCapture);
+	} else {
+		el.attachEvent("on" + type, callback);
 	}
-	// 監聽鼠標事件
+	return callback; // 返回callback方便卸载时用
+};
+
+// 監聽鼠標事件
 OMIS.addEventWheel = function(obj, callback) {
 	var wheelType = "mousewheel";
 	try {
@@ -466,4 +468,4 @@ OMIS.addEventWheel = function(obj, callback) {
 		}
 		callback.call(obj, event); //修正IE的this指向
 	});
-}
+};
