@@ -5,11 +5,18 @@ var Maps = {
     init: function(args) {
         // showRecommend
         this.showRecommend();
+
         // loadGoogleMapsApi
         Com.loadGoogleMapsApi({
             callback: 'Maps.loadGoogleMapsApiCallback'
         });
     },
+
+    /**
+     *@author VickyHuang
+     *@param {Object} options include:
+     * @description 顯示更多推薦資訊
+     */
     showRecommend: function() {
         $('.wrap').on('click', '.btn_showrecommend', function() {
             var $this = $(this);
@@ -20,15 +27,17 @@ var Maps = {
             }
         });
     },
+
+    /**
+     *@author VickyHuang
+     *@param {Object} options include:
+     * @description 加載地圖後回調
+     */
     loadGoogleMapsApiCallback: function() {
-        var uluru = {
-                lat: -6.224305,
-                lng: 106.938922
-            },
-            mapsInfoHTML = $.templates("#tpl_maps_info").render();
-        var mapObj = new google.maps.Map(document.getElementById(mapObjID), {
+        var mapsInfoHTML = $.templates("#tpl_maps_info").render(),
+            mapObj = new google.maps.Map(document.getElementById(mapObjID), {
                 zoom: 18,
-                center: uluru,
+                center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 disableDefaultUI: true,
                 zoomControl: false,
@@ -43,14 +52,15 @@ var Maps = {
                 maxWidth: 300
             }),
             marker = new google.maps.Marker({ // 此程式碼以在地圖上放置標記。 position 屬性可設定標記的位置
-                position: uluru,
-                map: mapObj
+                position: latlng,
+                map: mapObj,
+                title: 'Restaurant position'
             });
 
         marker.addListener('click', function() {
             mapObj.setCenter(marker.getPosition());
             infowindow.open(mapObj, marker);
-            console.log('click', this, mapObj, marker);
+            OMIS.debug('click', this, mapObj, marker);
         });
     }
 };
