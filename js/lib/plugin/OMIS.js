@@ -198,16 +198,20 @@ dialog.prototype = {
 			container = $(opts.container);
 		opts.onBeforeHide && opts.onBeforeHide.call(that, opts);
 		//hide dialog
-		that.target.addClass("hidden").removeAttr("id");
-		that.isShow = false;
-		OMIS.dialog.remove(OMIS.dialog.queue, opts.id);
-		// hide mask or not
-		opts.mask && that.hideMask(container, opts);
+		// that.target.addClass("hidden").removeAttr("id");
+		that.target.addClass("hidden");
 		setTimeout(function() {
-			that.remove(that.target);
+			that.target.removeAttr("id");
+			that.isShow = false;
+			OMIS.dialog.remove(OMIS.dialog.queue, opts.id);
+			// hide mask or not
+			opts.mask && that.hideMask(container, opts);
+			setTimeout(function() {
+				that.remove(that.target);
+			}, 350);
+			opts.onHide && opts.onHide.call(that, opts);
+			//OMIS.debug("dialog queue",OMIS.dialog.queue);
 		}, 350);
-		opts.onHide && opts.onHide.call(that, opts);
-		//OMIS.debug("dialog queue",OMIS.dialog.queue);
 	},
 	remove: function() {
 		var that = this;
@@ -362,6 +366,9 @@ OMIS.os = {};
 	OMIS.os.blackberry = userAgent.match(/BlackBerry/) || userAgent.match(/PlayBook/) ? true : false;
 	OMIS.os.fennec = userAgent.match(/fennec/i) ? true : false;
 	OMIS.os.desktop = !(OMIS.os.ios || OMIS.os.android || OMIS.os.blackberry || OMIS.os.opera || OMIS.os.fennec);
+	OMIS.os.facebookInAppBrowser = (userAgent.indexOf("FBAN") > -1) || (userAgent.indexOf("FBAV") > -1);
+	OMIS.os.lineInAppBrowser = (userAgent.indexOf("Line") > -1);
+	OMIS.os.inAppBrowser = OMIS.os.facebookInAppBrowser || OMIS.os.lineInAppBrowser;
 
 })();
 

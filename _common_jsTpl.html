@@ -38,6 +38,7 @@
 </script>
 <!-- /end tpl_ui_popup_window -->
 
+
 <!-- tpl_selectcity -->
 <script id="tpl_selectcity" type="text/x-jsrender">
     <div class="selectcity">
@@ -69,8 +70,9 @@
 </script>
 <!-- /end tpl_selectcity -->
 
-<!-- tpl_viewpic -->
-<script id="tpl_viewpic" type="text/x-jsrender">
+
+<!-- tpl_photosbox -->
+<script id="tpl_photosbox" type="text/x-jsrender">
     <!-- img -->
     <div class="img">
         <img src="{{:src}}" />
@@ -117,7 +119,8 @@
         </svg>
     </a>
 </script>
-<!-- /end tpl_viewpic -->
+<!-- /end tpl_photosbox -->
+
 
 <!-- tpl_getAppsDialog -->
 <script id="tpl_getAppsDialog" type="text/x-jsrender">
@@ -148,39 +151,44 @@
 </script>
 <!-- /end tpl_getAppsDialog -->
 
-<!-- tpl_share -->
-<script id="tpl_share" type="text/x-jsrender">
-    <!-- title -->
-    <h2 class="title">
-        Share to
-    </h2>
-    <!--/ end title -->
 
-    <!-- content -->
-    <div class="content">
-        <a class="ui_btn btn1 btn_share">
-            <svg class="ui_icon ui_icon_svg">
-                <use xlink:href="#icon_facebook"></use>
-            </svg>
-        </a>
-        <a class="ui_btn btn1 btn_share">
-            <svg class="ui_icon ui_icon_svg">
-                <use xlink:href="#icon_instagram"></use>
-            </svg>
-        </a>
-        <a class="ui_btn btn1 btn_share">
-            <svg class="ui_icon ui_icon_svg">
-                <use xlink:href="#icon_whatsapp"></use>
-            </svg>
-        </a>
-        <a class="ui_btn btn1 btn_share">
-            <svg class="ui_icon ui_icon_svg">
-                <use xlink:href="#icon_line"></use>
-            </svg>
-        </a>
+<!-- tpl_shareBox -->
+<script id="tpl_shareBox" type="text/x-jsrender">
+    <!-- sharebox -->
+    <div class="sharebox">
+        <!-- title -->
+        <h2 class="title">
+            Share to
+        </h2>
+        <!--/ end title -->
+
+        <!-- content -->
+        <div class="content">
+            <a class="ui_btn btn1 btn_share" data-share="facebook" data-url='{{:url}}' data-title="{{:title}}">
+                <svg class="ui_icon ui_icon_svg">
+                    <use xlink:href="#icon_facebook"></use>
+                </svg>
+            </a>
+            <a class="ui_btn btn1 btn_share" data-share="instagram" data-url='{{:url}}' data-title="{{:title}}">
+                <svg class="ui_icon ui_icon_svg">
+                    <use xlink:href="#icon_instagram"></use>
+                </svg>
+            </a>
+            <a class="ui_btn btn1 btn_share" data-share="whatsapp" data-url='{{:url}}' data-title="{{:title}}">
+                <svg class="ui_icon ui_icon_svg">
+                    <use xlink:href="#icon_whatsapp"></use>
+                </svg>
+            </a>
+            <a class="ui_btn btn1 btn_share" data-share="line" data-url='{{:url}}' data-title="{{:title}}">
+                <svg class="ui_icon ui_icon_svg">
+                    <use xlink:href="#icon_line"></use>
+                </svg>
+            </a>
+        </div>
+        <!-- content -->
     </div>
-    <!-- content -->
+    <!--/ end sharebox -->
 </script>
-<!-- /end tpl_share -->
+<!-- /end tpl_shareBox -->
 
 <!--/ end tpl -->

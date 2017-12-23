@@ -8,7 +8,8 @@ var Com = {
 		this.loadSvg();
 
 		// share btn
-		// this.bindShare();
+		this.showShare();
+		this.bindShare();
 
 		// 頭部
 		// this.fnHeader();
@@ -19,8 +20,8 @@ var Com = {
 		// getAppsDialog
 		this.getAppsDialog();
 
-		// bindViewPic
-		this.bindViewPic();
+		// showPhotos
+		this.showPhotos();
 	},
 
 	/**
@@ -163,6 +164,20 @@ var Com = {
 	 *@param {Object} options include:
 	 *@description share
 	 */
+	showShare: function() {
+		var self = this;
+		$('#wrap').on('click', '.btn_sharebox', function() {
+			var $this = $(this);
+
+			OMIS.dialog({
+				id: 'win_shareBox',
+				html: $.templates("#tpl_shareBox").render({
+					url: $this.attr('data-url'),
+					title: $this.attr('data-title')
+				})
+			});
+		});
+	},
 	bindShare: function() {
 		var self = this;
 		$("#wrap").on("click", ".btn_share", function() {
@@ -178,12 +193,6 @@ var Com = {
 			}
 		});
 	},
-	shareTrack: function(type, path) {
-		$.post("/site/sharetrack", {
-			type: type,
-			path: path
-		});
-	},
 	shareToWeb: function(args) {
 		var type = args.type,
 			url = args.url,
@@ -194,28 +203,64 @@ var Com = {
 
 		switch (type) {
 			case "facebook":
-				shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;
+				shareLink = ("https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl);
+				// ("https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl + "&title=" + encodedTitle + "&picture=" + encodedImage + "&description=" + encodedDescription);
 				break;
 			case "google":
-				shareLink = "https://plus.google.com/share?url=" + encodedUrl;
+				shareLink = ("https://plus.google.com/share?url=" + encodedUrl);
 				break;
 			case "pinterest":
-				shareLink = "http://pinterest.com/pin/create/button/?url=" + encodedUrl;
+				shareLink = ("http://pinterest.com/pin/create/button/?url=" + encodedUrl);
 				break;
 			case "linkedIn":
-				shareLink = "http://www.linkedin.com/cws/share?url=" + encodedUrl + "&original_referer=" + encodedUrl + "&isFramed=false&ts=" + (new Date).getTime();
-				console.log("shareLink", shareLink);
-				this.popupCenter(shareLink, 685, 500);
+				shareLink = ("http://www.linkedin.com/cws/share?url=" + encodedUrl + "&original_referer=" + encodedUrl + "&isFramed=false&ts=" + (new Date).getTime());
 				break;
 			case "twitter":
-				shareLink = "https://twitter.com/intent/tweet?text=" + encodedTitle + "&url=" + encodedUrl;
+				shareLink = ("https://twitter.com/intent/tweet?text=" + encodedTitle + "&url=" + encodedUrl);
 				break;
 			case "line":
-				shareLink = "http://line.me/R/msg/text/?" + encodedTitle + "%0D%0A" + encodedUrl;
+				if ((!OMIS.os.inAppBrowser)) {
+					if (OMIS.os.android) {
+						shareLink = "intent://msg/text/" + encodedUrl + "#Intent;scheme=line;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=jp.naver.line.android;end;";
+					} else {
+						shareLink = "line://msg/text/" + encodedUrl;
+					}
+				} else {
+					shareLink = "http://line.me/R/msg/text/?" + encodedTitle + "%0D%0A" + encodedUrl;
+				}
+				// shareLink = ("http://line.me/R/msg/text/?" + encodedTitle + "%0D%0A" + encodedUrl);
+				break;
+			case "whatsapp":
+				var phoneNumber = '8591759390';
+				shareLink = ("https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodedTitle + encodedUrl);
+				break;
+			case "messenger":
+				if (OMIS.os.desktop) {
+					FB.ui({
+						method: 'send',
+						link: url,
+						title: encodedTitle,
+						picture: encodedImage,
+						description: encodedDescription,
+					});
+					return;
+				} else {
+					if (OMIS.os.android) {
+						if (OMIS.os.inAppBrowser) {
+							shareLink = ("fb-messenger://share?link=" + encodedUrl + '&app_id=' + encodedAppId);
+						} else {
+							shareLink = "intent://share/#Intent;scheme=fb-messenger;package=com.facebook.orca;S.android.intent.extra.TEXT=" + encodedUrl + ";end";
+						}
+					} else {
+						shareLink = ("fb-messenger-share://?type=FBShareableTypeURL&link=" + encodedUrl);
+					}
+				}
+				break;
+			case "wechat":
+				shareLink = "http://apps.example8.com/app/wechat?url=" + encodedUrl;
 				break;
 		}
 		this.popupCenter(shareLink, 685, 500);
-		this.shareTrack(type, url);
 	},
 	popupCenter: function(e, t, n, i) {
 		var r = screen.width / 2 - t / 2,
@@ -305,14 +350,14 @@ var Com = {
 	 * @param {Object} "args":
 	 * @description 圖片預覽彈層
 	 */
-	bindViewPic: function(args) {
+	showPhotos: function(args) {
 		var self = this;
-		$('#wrap').on('click', '.btn_viewpic', function() {
+		$('#wrap').on('click', '.btn_photosbox', function() {
 			var $this = $(this);
 
 			OMIS.dialog({
-				id: 'win_viewPic',
-				html: $.templates("#tpl_viewpic").render({
+				id: 'win_photosBox',
+				html: $.templates("#tpl_photosbox").render({
 					src: $this.attr('data-src'),
 					title: $this.attr('data-title'),
 					name: $this.attr('data-name'),
