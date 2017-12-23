@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _sharebox.scss
+
+
+
+/**************************************/
+/*             share box              */
+/**************************************/
+// win_shareBox
+#win_shareBox {
+    top: auto !important;
+    bottom: 0 !important;
+    width: 100%;
+
+    // hidden
+    &.hidden {
+        @include opacity(0);
+
+        // sharebox
+        > .sharebox {
+            transform: translateY(100%);
+        }
+        // sharebox end
+    }
+    // hidden end
+
+    // sharebox
+    > .sharebox {
+        transform: translateY(0);
+        transition: transform .3s ease-out;
+        background-color: #ffffff;
+        @include remCalc("box-shadow", (0 0 20 0 rgba(0, 0, 0, 0.24)));
+        @include remCalc("padding", 30 0 70);
+
+        // title
+        > .title {
+            @include font-size(16);
+            line-height: 1.5;
+            text-align: center;
+            @include remCalc("margin-bottom", 20);
+        }
+        // title end
+
+        // content
+        > .content {
+            text-align: center;
+            // ui_btn
+            > .ui_btn {
+                padding: 0;
+                border-radius: 50%;
+                @include remCalc("margin-right", 20);
+                color: #ffffff;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                // ui_icon
+                > .ui_icon {
+                    @include remCalc("padding", 8);
+                    @include remCalc("width", 40);
+                    @include remCalc("height", 40);
+                    border-radius: 50%;
+                }
+                // ui_icon end
+            }
+            // ui_btn end
+        }
+        // content end
+    }
+    // sharebox end
+
+}
+// win_shareBox end
+
+#win_shareBox_mask {
+    background-color: rgba(0, 0, 0, 0.2);
+}
