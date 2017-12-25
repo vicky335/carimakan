@@ -480,15 +480,16 @@ var Com = {
 
 		$obj.on('click', '.filter_nav', function() {
 			var $this = $(this),
-				titleHeight = $this.outerHeight(true);
+				titleHeight = $this.outerHeight(true),
+				headerHeight = 0;
+
+
+			if ($('.wrap_header .scrollfix')) {
+				headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
+			}
 
 			if (!$obj.hasClass('fixed')) {
-				var goTopHeight = objOffsetTop,
-					headerHeight = 0;
-
-				if ($('.wrap_header .scrollfix')) {
-					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
-				}
+				var goTopHeight = objOffsetTop;
 
 				goTopHeight -= headerHeight;
 
@@ -502,14 +503,6 @@ var Com = {
 			} else {
 				$this.children('.content').css('top', objHeight + headerHeight);
 			}
-
-			self.fnGoTop(goTopHeight, function() {
-				var top = objHeight + $obj.children('.content').position().top;
-				if (!$obj.hasClass('fixed')) {
-					top -= $(window).scrollTop();
-				}
-				$this.children('.content').css('top', top);
-			});
 
 			$this.siblings().removeClass('cur');
 			if (!$this.hasClass('cur')) {
