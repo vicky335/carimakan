@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+
+$ui-filter-list-height: 52;
+
+.ui_filter {
+    @include remCalc("height", $ui-filter-list-height);
+    // content
+    > .content {
+        // list
+        > .list {
+            position: relative;
+            display: flex;
+            @include remCalc("border-top", (1 solid $base-border-color));
+            @include remCalc("border-bottom", (1 solid $base-border-color));
+            background-color: #ffffff;
+            @include remCalc("height", $ui-filter-list-height);
+
+            // li
+            > li {
+                flex: 1;
+
+                // title
+                > .title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    // text-align: center;
+                    @include font-size(14);
+                    line-height: 1.43;
+                    @include remCalc("padding", 15 0);
+                    color: $base-heading-color;
+
+                    &.triangles {
+                        &:after {
+                            @include remCalc("margin-left", 7);
+                            @include remCalc("margin-top", 3);
+                            @include triangles("arrow", "bottom", $base-text-color2, 8, 2);
+                            content: "";
+                        }
+                    }
+
+                    > .ui_icon {
+                        @include remCalc("margin-right", 7);
+                    }
+                }
+                // title end
+
+                // content
+                > .content {
+                    display: none;
+                    // position: absolute;
+                    // @include remCalc("top", $ui-filter-list-height);
+                    // top: 100%;
+                    position: fixed;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ffffff;
+                    @include remCalc("box-shadow", (0 10 10 0 rgba(0, 0, 0, 0.24)));
+                    @include remCalc("padding", 0 16);
+                    z-index: 9;
+                    overflow-y: auto;
+                }
+                // content end
+
+                // cur
+                &.cur {
+                    // title
+                    > .title {
+                        color: $base-color;
+                        // triangles
+                        &.triangles {
+                            &:after {
+                                @include remCalc("margin-top", 11);
+                                @include triangles("arrow", "top", $base-color, 8, 2);
+                            }
+                        }
+                        // triangles end
+                    }
+                    // title end
+
+                    // content
+                    > .content {
+                        display: block;
+                    }
+                    // content end
+                }
+                // cur end
+            }
+            // li end
+        }
+        // list end
+    }
+    // content end
+
+    // fixed
+    &.fixed {
+        // content
+        > .content {
+            position: fixed;
+            @include remCalc("top", 59);
+            left: 0;
+            right: 0;
+            z-index: 9;
+        }
+        // content end
+    }
+    // fixed end
+}
