@@ -14,6 +14,9 @@ var Com = {
 		// 頭部
 		// this.fnHeader();
 
+		// bindFilter
+		this.bindFilter();
+
 		// downloadApp
 		this.downloadApp();
 
@@ -22,17 +25,45 @@ var Com = {
 
 		// showPhotos
 		this.showPhotos();
+
+		// bindActionClick
+		this.bindActionClick();
+
+		// bindGoTo
+		this.bindGoTo();
 	},
 
 	/**
 	 *@author VickyHuang
 	 *@param {Object} options include:
-	 *@description 滾到頂部
+	 *@description 滑動到...
 	 */
-	fnGoTop: function(top) {
+	fnGoTop: function(top, fn) {
 		$("body, html").animate({
 			scrollTop: top || 1
-		}, "fast");
+		}, "fast", function() {
+			(typeof fn === "function") && fn.call(this);
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description bindActionClick 綁定滑動到...事件
+	 */
+	bindGoTo: function(args) {
+		var self = this;
+		$('#wrap').on('click', '.btn_goTo', function() {
+			var $this = $(this),
+				obj = $this.attr('data-obj');
+			if ($(obj)) {
+				var top = $(obj).offset().top;
+				// if ($('.scrollBar')) {
+				// 	var $scrollBars = $('.scrollBar');
+				// }
+				self.fnGoTop(top);
+			}
+		});
 	},
 
 	/**
@@ -365,6 +396,127 @@ var Com = {
 				})
 			});
 
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description bindActionClick 綁定用戶點讚/收藏功能
+	 */
+	bindActionClick: function(args) {
+		var self = this;
+		$('#wrap').on('click', '.btn_action', function() {
+			var $this = $(this),
+				type = $this.attr('data-ctype'),
+				data = {},
+				url = '';
+
+			switch (type) {
+				case 'like':
+					url = '';
+					break;
+				case 'save':
+					url = '';
+					break;
+			}
+
+			// OMIS.doAjax({
+			// 	success: function(json) {
+			// 		if (json.success) {
+			var $icon = $this.find('.ui_icon.' + type);
+			if ($icon.hasClass('cur')) {
+				alert('取消{讚/收藏}成功!');
+				$icon.removeClass('cur');
+			} else {
+				alert('{讚/收藏}成功!');
+				$icon.addClass('cur');
+			}
+			// 		} else {}
+			// 	},
+			// 	options: {
+			// 		type: "GET",
+			// 		url: '/images/icons.svg',
+			// 		dataType: "html"
+			// 	}
+			// });
+
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description ui filter filter導航效果
+	 */
+	bindFilter: function(args) {
+		var self = this,
+			$obj = $('.ui_filter'),
+			objOffsetTop = $obj.offset().top,
+			objHeight = $obj.outerHeight(true),
+			contentTop = 0;
+
+		Com.fnOnScroll(function() {
+			var $this = $(this),
+				scrollTop = objOffsetTop - 1,
+				headerHeight = 0;
+			if ($('.wrap_header .scrollfix')) {
+				headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
+			}
+
+			scrollTop -= headerHeight;
+
+			if ($this.scrollTop() >= scrollTop) {
+				var top = 0;
+				if ($('.wrap_header .scrollfix')) {
+					top = $('.wrap_header .scrollfix').outerHeight(true);
+				}
+				$obj.addClass('fixed');
+			} else {
+				$obj.removeClass('fixed');
+				$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
+			}
+		});
+
+		$obj.on('click', '.filter_nav', function() {
+			var $this = $(this),
+				titleHeight = $this.outerHeight(true);
+
+			if (!$obj.hasClass('fixed')) {
+				var goTopHeight = objOffsetTop,
+					headerHeight = 0;
+
+				if ($('.wrap_header .scrollfix')) {
+					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
+				}
+
+				goTopHeight -= headerHeight;
+
+				self.fnGoTop(goTopHeight, function() {
+					var top = objHeight + $obj.children('.content').position().top;
+					if (!$obj.hasClass('fixed')) {
+						top -= $(window).scrollTop();
+					}
+					$this.children('.content').css('top', top);
+				});
+			} else {
+				$this.children('.content').css('top', objHeight + headerHeight);
+			}
+
+			self.fnGoTop(goTopHeight, function() {
+				var top = objHeight + $obj.children('.content').position().top;
+				if (!$obj.hasClass('fixed')) {
+					top -= $(window).scrollTop();
+				}
+				$this.children('.content').css('top', top);
+			});
+
+			$this.siblings().removeClass('cur');
+			if (!$this.hasClass('cur')) {
+				$this.addClass('cur').siblings().removeClass('cur');
+			} else {
+				$this.removeClass('cur');
+			}
 		});
 	}
 
