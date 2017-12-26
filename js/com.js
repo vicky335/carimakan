@@ -480,9 +480,25 @@ var Com = {
 						top = $('.wrap_header .scrollfix').outerHeight(true);
 					}
 					$obj.addClass('fixed');
+					$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
 				} else {
 					$obj.removeClass('fixed');
-					$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
+
+					if ($obj.find('.cur').length > 0) {
+						if ($obj.find('.clickscroll').length > 0) {
+							$obj.find('.filter_nav').children('.content').css('top', objHeight);
+						} else {
+							$obj.find('.cur').removeClass('cur');
+						}
+					}
+					// if ($obj.hasClass('fixed')) {
+					// 	$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
+					// 	$obj.removeClass('fixed');
+					// } else {
+					// 	if ($obj.find('.clickscroll').length > 0) {
+					// 		$obj.find('.cur').removeClass('cur');
+					// 	}
+					// }
 				}
 			});
 
@@ -492,6 +508,22 @@ var Com = {
 					titleHeight = $this.outerHeight(true),
 					headerHeight = 0,
 					$content = $li.children('.content');
+
+
+				if (!$li.hasClass('cur')) {
+					$li.addClass('cur clickscroll').siblings().removeClass('cur');
+					if ($content.hasClass('nav')) {
+						var $firstObj = $('.first', $content),
+							$secondObj = $('.second', $content);
+						if (!$firstObj.hasClass('cur')) {
+							$firstObj.addClass('cur');
+							$firstObj.children('li').eq(0).addClass('cur');
+							$secondObj.eq(0).addClass('active').children('li').eq(0).addClass('active');
+						}
+					}
+				} else {
+					$li.removeClass('cur');
+				}
 
 				if ($('.wrap_header .scrollfix').length > 0) {
 					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
@@ -508,25 +540,11 @@ var Com = {
 							top -= $(window).scrollTop();
 						}
 						$content.css('top', top);
+						$li.removeClass('clickscroll');
 					});
 				} else {
 					$content.css('top', objHeight + headerHeight);
-				}
-
-				$li.siblings().removeClass('cur');
-				if (!$li.hasClass('cur')) {
-					$li.addClass('cur').siblings().removeClass('cur');
-					if ($content.hasClass('nav')) {
-						var $firstObj = $('.first', $content),
-							$secondObj = $('.second', $content);
-						if (!$firstObj.hasClass('cur')) {
-							$firstObj.addClass('cur');
-							$firstObj.children('li').eq(0).addClass('cur');
-							$secondObj.eq(0).addClass('active').children('li').eq(0).addClass('active');
-						}
-					}
-				} else {
-					$li.removeClass('cur');
+					$li.removeClass('clickscroll');
 				}
 			});
 
