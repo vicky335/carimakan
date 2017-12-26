@@ -19,6 +19,7 @@
                 overflow: hidden;
                 @include remCalc("margin-right", 10);
                 @include remCalc("width", 95);
+                @include remCalc("height", 95);
 
                 // max-screen
                 @include max-screen($base-max-screen){}

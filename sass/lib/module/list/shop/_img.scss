@@ -14,6 +14,7 @@
         > a {
             // img
             > .img {
+                position: relative;
                 text-align: center;
                 overflow: hidden;
                 @include remCalc("margin-right", 10);

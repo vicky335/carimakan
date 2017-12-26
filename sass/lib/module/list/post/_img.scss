@@ -15,6 +15,8 @@
         > a {
             // img
             > .img {
+                position: relative;
+                @include remCalc("height", 90);
                 @include remCalc("border-radius", 3.8 3.8 0 0);
 
                 // max-screen

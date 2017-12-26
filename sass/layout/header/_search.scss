@@ -17,60 +17,58 @@
 
         // search
         > .search {
-            // position: relative;
-            // @include remCalc("padding", 16 10);
-            // @include remCalc("box-shadow", (0 0.5 0 0 rgba(0, 0, 0, 0.24)));
-            // // background-color: #ffffff;
-            // @include min-height(59);
+            display: flex;
+            align-items: center;
+            @include remCalc("padding", 14 10);
+            background-color: #ffffff;
 
-            // // tools
-            // > .tools {
-            //     position: absolute;
-            //     // top: 0;
-            //     display: flex;
-            //     align-items: center;
-            //     @include position-center(top);
-            //     // flex: 1;
+            // ui_text
+            > .ui_text {
+                flex: 1;
+                margin: 0;
+                > .input {
+                    border-color: transparent;
+                    @include remCalc("border-radius", 100);
+                    @include remCalc("padding", 6 6+16+6 6 28);
+                    @include font-size(12);
+                    height: auto;
+                    line-height: 1.33;
+                    background-color: #eeeeee;
+                }
+                > .ui_icon {
+                    @include remCalc("left", 8);
+                    @include remCalc("width", 16);
+                    @include remCalc("height", 16);
+                    color: $base-text-color2;
+                }
+                > .clear {
+                    // position: absolute;
+                    @include position-center(top);
+                    @include remCalc("right", 6);
+                    color: #ffffff;
+                    border-radius: 50%;
+                    @include remCalc("width", 16);
+                    @include remCalc("height", 16);
 
-            //     // :not(:first-child):not(:last-child)
-            //     &:not(:first-child):not(:last-child) {
-            //         // justify-content: center;
-            //     }
-            //     // :not(:first-child):not(:last-child) end
-
-            //     // first-child
-            //     &:first-child {
-            //         @include remCalc("left", 10);
-            //     }
-            //     // first-child end
-
-            //     // last-child
-            //     &:last-child {
-            //         @include remCalc("right", 10);
-            //     }
-            //     // last-child end
-
-            //     > li {
-            //         @include remCalc("margin-left", 18);
-            //         &:first-child {
-            //             margin-left: 0;
-            //         }
-
-            //         > a {
-            //             color: #ffffff;
-
-            //             // ui_icon
-            //             > .ui_icon {
-            //                 @include remCalc("width", 24);
-            //                 @include remCalc("height", 24);
-            //             }
-            //             // first-child end
-            //         }
-            //     }
-            // }
-            // // tools end
-
-
+                    > .ui_icon {
+                        @include remCalc("padding", 2);
+                        @include remCalc("width", 16);
+                        @include remCalc("height", 16);
+                        background-color: #cccccc;
+                        border-radius: 50%;
+                        vertical-align: baseline;
+                    }
+                }
+            }
+            // ui_text end
+            // close
+            > .close {
+                @include remCalc("margin-left", 12);
+                font-weight: 500;
+                line-height: 1.71;
+                color: $base-text-color;
+            }
+            // close end
         }
         // search end
     }

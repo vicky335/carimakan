@@ -7,12 +7,15 @@ var Com = {
 		// load svg
 		this.loadSvg();
 
+		// listResetImgSize
+		this.listResetImgSize();
+
 		// share btn
 		this.showShare();
 		this.bindShare();
 
 		// 頭部
-		// this.fnHeader();
+		this.fnHeader();
 
 		// bindFilter
 		this.bindFilter();
@@ -31,6 +34,9 @@ var Com = {
 
 		// bindGoTo
 		this.bindGoTo();
+
+		// bindGoBlack
+		this.bindGoBlack();
 	},
 
 	/**
@@ -480,11 +486,12 @@ var Com = {
 				}
 			});
 
-			$obj.on('click', '.filter_nav', function() {
+			$obj.on('click', '.filter_nav > .title', function() {
 				var $this = $(this),
+					$li = $this.parent(),
 					titleHeight = $this.outerHeight(true),
-					headerHeight = 0;
-
+					headerHeight = 0,
+					$content = $li.children('.content');
 
 				if ($('.wrap_header .scrollfix').length > 0) {
 					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
@@ -500,20 +507,164 @@ var Com = {
 						if (!$obj.hasClass('fixed')) {
 							top -= $(window).scrollTop();
 						}
-						$this.children('.content').css('top', top);
+						$content.css('top', top);
 					});
 				} else {
-					$this.children('.content').css('top', objHeight + headerHeight);
+					$content.css('top', objHeight + headerHeight);
 				}
 
-				$this.siblings().removeClass('cur');
-				if (!$this.hasClass('cur')) {
-					$this.addClass('cur').siblings().removeClass('cur');
+				$li.siblings().removeClass('cur');
+				if (!$li.hasClass('cur')) {
+					$li.addClass('cur').siblings().removeClass('cur');
+					if ($content.hasClass('nav')) {
+						var $firstObj = $('.first', $content),
+							$secondObj = $('.second', $content);
+						if (!$firstObj.hasClass('cur')) {
+							$firstObj.addClass('cur');
+							$firstObj.children('li').eq(0).addClass('cur');
+							$secondObj.eq(0).addClass('active').children('li').eq(0).addClass('active');
+						}
+					}
 				} else {
-					$this.removeClass('cur');
+					$li.removeClass('cur');
+				}
+			});
+
+			// nav
+			var $nav = $('.content.nav', $obj),
+				$firstObj = $('.first', $nav),
+				$secondObj = $('.second', $nav),
+				$thirdObj = $('.third', $nav);
+			$nav.on('click', '.first > li', function() {
+				var $this = $(this),
+					$list = $this.parent(),
+					curIndex = $this.index(),
+					$second = $list.siblings('.second').eq(curIndex);
+
+				$firstObj.removeClass('selected active');
+				$secondObj.removeClass('selected active cur');
+				$thirdObj.removeClass('selected active cur');
+
+				if ($second.length > 0) {
+					$this.addClass('cur').siblings('li').removeClass('cur');
+					$second.children('li').removeClass('active cur');
+					$second.addClass('active').siblings('.second').removeClass('active');
+				}
+			});
+			$nav.on('click', '.second > li', function() {
+				var $this = $(this),
+					$list = $this.parent(),
+					curIndex = $this.index(),
+					$third = $list.siblings('.third').eq(curIndex);
+
+				$firstObj.addClass('selected');
+
+				if ($third.length > 0) {
+					$this.addClass('cur').siblings('li').removeClass('cur');
+					$third.children('li').removeClass('active cur');
+					$third.addClass('active').siblings('.third').removeClass('active');
+				}
+			});
+			$nav.on('click', '.second > li', function() {
+				var $this = $(this),
+					$list = $this.parent(),
+					curIndex = $this.index(),
+					$third = $list.siblings('.third').eq(curIndex);
+
+				$firstObj.addClass('selected');
+
+				if ($third.length > 0) {
+					$this.addClass('cur').siblings('li').removeClass('cur');
+					$third.addClass('active').siblings('.third').removeClass('active');
 				}
 			});
 		}
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 回退
+	 */
+	bindGoBlack: function() {
+		var self = this;
+		$('#wrap').on('click', '.btn_goblack', function() {
+			var $this = $(this);
+			history.go(-1);
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 計算列表圖片尺寸
+	 */
+	listResetImgSize: function() {
+		var $items = $('.ui_list').find('li').not('.ad');
+		$items.each(function(index, item) {
+			var $this = $(this),
+				$imgObj = $('.img', $this),
+				data = {
+					width: $imgObj.width(),
+					height: $imgObj.height()
+				},
+				ratio = data.width / data.height,
+				$img = $imgObj.find('img'),
+				imgSrc = $img.attr("src");
+			$img.removeAttr('width').removeAttr('height');
+
+			imgReady(imgSrc, function() {
+				if (this.width / this.height > ratio) {
+					$img.css({
+						height: '100%',
+						width: ''
+					});
+				} else {
+					$img.css({
+						width: '100%',
+						height: ''
+					});
+				}
+			});
+		});
+
+		var self = this;
+		$(window).resize(function() {
+			self.listResetImgSize();
+		});
+	},
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description ui filter filter導航效果
+	 */
+	fnHeader: function() {
+		var $scrollObj = $('.wrap_header .scrollfix');
+		if ($scrollObj.length > 0) {
+			var objOffsetTop = $scrollObj.offset().top + $scrollObj.outerHeight(true);
+			Com.fnOnScroll(function() {
+				var $this = $(this);
+
+				if ($this.scrollTop() >= objOffsetTop) {
+					$scrollObj.addClass('fixed');
+				} else {
+					$scrollObj.removeClass('fixed');
+				}
+			});
+		}
+
+		// btn_search
+		$('#wrap').on('click', '.btn_search', function() {
+			var $this = $(this);
+			OMIS.dialog({
+				id: 'win_searchBox',
+				html: $.templates("#tpl_search").render(),
+				onShow: function() {
+					$(this.target).find('.input').focus();
+				}
+			});
+		});
 	}
 
 };

@@ -56,6 +56,14 @@
                     }
                 }
                 // list end
+
+                &.fixed {
+                    position: fixed;
+                    @include remCalc("top", 59);
+                    left: 0;
+                    right: 0;
+                    z-index: 9;
+                }
             }
             // nav end
         }
