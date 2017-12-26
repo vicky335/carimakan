@@ -1,0 +1,27 @@
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+// ui_commentlist
+.ui_commentlist {
+    // li
+    > li {
+
+        // content
+        > .content {
+            flex: 1;
+
+            // max-screen
+            @include max-screen($base-max-screen){}
+            // max-screen end
+        }
+        // content end
+    }
+    // li end
+}
+// ui_commentlist end

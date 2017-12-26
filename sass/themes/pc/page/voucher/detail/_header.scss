@@ -1,0 +1,33 @@
+//sass style
+//-----------------------------------
+// _header.scss
+
+
+
+/**************************************/
+/*               header              */
+/**************************************/
+
+// _layout.scss
+@import "header/_layout";
+
+// voucher
+.voucher {
+    // detail
+    &.detail {
+        // header
+        > .header {
+            // _header.scss
+            @import "header/_header";
+
+            // _content.scss
+            @import "header/_content";
+
+            // _footer.scss
+            @import "header/_footer";
+        }
+        // header end
+    }
+    // detail end
+}
+// voucher end

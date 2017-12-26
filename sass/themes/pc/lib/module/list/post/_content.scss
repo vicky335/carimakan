@@ -1,0 +1,35 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// _layout.scss
+@import "content/layout";
+
+// ui_postlist
+.ui_postlist {
+    // li
+    > li {
+
+        > a {
+            // content
+            > .content {
+
+                // _title.scss
+                @import "content/title";
+
+                // _time.scss
+                @import "content/time";
+
+            }
+            // content end
+        }
+    }
+    // li end
+}
+// ui_postlist end

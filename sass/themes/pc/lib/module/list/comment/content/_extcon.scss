@@ -1,0 +1,25 @@
+//sass style
+//-----------------------------------
+// _extcon.scss
+
+
+
+/**************************************/
+/*                extcon              */
+/**************************************/
+
+// extcon
+> .extcon {
+    display: flex;
+    align-items: center;
+
+    // price
+    > .price {
+        @include remCalc("margin-left", 10);
+        font-weight: 500;
+        line-height: 1.43;
+        color: $base-heading-color;
+    }
+    // price end
+}
+// extcon end

@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// block.scss
+
+
+
+/**************************************/
+/*               block                */
+/**************************************/
+
+// _layout.scss
+@import "block/layout";
+
+// _title.scss
+@import "block/title";
+
+// _content.scss
+@import "block/content";

@@ -1,0 +1,28 @@
+//sass style
+//-----------------------------------
+// _shoplist.scss
+
+
+
+/**************************************/
+/*              shoplist              */
+/**************************************/
+
+// shoplist
+&.shoplist {
+    background-color: #ffffff;
+
+    // ui_shoplist
+    > .ui_shoplist {
+
+        > li {
+            margin: 0;
+
+            > a {
+                @include remCalc("padding", 15 10);
+            }
+        }
+    }
+    // ui_shoplist end
+}
+// shoplist end

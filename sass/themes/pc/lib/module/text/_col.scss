@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _col.scss
+
+
+
+/**************************************/
+/*                 Col                */
+/**************************************/
+
+// ui_text
+.ui_text {
+    // col
+    &.col {
+        display: flex;
+
+        // layout
+        $label-size: ($base-forms-col-title-width, 120, $base-forms-col-title-width-mobile);
+        // layout end
+
+        // label
+        > .label{
+            @include remCalc("margin-right", $base-forms-col-title-margin);
+            @include remCalc("padding", $base-forms-padding-size + 2 0);
+            @include remCalc("width", $base-forms-col-title-width);
+            text-align: right;
+            color: $base-forms-title-color;
+
+            // max-screen
+            @include max-screen($base-max-screen){
+                @include remCalc("width", $base-forms-col-title-width-mobile);
+            }
+            // max-screen end
+        }
+        // label end
+
+        // content
+        > .content {
+            flex: 1;
+
+            // tips, error, txt
+            .tips,
+            .error,
+            .txt {
+                @include remCalc("margin", $base-forms-padding-size + 2 0);
+            }
+            // tips, error end
+        }
+        // content end
+    }
+    // col end
+}
+// ui_text

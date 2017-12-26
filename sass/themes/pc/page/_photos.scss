@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// photos.scss
+
+
+
+// _utils.scss
+// @import "utils/_utils";
+
+/**************************************/
+/*                photos              */
+/**************************************/
+
+// photos
+.photos {
+    // nav
+    > .nav {
+        background-color: #ffffff;
+        @include remCalc("padding", 0 10);
+        @include remCalc("box-shadow", (0 0.5 0 0 rgba(0, 0, 0, 0.3)));
+
+        // list
+        > .list {
+            display: flex;
+            @extend %scroll-x-layout;
+
+            > li {
+                @include remCalc("margin-right", 20);
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                > a {
+                    display: block;
+                    @include remCalc("border-bottom", (2 solid transparent));
+                    @include remCalc("padding", 13 7 11);
+                    font-weight: 500;
+                    line-height: 1.71;
+                    color: $base-text-color;
+                }
+
+                &.cur {
+                    > a {
+                        color: $base-color;
+                        border-bottom-color: $base-color;
+                    }
+                }
+            }
+        }
+        // list end
+    }
+    // nav end
+
+    // photoslist
+    > .photoslist {
+        background-color: transparent;
+
+        // content
+        > .content {
+            // list
+            > .list {
+                display: flex;
+                flex-wrap: wrap;
+
+                > li {
+                    flex: 0 0 floor((100 - ((5 / $base-font-size) * 3)) / 3) * 1%;
+                    @include remCalc("margin", 0 5 6 0);
+
+                    &:nth-child(3n) {
+                        margin-right: 0;
+                    }
+                }
+            }
+            // list end
+        }
+        // content end
+    }
+    // photoslist end
+}
+// photos end

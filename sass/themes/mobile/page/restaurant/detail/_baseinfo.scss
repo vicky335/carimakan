@@ -1,0 +1,271 @@
+//sass style
+//-----------------------------------
+// _baseinfo.scss
+
+
+
+/**************************************/
+/*               baseinfo             */
+/**************************************/
+
+// restaurant
+.restaurant {
+    // detail
+    &.detail {
+        // baseinfo
+        > .baseinfo {
+            @include remCalc("padding", 0);
+            // header
+            > .header {
+                @include remCalc("padding", 20 15 10);
+                // title
+                > .title {
+                    @include font-size(20);
+                    font-weight: 500;
+                    line-height: 1.4;
+
+                    // ui_icon
+                    > .ui_icon {
+                        @include remCalc("margin-left", 10);
+                        @include remCalc("width", 32);
+                        @include remCalc("height", 25);
+                    }
+                    // ui_btn end
+                }
+                // title end
+
+                // meta
+                > .meta {
+                    @include remCalc("margin-top", 8);
+
+                    // list
+                    > .list {
+                        > li {
+                            @include remCalc("margin-bottom", 15);
+                            display: flex;
+                            align-items: center;
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+
+                            // block
+                            > .block {
+                                @include remCalc("margin-right", 10);
+
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                            }
+                            // block end
+
+                            // comments
+                            &.comments {
+                                // review
+                                > .review {
+                                    @include font-size(12);
+                                    line-height: 1.33;
+                                    text-align: left;
+                                    color: $base-text-color2;
+                                }
+                                // review end
+                            }
+                            // comments end
+
+                            // info
+                            &.info {
+                                line-height: 1.43;
+
+                                // cate
+                                > .cate {
+                                    flex: 1;
+                                    text-align: right;
+                                    color: $base-text-color2;
+                                }
+                                // cate end
+                            }
+                            // info end
+                        }
+                    }
+                    // list end
+                }
+                // meta
+            }
+            // header end
+
+            // content
+            > .content {
+                // shoppics
+                > .shoppics {
+                    display: flex;
+
+                    // block
+                    > .block {
+                        flex: 1;
+                        @include remCalc("margin-left", 3);
+
+                        &:first-child {
+                            flex: 2;
+                            margin-left: 0;
+                        }
+
+                        &:nth-child(2) {
+                            // img
+                            > .img {
+                                position: relative;
+                                @include remCalc("margin-bottom", 3);
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+
+                                > .more {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    background-color: rgba(0, 0, 0, 0.5);
+                                    color: rgba(255, 255, 255, 0.87);
+                                    @include font-size(12);
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                            }
+                            // img end
+                        }
+                    }
+                    // block end
+
+                    // nopic
+                    &.nopic {
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        background-color: #f6f6f6;
+                        color: $base-text-color2;
+                        @include remCalc("padding", 32 0);
+
+                        // content
+                        > .content {
+                            @include remCalc("max-width", 155);
+                            // ui_icon
+                            > .ui_icon {
+                                @include remCalc("margin-bottom", 11);
+                                @include remCalc("width", 51);
+                                @include remCalc("height", 51);
+                            }
+                            // ui_icon end
+
+                            // txt
+                            > .txt {
+                                line-height: 1.43;
+                            }
+                            // txt end
+
+                            // ui_btn
+                            > .ui_btn {
+                                @include remCalc("margin-top", 20);
+                            }
+                            // ui_btn end
+                        }
+                        // content end
+                    }
+                    // nopic end
+                }
+                // shoppics end
+            }
+            // content end
+
+            // footer
+            > .footer {
+                // list
+                > .list {
+                    // li
+                    > li {
+                        @include remCalc("border-bottom", (0.5 solid rgba(0, 0, 0, 0.12)));
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        > a {
+                            display: flex;
+                            @include remCalc("padding", 12 10);
+                            @include min-height(60);
+                            color: $base-text-color;
+                            align-items: center;
+
+                            // ui_icon
+                            .ui_icon {
+                                @include remCalc("margin-right", 5);
+                                @include remCalc("width", 16);
+                                @include remCalc("height", 16);
+                            }
+                            // ui_icon end
+
+                            // txt
+                            > .txt {
+                                flex: 1;
+                                line-height: 1.43;
+
+                                // position
+                                > .position {
+                                    color: #4492d8;
+                                }
+                                // position end
+                            }
+                            // txt end
+                        }
+
+                        // region
+                        &.region {
+                            > a {
+                                align-items: flex-start;
+
+                                // map
+                                > .map {
+                                    position: relative;
+                                    @include remCalc("margin-left", 10);
+                                    @include remCalc("width", 90);
+                                    @include remCalc("height", 60);
+                                    overflow: hidden;
+
+                                    // googlemaps
+                                    > .googlemaps {
+                                        position: absolute;
+                                        @include position-center;
+                                        @include remCalc("width", 180);
+                                        @include remCalc("height", 120);
+                                        overflow: hidden;
+                                    }
+                                    // googlemaps end
+                                }
+                                // map end
+                            }
+                        }
+                        // region end
+
+                        // viewinfo
+                        &.viewinfo {
+                            > a {
+                                &:after {
+                                    @include remCalc("margin-right", 8);
+                                    @include triangles("arrow", "left", $base-text-color, 9, 2);
+                                }
+                            }
+                        }
+                        // viewinfo end
+                    }
+                    // li end
+                }
+                // list end
+            }
+            // footer end
+        }
+        // baseinfo end
+    }
+    // detail end
+}
+// restaurant end

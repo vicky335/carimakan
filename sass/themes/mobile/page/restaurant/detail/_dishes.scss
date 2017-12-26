@@ -1,0 +1,107 @@
+//sass style
+//-----------------------------------
+// _dishes.scss
+
+
+
+/**************************************/
+/*                dishes              */
+/**************************************/
+
+// restaurant
+.restaurant {
+    // detail
+    &.detail {
+        // dishes
+        > .dishes {
+            // content
+            > .content {
+                // list
+                > .list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    > li {
+                        @include remCalc("margin", 0 10 10 0);
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        &:nth-child(1),
+                        &:nth-child(2),
+                        &:nth-child(3) {
+                            counter-increment: list;
+                            &:before {
+                                @include inline-block;
+                                @include remCalc("width", 16);
+                                @include remCalc("height", 16);
+                                @include remCalc("line-height", 16);
+                                @include remCalc("margin-right", 3);
+                                background-color: $base-color;
+                                color: #ffffff;
+                                font-weight: 600;
+                                content: " " counter(list) " ";
+                                text-align: center;
+                            }
+                        }
+
+                        // txt
+                        > .txt {
+                            @include inline-block;
+                            @include remCalc("padding", 4 5);
+                            @include remCalc("border-radius", 3);
+                            @include font-size(12);
+                            color: $base-heading-color;
+                            background-color: #eeeeee;
+                        }
+                        // txt end
+
+                        // hasimg
+                        &.hasimg {
+                            position: relative;
+                            @include remCalc("width", 110);
+
+                            &:before {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: 1;
+                            }
+                            // img
+                            > .img {
+                                position: relative;
+                                @include remCalc("margin-bottom", 5);
+
+                                // like
+                                > .like {
+                                    position: absolute;
+                                    right: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    @include remCalc("padding", 2);
+                                    background-color: rgba(#000000, 0.65);
+                                    @include font-size(12);
+                                    color: #ffffff;
+                                }
+                                // like end
+                            }
+                            // img end
+                            // title
+                            > .title {
+                                @include font-size(12);
+                                color: $base-heading-color;
+                            }
+                            // title end
+                        }
+                        // hasimg end
+                    }
+                }
+                // list
+            }
+            // content end
+        }
+        // dishes end
+    }
+    // detail end
+}
+// restaurant end

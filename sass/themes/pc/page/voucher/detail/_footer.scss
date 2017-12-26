@@ -1,0 +1,30 @@
+//sass style
+//-----------------------------------
+// _footer.scss
+
+
+
+/**************************************/
+/*                footer              */
+/**************************************/
+
+// voucher
+.voucher {
+    // detail
+    &.detail {
+        // footer
+        > .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            @include remCalc("padding", 7);
+            background-color: #ffffff;
+            @include remCalc("box-shadow", (0 -1 0 0 rgba(0, 0, 0, 0.1)));
+            text-align: center;
+        }
+        // footer end
+    }
+    // detail end
+}
+// voucher end

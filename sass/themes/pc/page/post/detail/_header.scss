@@ -1,0 +1,43 @@
+//sass style
+//-----------------------------------
+// _header.scss
+
+
+
+/**************************************/
+/*                header              */
+/**************************************/
+
+// post
+.post {
+    // detail
+    &.detail {
+        // header
+        > .header {
+            @include remCalc("margin-bottom", 15);
+            // img
+            > .img {
+                @include remCalc("margin", 0 -10 20);
+            }
+            // img end
+            // title
+            > .title {
+                @include font-size(20);
+                font-weight: 500;
+                line-height: 1.4;
+            }
+            // title end
+            // time
+            > .time {
+                @include remCalc("margin-top", 5);
+                color: $base-text-color2;
+                @include font-size(12);
+                line-height: 1.33;
+            }
+            // time end
+        }
+        // header end
+    }
+    // detail end
+}
+// post end

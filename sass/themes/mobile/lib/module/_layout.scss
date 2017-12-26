@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// Layout.scss
+
+
+
+/**************************************/
+/*               Layout               */
+/**************************************/
+
+// container
+.container{
+    @extend %layout-container;
+}
+// container end
+
+// ul, ol
+ul, ol {
+    @include font-size(0);
+}
+ul > li,
+ol > li{
+    @include font-size($base-font-size);
+}
+// ul, ol end
+
+// no_mobile
+.no_mobile {
+    // max-screen
+    @include max-screen($base-max-screen){
+        display: none !important;
+    }
+    // max-screen end
+}
+// no_mobile end
+
+// ui Highlight color
+@each $num, $color in $special-colors {
+    &.ui_hlc#{$num} {
+        color: $color !important;
+    }
+}
+// ui Highlight color end

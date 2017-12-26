@@ -1,0 +1,71 @@
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*                layout              */
+/**************************************/
+
+.wrap {
+    > .wrap_header {
+        background-color: transparent;
+        > .container {
+            > .nav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: transparent;
+                box-shadow: none;
+
+                // title
+                > .title {
+                    display: none;
+                }
+                // title end
+                // tools
+                > .tools {
+                    > li {
+                        > a {
+                            color: #ffffff;
+                        }
+                    }
+                }
+                // tools end
+
+                &.fixed {
+                    position: fixed;
+                    background-color: #ffffff;
+                    @include remCalc("box-shadow", (0 0.5 0 0 rgba(0, 0, 0, 0.24)));
+
+                    // title
+                    > .title {
+                        display: block;
+                    }
+                    // title end
+                    // tools
+                    > .tools {
+                        > li {
+                            > a {
+                                color: $base-text-color;
+                            }
+                        }
+                    }
+                    // tools end
+                }
+            }
+        }
+    }
+}
+
+// post
+.post {
+    // detail
+    &.detail {
+        padding-top: 0;
+    }
+    // detail end
+}
+// post end

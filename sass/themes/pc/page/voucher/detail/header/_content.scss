@@ -1,0 +1,79 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// content
+> .content {
+    @include remCalc("margin-top", 10);
+    display: flex;
+    align-items: center;
+    background-image: url($bast-images-path + '/bg_ticket.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    // img
+    > .img {
+        @include remCalc("margin-right", 10);
+        @include remCalc("width", 120);
+        @include remCalc("height", 120);
+    }
+    // img end
+
+    // content
+    > .content {
+        flex: 1;
+
+        // title
+        > .title {
+            @include font-size(14);
+            font-weight: 500;
+            line-height: 1.43;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.87);
+        }
+        // title end
+
+        // content
+        > .content {
+            @include remCalc("margin-top", 15);
+            @include remCalc("padding-right", 33);
+            display: flex;
+            align-items: center;
+
+            // title
+            > .title {
+                @include remCalc("padding", 7 13);
+                @include font-size(14);
+                font-weight: 500;
+                line-height: 1.43;
+                text-align: left;
+                color: rgba(255, 255, 255, 0.87);
+                background-color: $base-color;
+            }
+            // title end
+
+            // content
+            > .content {
+                flex: 1;
+                @include remCalc("padding", 4 0);
+                @include remCalc("border", (1 solid $base-color));
+                border-left: none;
+                @include font-size(24);
+                font-weight: 500;
+                line-height: 1.0;
+                color: $base-color;
+            }
+            // content end
+        }
+        // content end
+    }
+    // content end
+}
+// content end

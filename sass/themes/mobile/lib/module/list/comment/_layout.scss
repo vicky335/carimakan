@@ -1,0 +1,48 @@
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+// ui_commentlist
+.ui_commentlist {
+    // li
+    > li {
+        display: flex;
+        @include remCalc("margin", 0 -10);
+        @include remCalc("padding", 10 10 20);
+        @include remCalc("border-bottom", (0.5 solid $base-border-color));
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            border: none;
+            padding-bottom: 0;
+        }
+
+        // max-screen
+        @include max-screen($base-max-screen){}
+        // max-screen end
+
+        &.more {
+            padding: 0;
+            border: none;
+            @include remCalc("margin-bottom", -10);
+            > a {
+                flex: 1;
+                display: block;
+                @include remCalc("padding", 15 0);
+                text-align: center;
+                line-height: 1.43;
+                color: $base-heading-color;
+            }
+        }
+    }
+    // li end
+}
+// ui_commentlist end

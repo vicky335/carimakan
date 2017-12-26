@@ -1,0 +1,39 @@
+//sass style
+//-----------------------------------
+// _reviews.scss
+
+
+
+/**************************************/
+/*               reviews              */
+/**************************************/
+
+// restaurant
+.restaurant {
+    // detail
+    &.detail {
+        // reviews
+        > .reviews {
+            // content
+            > .content {
+                // noreviews
+                &.noreviews {
+                    line-height: 1.43;
+                    color: $base-text-color2;
+                    text-align: center;
+
+                    // ui_btn
+                    > .ui_btn {
+                        @include remCalc("margin-top", 20);
+                    }
+                    // ui_btn end
+                }
+                // noreviews
+            }
+            // content end
+        }
+        // reviews end
+    }
+    // detail end
+}
+// restaurant end

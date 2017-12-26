@@ -1,0 +1,51 @@
+//sass style
+//-----------------------------------
+// _index.scss
+
+
+
+/**************************************/
+/*                Index               */
+/**************************************/
+
+.site {
+    // index
+    &.index {
+        // postlist
+        > .postlist {
+            @include remCalc("padding", 10 0 0 10);
+            background-color: transparent;
+            // content
+            > .content {
+                // ui_postlist
+                > .ui_postlist {
+                    @extend %scroll-x-layout;
+
+                    > li {
+                        @include inline-block(top);
+
+                        > a {
+                            // img
+                            > .img {
+                                // position: relative;
+                                // @include remCalc("height", 90);
+
+                                // > img {
+                                //     position: absolute;
+                                //     width: 100%;
+                                //     height: 100%;
+                                //     @include position-center;
+                                // }
+                            }
+                            // img end
+                        }
+                    }
+                }
+                // ui_postlist end
+            }
+            // content end
+        }
+        // postlist end
+    }
+    // index end
+}

@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _getappsdialog.scss
+
+
+
+/**************************************/
+/*          get apps dialog           */
+/**************************************/
+// win_getAppsDialog
+#win_getAppsDialog {
+    @include remCalc("padding", 0 16);
+
+    // getappsdialog
+    > .getappsdialog {
+        margin: 0 auto;
+        @include remCalc("max-width", 328);
+
+        // header
+        > .header {
+            position: relative;
+            @include remCalc("margin-bottom", 10);
+
+            // title
+            > .title {
+                @include remCalc("padding", 21 0);
+                @include remCalc("border-radius", 3);
+                background-color: #ffffff;
+                text-align: center;
+                @include font-size(18);
+                line-height: 1.0;
+                color: $base-text-color;
+            }
+            // title end
+
+            // btn_close
+            > .btn_close {
+                position: absolute;
+                @include remCalc("top", -14);
+                @include remCalc("right", -14);
+                background-color: #000000;
+                border-radius: 50%;
+                color: #ffffff;
+
+                // ui_icon
+                > .ui_icon {
+                    @include remCalc("width", 28);
+                    @include remCalc("height", 28);
+                    @include remCalc("padding", 4);
+                    border-radius: 50%;
+                }
+                // ui_icon end
+            }
+            // btn_close end
+        }
+        // header end
+
+        // content
+        > .content {
+            @include remCalc("height", 420);
+            background: url($bast-images-path + 'banner/banner_pop.jpg') no-repeat center center;
+            background-size: contain;
+
+            // downloadapp
+            > .downloadapp {
+                display: flex;
+                align-items: center;
+                @include remCalc("padding-top", 125);
+
+                > .btn {
+                    @include inline-block;
+                    @include remCalc("margin-left", 19);
+                    @include remCalc("width", 136);
+                    @include remCalc("height", 41);
+                    text-indent: -9999em;
+                }
+            }
+            // downloadapp end
+        }
+        // content end
+    }
+    // getappsdialog end
+
+}
+// win_getAppsDialog end

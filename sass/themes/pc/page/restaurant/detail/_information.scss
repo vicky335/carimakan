@@ -1,0 +1,68 @@
+//sass style
+//-----------------------------------
+// _information.scss
+
+
+
+/**************************************/
+/*             information            */
+/**************************************/
+
+// restaurant
+.restaurant {
+    // detail
+    &.detail {
+        // information
+        > .information {
+            // content
+            > .content {
+                // block
+                > .block {
+                    @include remCalc("margin-bottom", 15);
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    // title
+                    > .title {
+                        @include font-size(12);
+                        color: $base-text-color2;
+                    }
+                    // title end
+
+                    // content
+                    > .content {
+                        line-height: 1.43;
+                        color: $base-heading-color;
+
+                        // list
+                        > .list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            > li {
+                                @include remCalc("margin-bottom", 10);
+                                flex: 0 0 50%;
+                                @include font-size(12);
+                                line-height: 1.67;
+                                // ui_icon
+                                > .ui_icon {
+                                    @include remCalc("margin-right", 5);
+                                    color: $base-color;
+                                }
+                                // ui_icon end
+                            }
+                        }
+                        // list end
+                    }
+                    // content end
+                }
+                // block end
+            }
+            // content end
+        }
+        // information end
+    }
+    // detail end
+}
+// restaurant end

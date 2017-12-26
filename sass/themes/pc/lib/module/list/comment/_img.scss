@@ -1,0 +1,32 @@
+//sass style
+//-----------------------------------
+// _img.scss
+
+
+
+/**************************************/
+/*                 img                */
+/**************************************/
+// ui_commentlist
+.ui_commentlist {
+    // li
+    > li {
+        // user_img
+        > .user_img {
+            @include remCalc("margin-right", 10);
+
+            // max-screen
+            @include max-screen($base-max-screen){}
+            // max-screen end
+
+            > a {
+                display: block;
+
+                > img {}
+            }
+        }
+        // user_img end
+    }
+    // li end
+}
+// ui_commentlist end

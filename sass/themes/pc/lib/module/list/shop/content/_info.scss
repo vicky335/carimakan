@@ -1,0 +1,29 @@
+//sass style
+//-----------------------------------
+// _info.scss
+
+
+
+/**************************************/
+/*                 info               */
+/**************************************/
+
+// info
+> .info {
+    display: flex;
+    align-items: center;
+    @include remCalc("margin-top", 17);
+
+    // price
+    > .price {
+        color: $base-heading-color;
+    }
+    // price end
+
+    // cate
+    > .cate {
+        color: $base-text-color2;
+    }
+    // cate end
+}
+// info end

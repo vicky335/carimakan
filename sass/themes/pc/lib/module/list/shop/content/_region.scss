@@ -1,0 +1,31 @@
+//sass style
+//-----------------------------------
+// _region.scss
+
+
+
+/**************************************/
+/*               region               */
+/**************************************/
+
+// region
+> .region {
+    display: flex;
+    align-items: center;
+    @include remCalc("margin-top", 9);
+
+    // address
+    > .address {
+        flex: 1;
+        color: $base-text-color2;
+        @include ellipsis(1, 12, 1.33);
+    }
+    // address end
+
+    // position
+    > .position {
+        color: $base-color;
+    }
+    // position end
+}
+// region end

@@ -1,0 +1,98 @@
+//sass style
+//-----------------------------------
+// _img.scss
+
+
+
+/**************************************/
+/*                 img                */
+/**************************************/
+// ui_voucherlist
+.ui_voucherlist {
+    // li
+    > li {
+        > a {
+            // img
+            > .img {
+                position: relative;
+                text-align: center;
+                overflow: hidden;
+                @include remCalc("margin-right", 10);
+                @include remCalc("width", 95);
+                @include remCalc("height", 95);
+
+                // max-screen
+                @include max-screen($base-max-screen){}
+                // max-screen end
+
+                // > a {
+                //     display: block;
+
+                    > img {
+                        // transition: all .7s;
+
+                        &.lazyload {}
+
+                        &.lazyloaded {}
+
+                        &:hover {
+                            transition: all .7s;
+                            transform: scale(1.05);
+                        }
+                    }
+
+                    > .txt {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        background-color: $base-color;
+                        @include remCalc("padding", 4);
+                        color: #ffffff;
+                        line-height: 1;
+                        @include font-size(12);
+                        font-weight: 500;
+                    }
+                // }
+            }
+            // img end
+        }
+
+        // used
+        &.used {
+            > a {
+                // img
+                > .img {
+                    > .txt {
+                        text-align: center;
+                        font-weight: normal;
+                    }
+                }
+                // img end
+            }
+        }
+        // used end
+
+        // expired
+        &.expired {
+            > a {
+                // img
+                > .img {
+                    > .txt {
+                        position: absolute;
+                        top: 0;
+                        background-color: rgba(#000000, 0.5);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: normal;
+                    }
+                }
+                // img end
+            }
+        }
+        // expired end
+    }
+    // li end
+}
+// ui_voucherlist end

@@ -1,0 +1,48 @@
+//sass style
+//-----------------------------------
+// _header.scss
+
+
+
+/**************************************/
+/*               header               */
+/**************************************/
+
+// header
+> .header {
+    // img
+    > .img {
+        position: relative;
+        @include remCalc("height", 100);
+        overflow: hidden;
+        z-index: 0;
+
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(#000000, 0.15);
+            content: "";
+        }
+
+        > img {
+            position: absolute;
+            width: 100%;
+            @include position-center;
+        }
+    }
+    // img end
+
+    // user_img
+    > .user_img {
+        position: relative;
+        @include remCalc("margin", -40 auto 0);
+        @include remCalc("width", 100);
+        @include remCalc("height", 100);
+        @include remCalc("border", (5 solid #ffffff));
+    }
+    // user_img end
+}
+// header end
