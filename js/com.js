@@ -451,66 +451,69 @@ var Com = {
 	 */
 	bindFilter: function(args) {
 		var self = this,
-			$obj = $('.ui_filter'),
-			objOffsetTop = $obj.offset().top,
-			objHeight = $obj.outerHeight(true),
-			contentTop = 0;
+			$obj = $('.ui_filter');
 
-		Com.fnOnScroll(function() {
-			var $this = $(this),
-				scrollTop = objOffsetTop - 1,
-				headerHeight = 0;
-			if ($('.wrap_header .scrollfix')) {
-				headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
-			}
+		if ($obj.length > 0) {
+			var objOffsetTop = $obj.offset().top,
+				objHeight = $obj.outerHeight(true),
+				contentTop = 0;
 
-			scrollTop -= headerHeight;
-
-			if ($this.scrollTop() >= scrollTop) {
-				var top = 0;
-				if ($('.wrap_header .scrollfix')) {
-					top = $('.wrap_header .scrollfix').outerHeight(true);
+			Com.fnOnScroll(function() {
+				var $this = $(this),
+					scrollTop = objOffsetTop - 1,
+					headerHeight = 0;
+				if ($('.wrap_header .scrollfix').length > 0) {
+					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
 				}
-				$obj.addClass('fixed');
-			} else {
-				$obj.removeClass('fixed');
-				$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
-			}
-		});
 
-		$obj.on('click', '.filter_nav', function() {
-			var $this = $(this),
-				titleHeight = $this.outerHeight(true),
-				headerHeight = 0;
+				scrollTop -= headerHeight;
 
-
-			if ($('.wrap_header .scrollfix')) {
-				headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
-			}
-
-			if (!$obj.hasClass('fixed')) {
-				var goTopHeight = objOffsetTop;
-
-				goTopHeight -= headerHeight;
-
-				self.fnGoTop(goTopHeight, function() {
-					var top = objHeight + $obj.children('.content').position().top;
-					if (!$obj.hasClass('fixed')) {
-						top -= $(window).scrollTop();
+				if ($this.scrollTop() >= scrollTop) {
+					var top = 0;
+					if ($('.wrap_header .scrollfix').length > 0) {
+						top = $('.wrap_header .scrollfix').outerHeight(true);
 					}
-					$this.children('.content').css('top', top);
-				});
-			} else {
-				$this.children('.content').css('top', objHeight + headerHeight);
-			}
+					$obj.addClass('fixed');
+				} else {
+					$obj.removeClass('fixed');
+					$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
+				}
+			});
 
-			$this.siblings().removeClass('cur');
-			if (!$this.hasClass('cur')) {
-				$this.addClass('cur').siblings().removeClass('cur');
-			} else {
-				$this.removeClass('cur');
-			}
-		});
+			$obj.on('click', '.filter_nav', function() {
+				var $this = $(this),
+					titleHeight = $this.outerHeight(true),
+					headerHeight = 0;
+
+
+				if ($('.wrap_header .scrollfix').length > 0) {
+					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
+				}
+
+				if (!$obj.hasClass('fixed')) {
+					var goTopHeight = objOffsetTop;
+
+					goTopHeight -= headerHeight;
+
+					self.fnGoTop(goTopHeight, function() {
+						var top = objHeight + $obj.children('.content').position().top;
+						if (!$obj.hasClass('fixed')) {
+							top -= $(window).scrollTop();
+						}
+						$this.children('.content').css('top', top);
+					});
+				} else {
+					$this.children('.content').css('top', objHeight + headerHeight);
+				}
+
+				$this.siblings().removeClass('cur');
+				if (!$this.hasClass('cur')) {
+					$this.addClass('cur').siblings().removeClass('cur');
+				} else {
+					$this.removeClass('cur');
+				}
+			});
+		}
 	}
 
 };
