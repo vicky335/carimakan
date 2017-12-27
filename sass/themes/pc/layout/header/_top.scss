@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _top.scss
+
+
+/**************************************/
+/*                 top                */
+/**************************************/
+
+// nav
+> .wrap_header {
+
+    // top
+    > .top {
+        @include remCalc("border-bottom", (1 solid $base-border-color));
+
+        &:before {
+            display: block;
+            width: 100%;
+            @include remCalc("height", 4);
+            background-image: linear-gradient(to right, #feb23a, #fc8245 57%, #f95450);
+            content: "";
+        }
+
+        // container
+        > .container {
+            position: relative;
+            @include remCalc("padding", 26 0 69);
+            text-align: center;
+
+            // logo
+            > .logo {
+
+                > a {
+                    display: block;
+                    @include remCalc("height", 50);
+                    background-image: url($bast-images-path + 'logo.png');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: contain;
+                    // text-indent: -9999em;
+                }
+            }
+            // logo end
+
+            // nav
+            > .nav {
+                position: absolute;
+                @include remCalc("top", 45);
+                right: 0;
+
+                // list
+                > .list {
+                    display: flex;
+                    align-items: center;
+
+                    > li {
+                        @include remCalc("margin-left", 18);
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        > a {
+                            color: #666666;
+                            line-height: 1.14;
+                            @include font-size(14);
+
+                            // ui_icon
+                            > .ui_icon {
+                                @include remCalc("margin-right", 5);
+                                color: $base-text-color;
+                                @include remCalc("width", 24);
+                                @include remCalc("height", 24);
+                            }
+                            // first-child end
+                        }
+                    }
+                }
+                // list end
+            }
+            // nav end
+        }
+        // container end
+    }
+    // top end
+
+}
+// nav end
