@@ -12,7 +12,6 @@
 
 // ui_block
 .ui_block {
-    @include remCalc("padding", 15 10);
     @include remCalc("margin-bottom", $base-block-margin);
     background-color: #ffffff;
 

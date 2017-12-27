@@ -12,14 +12,14 @@
 /**************************************/
 
 // 是否需要支持IE
-$legacy-support-for-ie: false !default;
+$legacy-support-for-ie: true !default;
 
 /**************************************/
 /*               Layout               */
 /**************************************/
 
 // 默認字體
-$use-font-api: false;
+$use-font-api: true;
 $font-name: 'Roboto';
 $font-api: '//fonts.googleapis.com/css?family=Roboto';
 // $base-font-stack: 'PingFangTC', 'Hiragino Sans GB', 'Microsoft JhengHei', sans-serif;
@@ -47,7 +47,7 @@ $base-link-hover-style: (
 );
 
 // 主背景 顏色
-$base-background-color: #f4f4f4;
+$base-background-color: #ffffff;
 
 // 特殊顏色
 $special-colors: (
@@ -63,7 +63,7 @@ $base-btn-colors: (
 );
 
 // border
-$base-border-color: rgba(0, 0, 0, .24);
+$base-border-color: #dddddd;
 
 
 /**************************************/
@@ -71,15 +71,15 @@ $base-border-color: rgba(0, 0, 0, .24);
 /**************************************/
 
 // 默認頁面最寬
-$base-pages-max-width: 1024;
+$base-pages-max-width: 1040;
 
 // 默認screen寬
-$base-max-screen: 1024;
+$base-max-screen: 1040;
 
 // 默認sidebar寬
-$base-sidebar-width: 300;
+$base-sidebar-width: 330;
 // 默認頁面sidebar邊距
-$base-sidebar-margin: 55;
+$base-sidebar-margin: 10;
 
 // 默認邊距
 $base-block-margin: 10;
@@ -89,10 +89,10 @@ $base-block-margin: 10;
 /**************************************/
 
 // 默認行高
-$base-line-height: 1.33;
+$base-line-height: 1.5;
 
 // 默認字體大小
-$browser-default-font-size: 14;
+$browser-default-font-size: 16;
 $base-font-size: $browser-default-font-size;
 
 // 定義h1~h3的字體大小
@@ -107,16 +107,16 @@ $base-ellipsis-set-mobile-height-auto: false;
 $base-forms-title-color: $base-heading-color;
 $base-forms-text-color: $base-text-color;
 $base-forms-text-color2: $base-text-color2;
-$base-forms-placeholder-color: #666666;
-$base-forms-error-color: #c13a3a;
+$base-forms-placeholder-color: #999999;
+$base-forms-error-color: $base-color;
 $base-forms-border-color: $base-border-color;
 
 // padding size
 $base-forms-padding-size: 10;
-$base-forms-border-radius: 5;
+$base-forms-border-radius: 3;
 
 // tips font size
-$base-forms-tips-font-size: 14;
+$base-forms-tips-font-size: 16;
 
 // col label margin
 $base-forms-col-title-width: 100;
@@ -160,6 +160,7 @@ $base-user-img-size: 40;
 $ui-block-title-font-size: 14;
 $ui-block-title-style: (
     color: $base-heading-color,
-    font-weight: 500
+    font-weight: 500,
+    line-height: 1.4
 );
 /**** / end ui_block ****/

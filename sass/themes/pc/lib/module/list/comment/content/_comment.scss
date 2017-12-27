@@ -26,6 +26,7 @@
         > li {
             line-height: 1.33;
             @include font-size(12);
+            color: #666666;
             .name {
                 color: #4492d8;
             }
@@ -35,9 +36,9 @@
 
     // more
     > .more {
-        display: inline-block;
+        @include inline-block;
         @include remCalc("margin-top", 10);
-        color: $base-text-color;
+        color: #666666;
         line-height: 1.33;
         @include font-size(12);
     }

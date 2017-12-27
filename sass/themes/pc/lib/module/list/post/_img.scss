@@ -16,15 +16,15 @@
             // img
             > .img {
                 position: relative;
-                @include remCalc("height", 90);
-                @include remCalc("border-radius", 3.8 3.8 0 0);
+                @include remCalc("height", 161);
+                @include remCalc("border-radius", 5.5 5.5 0 0);
 
                 // max-screen
                 @include max-screen($base-max-screen){}
                 // max-screen end
 
                 > img {
-                    @include remCalc("border-radius", 3.8 3.8 0 0);
+                    @include remCalc("border-radius", 5.5 5.5 0 0);
                 }
             }
             // img end

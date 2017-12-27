@@ -10,20 +10,18 @@
 
 // region
 > .region {
-    display: flex;
-    align-items: center;
-    @include remCalc("margin-top", 9);
+    @include remCalc("margin-top", 6);
 
     // address
     > .address {
-        flex: 1;
         color: $base-text-color2;
-        @include ellipsis(1, 12, 1.33);
+        @include ellipsis(1);
     }
     // address end
 
     // position
     > .position {
+        text-align: right;
         color: $base-color;
     }
     // position end

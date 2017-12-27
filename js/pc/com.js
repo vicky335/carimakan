@@ -464,43 +464,43 @@ var Com = {
 				objHeight = $obj.outerHeight(true),
 				contentTop = 0;
 
-			Com.fnOnScroll(function() {
-				var $this = $(this),
-					scrollTop = objOffsetTop - 1,
-					headerHeight = 0;
-				if ($('.wrap_header .scrollfix').length > 0) {
-					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
-				}
+			// Com.fnOnScroll(function() {
+			// 	var $this = $(this),
+			// 		scrollTop = objOffsetTop - 1,
+			// 		headerHeight = 0;
+			// 	if ($('.wrap_header .scrollfix').length > 0) {
+			// 		headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
+			// 	}
 
-				scrollTop -= headerHeight;
+			// 	scrollTop -= headerHeight;
 
-				if ($this.scrollTop() >= scrollTop) {
-					var top = 0;
-					if ($('.wrap_header .scrollfix').length > 0) {
-						top = $('.wrap_header .scrollfix').outerHeight(true);
-					}
-					$obj.addClass('fixed');
-					$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
-				} else {
-					$obj.removeClass('fixed');
+			// 	if ($this.scrollTop() >= scrollTop) {
+			// 		var top = 0;
+			// 		if ($('.wrap_header .scrollfix').length > 0) {
+			// 			top = $('.wrap_header .scrollfix').outerHeight(true);
+			// 		}
+			// 		$obj.addClass('fixed');
+			// 		$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
+			// 	} else {
+			// 		$obj.removeClass('fixed');
 
-					if ($obj.find('.cur').length > 0) {
-						if ($obj.find('.clickscroll').length > 0) {
-							$obj.find('.filter_nav').children('.content').css('top', objHeight);
-						} else {
-							$obj.find('.cur').removeClass('cur');
-						}
-					}
-					// if ($obj.hasClass('fixed')) {
-					// 	$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
-					// 	$obj.removeClass('fixed');
-					// } else {
-					// 	if ($obj.find('.clickscroll').length > 0) {
-					// 		$obj.find('.cur').removeClass('cur');
-					// 	}
-					// }
-				}
-			});
+			// 		if ($obj.find('.cur').length > 0) {
+			// 			if ($obj.find('.clickscroll').length > 0) {
+			// 				$obj.find('.filter_nav').children('.content').css('top', objHeight);
+			// 			} else {
+			// 				$obj.find('.cur').removeClass('cur');
+			// 			}
+			// 		}
+			// 		// if ($obj.hasClass('fixed')) {
+			// 		// 	$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
+			// 		// 	$obj.removeClass('fixed');
+			// 		// } else {
+			// 		// 	if ($obj.find('.clickscroll').length > 0) {
+			// 		// 		$obj.find('.cur').removeClass('cur');
+			// 		// 	}
+			// 		// }
+			// 	}
+			// });
 
 			$obj.on('click', '.filter_nav > .title', function() {
 				var $this = $(this),
@@ -658,31 +658,31 @@ var Com = {
 	 * @description ui filter filter導航效果
 	 */
 	fnHeader: function() {
-		var $scrollObj = $('.wrap_header .scrollfix');
-		if ($scrollObj.length > 0) {
-			var objOffsetTop = $scrollObj.offset().top + $scrollObj.outerHeight(true);
-			Com.fnOnScroll(function() {
-				var $this = $(this);
+		// var $scrollObj = $('.wrap_header .scrollfix');
+		// if ($scrollObj.length > 0) {
+		// 	var objOffsetTop = $scrollObj.offset().top + $scrollObj.outerHeight(true);
+		// 	Com.fnOnScroll(function() {
+		// 		var $this = $(this);
 
-				if ($this.scrollTop() >= objOffsetTop) {
-					$scrollObj.addClass('fixed');
-				} else {
-					$scrollObj.removeClass('fixed');
-				}
-			});
-		}
+		// 		if ($this.scrollTop() >= objOffsetTop) {
+		// 			$scrollObj.addClass('fixed');
+		// 		} else {
+		// 			$scrollObj.removeClass('fixed');
+		// 		}
+		// 	});
+		// }
 
-		// btn_search
-		$('#wrap').on('click', '.btn_search', function() {
-			var $this = $(this);
-			OMIS.dialog({
-				id: 'win_searchBox',
-				html: $.templates("#tpl_search").render(),
-				onShow: function() {
-					$(this.target).find('.input').focus();
-				}
-			});
-		});
+		// // btn_search
+		// $('#wrap').on('click', '.btn_search', function() {
+		// 	var $this = $(this);
+		// 	OMIS.dialog({
+		// 		id: 'win_searchBox',
+		// 		html: $.templates("#tpl_search").render(),
+		// 		onShow: function() {
+		// 			$(this.target).find('.input').focus();
+		// 		}
+		// 	});
+		// });
 	}
 
 };

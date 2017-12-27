@@ -60,7 +60,7 @@
         // content
         > .content {
             @include remCalc("height", 420);
-            background: url($bast-images-path + 'banner/banner_pop.jpg') no-repeat center center;
+            background: url($bast-images-path + 'mobile/banner/banner_pop.jpg') no-repeat center center;
             background-size: contain;
 
             // downloadapp

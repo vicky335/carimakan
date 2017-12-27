@@ -12,11 +12,11 @@
 > .info {
     display: flex;
     align-items: center;
-    @include remCalc("margin-top", 17);
+    @include remCalc("margin-top", 21);
 
     // price
     > .price {
-        color: $base-heading-color;
+        color: $base-text-color;
     }
     // price end
 

@@ -45,8 +45,9 @@
         // error
         &.error {
             @extend %test-def-font-size;
-            border-color: $base-forms-error-color;
             color: $base-text-color;
+            background-color: #fffcf9;
+            @include remCalc("border", (1 solid #ffcc91));
         }
         // error end
     }
@@ -163,6 +164,7 @@
         @extend %text-def-layout;
         color: $base-forms-text-color2;
         @include font-size($base-forms-tips-font-size);
+        line-height: 1.25;
 
         .ui_icon {
             @include remCalc("width", 16);

@@ -14,7 +14,39 @@
 
     // bottom
     > .bottom {
+        display: flex;
+
+        // max-screen
+        @include max-screen($base-max-screen){
+            display: block;
+        }
+        // max-screen end
+
+        @include remCalc("margin-top", 24);
+        @include remCalc("padding-top", 12);
+        @include remCalc("border-top", (1 solid rgba(#ffffff, 0.1)));
         @include font-size(12);
+        line-height: 1.17;
+        color: $base-text-color2;
+
+        > .disclaimer {
+            @include remCalc("margin-left", 10);
+            flex: 0 0 63%;
+            color: $base-text-color2;
+
+            // max-screen
+            @include max-screen($base-max-screen){
+                margin-left: 0;
+                @include remCalc("margin-bottom", 8);
+            }
+            // max-screen end
+        }
+
+        > .copyright {
+            flex: 1;
+            text-align: right;
+            color: #ffffff;
+        }
     }
     // bottom end
 }

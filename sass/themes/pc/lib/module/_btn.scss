@@ -21,7 +21,7 @@
     box-sizing: border-box;
     cursor: pointer;
     @include remCalc("padding", 11 32);
-    @include remCalc("border-radius", 100);
+    @include remCalc("border-radius", 5);
     @include remCalc("border", (1 solid transparent));
     font-weight: 500;
     background-color: transparent;

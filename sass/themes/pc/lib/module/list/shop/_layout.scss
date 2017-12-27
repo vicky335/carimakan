@@ -11,9 +11,8 @@
 .ui_shoplist {
     // li
     > li {
-        @include remCalc("margin", 0 -10);
-        @include remCalc("border-bottom", (0.5 solid $base-border-color));
-        // background-color: #ffffff;
+        @include remCalc("margin", 0);
+        @include remCalc("border-bottom", (1 solid $base-border-color));
 
         // max-screen
         @include max-screen($base-max-screen){}
@@ -22,20 +21,7 @@
         > a {
             display: flex;
             align-items: center;
-            @include remCalc("padding", 15 10);
-        }
-
-        &:first-child {
-            > a {
-                padding-top: 0;
-            }
-        }
-
-        &:last-child {
-            border-bottom: none;
-            > a {
-                padding-bottom: 0;
-            }
+            @include remCalc("padding", 20 0);
         }
 
         // nomore

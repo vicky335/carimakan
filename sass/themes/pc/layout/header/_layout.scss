@@ -11,26 +11,11 @@
 
 // header
 > .wrap_header {
-    // position: relative;
-    z-index: 1;
-    background-color: $base-color;
-
-    // container
-    > .container {
-        position: relative;
-        // display: flex;
-        // align-items: center;
-        // flex-wrap: wrap;
-
-        // scrollfix
-        > .scrollfix {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-        // scrollfix end
+    // downloadapp
+    > .downloadapp {
+        background-color: #2b2f32;
+        text-align: center;
     }
-    // container end
+    // downloadapp end
 }
 // header end

@@ -13,34 +13,26 @@
 > .wrap_header {
 
     // banner
-    > .banner {}
-    // banner end
+    > .banner {
+        @include remCalc("margin-top", -35);
 
-    // container
-    > .container {
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        overflow: hidden;
 
-        // banner
-        > .banner {
-            @extend %scroll-x-layout;
-            // list
-            > .list {
-                // display: flex;
+        // list
+        > .list {
+            > li {
+                @include inline-block(top);
 
-                > li {
-                    @include inline-block(top);
-                    // flex: 0 0 100%;
-
-                    > a {
-                        display: block;
-                    }
+                > a {
+                    display: block;
                 }
             }
-            // list end
         }
-        // banner end
+        // list end
     }
-    // container end
-
+    // banner end
 
 }
 // banner end

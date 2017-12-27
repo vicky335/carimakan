@@ -41,41 +41,45 @@
 
             // ui_text
             > .ui_text {
-                flex: 1;
                 margin: 0;
-                > .input {
-                    border-color: transparent;
-                    @include remCalc("border-radius", 100);
-                    @include remCalc("padding", 6 6+16+6 6 28);
-                    @include font-size(12);
-                    height: auto;
-                    line-height: 1.33;
-                    background-color: #eeeeee;
-                }
-                > .ui_icon {
-                    @include remCalc("left", 8);
-                    @include remCalc("width", 16);
-                    @include remCalc("height", 16);
-                    color: $base-text-color2;
-                }
-                > .clear {
-                    // position: absolute;
-                    @include position-center(top);
-                    @include remCalc("right", 6);
-                    color: #ffffff;
-                    border-radius: 50%;
-                    @include remCalc("width", 16);
-                    @include remCalc("height", 16);
-
+                flex: 1;
+                // form
+                > form {
+                    > .input {
+                        border-color: transparent;
+                        @include remCalc("border-radius", 100);
+                        @include remCalc("padding", 6 6+16+6 6 28);
+                        @include font-size(12);
+                        height: auto;
+                        line-height: 1.33;
+                        background-color: #eeeeee;
+                    }
                     > .ui_icon {
-                        @include remCalc("padding", 2);
+                        @include remCalc("left", 8);
                         @include remCalc("width", 16);
                         @include remCalc("height", 16);
-                        background-color: #cccccc;
+                        color: $base-text-color2;
+                    }
+                    > .clear {
+                        // position: absolute;
+                        @include position-center(top);
+                        @include remCalc("right", 6);
+                        color: #ffffff;
                         border-radius: 50%;
-                        vertical-align: baseline;
+                        @include remCalc("width", 16);
+                        @include remCalc("height", 16);
+
+                        > .ui_icon {
+                            @include remCalc("padding", 2);
+                            @include remCalc("width", 16);
+                            @include remCalc("height", 16);
+                            background-color: #cccccc;
+                            border-radius: 50%;
+                            vertical-align: baseline;
+                        }
                     }
                 }
+                // form
             }
             // ui_text end
             // close

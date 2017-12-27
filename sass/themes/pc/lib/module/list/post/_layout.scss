@@ -11,8 +11,8 @@
 .ui_postlist {
     // li
     > li {
-        @include remCalc("margin-right", 5);
-        @include remCalc("width", 140);
+        @include remCalc("margin-right", 13);
+        @include remCalc("width", 250);
         background-color: #ffffff;
 
         &:last-child {
@@ -25,8 +25,8 @@
 
         > a {
             display: block;
-            @include remCalc("border-radius", 3);
-            @include remCalc("border", (1 solid #dddddd));
+            @include remCalc("border-radius", 2.7);
+            @include remCalc("border", (1 solid $base-border-color));
         }
     }
     // li end

@@ -16,8 +16,6 @@
     > .top {
         display: flex;
         align-items: center;
-        // @include emCalc("margin-bottom", 8);
-        @include remCalc("margin-bottom", 8);
 
         // max-screen
         @include max-screen($base-max-screen){
@@ -25,61 +23,146 @@
         }
         // max-screen end
 
-        // copyright
-        > .copyright {
-            @include font-size(12);
+        // left
+        > .left {
+            flex: 1;
+
             // max-screen
             @include max-screen($base-max-screen){
-                // @include emCalc("margin-bottom", 8);
                 @include remCalc("margin-bottom", 8);
             }
             // max-screen end
-        }
-        // copyright end
 
-        // ui_nav
-        > .ui_nav {
-            flex: 1;
-
-            > li {
+            // block
+            > .block {
                 display: flex;
                 align-items: center;
-                // @include emCalc("margin-left", 8);
-                @include remCalc("margin-left", 8);
-
-                // max-screen
-                @include max-screen($base-max-screen){
-                    &:first-child {
-                        margin-left: 0;
-                    }
-                }
-                // max-screen end
-
-                &:after {
-                    // @include remCalc("margin-left", 8);
-                    // @include remCalc("width", 1);
-                    // @include remCalc("height", 12);
-                    @include emCalc("margin-left", 8);
-                    @include emCalc("width", 1);
-                    @include emCalc("height", 12);
-                    background-color: $base-text-color2;
-                    content: "";
-                }
-
+                @include remCalc("margin-bottom", 19);
                 &:last-child {
-                    &:after {
-                        display: none;
-                    }
+                    margin-bottom: 0;
                 }
 
-                > a {
-                    line-height: 1.5;
-                    color: $base-text-color2;
-                    @include font-size(12);
+                // title
+                > .title {
+                    color: #ffffff;
+                    @include remCalc("margin-right", 10);
+                    @include font-size(14);
+                    line-height: 1.14;
                 }
+                // title end
+
+                // content
+                > .content {
+                    // list
+                    > .list {
+                        display: flex;
+                        align-items: center;
+
+                        > li {
+                            @include remCalc("margin-right", 10);
+
+                            // max-screen
+                            @include max-screen($base-max-screen){}
+                            // max-screen end
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+
+                            > a {
+                                display: block;
+                                border-radius: 50%;
+                                background-color: #000000;
+                                color: rgba(#ffffff, 0.5);
+
+                                // ui_icon
+                                > .ui_icon {
+                                    @include remCalc("padding", 6);
+                                    @include remCalc("width", 32);
+                                    @include remCalc("height", 32);
+                                    border-radius: 50%;
+                                }
+                                // ui_icon end
+                            }
+                        }
+                    }
+                    // list end
+                }
+                // content end
             }
+            // block end
+
+            // nav
+            > .nav {
+                // list
+                > .list {
+                    display: flex;
+                    align-items: center;
+
+                    > li {
+                        @include remCalc("margin-right", 20);
+
+                        // max-screen
+                        @include max-screen($base-max-screen){
+                            @include remCalc("margin-right", 8);
+                        }
+                        // max-screen end
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        > a {
+                            display: block;
+                            @include font-size(14);
+                            line-height: 1.14;
+                            color: #ffffff;
+                        }
+                    }
+                }
+                // list end
+            }
+            // nav end
         }
-        // ui_nav end
+        // left end
+
+        // right
+        > .right {
+
+            // max-screen
+            @include max-screen($base-max-screen){
+                @include remCalc("margin-top", 8);
+            }
+            // max-screen end
+
+            // title
+            > .title {
+                color: #ffffff;
+                @include remCalc("margin-bottom", 19);
+                @include font-size(14);
+                line-height: 1.14;
+            }
+            // title end
+
+            // content
+            > .content {
+                display: flex;
+                align-items: center;
+                // btn
+                > .btn {
+                    @include remCalc("margin-right", 10);
+                    @include remCalc("width", 140);
+                    @include remCalc("height", 40);
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    // text-indent: -9999em;
+                }
+                // btn end
+            }
+            // content end
+        }
+        // right end
     }
     // top end
 }

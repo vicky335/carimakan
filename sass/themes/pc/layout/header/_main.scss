@@ -9,97 +9,241 @@
 /*                main                */
 /**************************************/
 
+%wrap-header-main-block-content {
+    position: absolute;
+    @include remCalc("top", 71);
+    // top: 100%;
+    left: 0;
+    right: 0;
+    @include remCalc("border-radius", 3);
+    @include remCalc("box-shadow", (0 4 5 0 rgba(0, 0, 0, 0.2)));
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+%wrap-header-main-block-content-list {
+    > li {
+        @include remCalc("padding", 10 20);
+        line-height: 1.88;
+        color: $base-text-color2;
+        cursor: pointer;
+
+        &:hover,
+        &.cur {
+            color: $base-text-color;
+            background-color: #f4f4f4;
+        }
+    }
+}
+
 // main
 > .wrap_header {
+    // main
+    > .main {
+        position: relative;
+        @include remCalc("margin-top", -35);
+        display: flex;
+        align-items: center;
+        @include remCalc("border", (1 solid $base-border-color));
+        @include remCalc("border-radius", 10);
+        @include remCalc("box-shadow", (0 4 8 0 rgba(0, 0, 0, 0.2)));
+        background-color: #ffffff;
 
-    // container
-    > .container {
+        // city
+        > .city {
+            position: relative;
+            flex: 0 0 20%;
 
-        // main
-        > .main {
-            display: flex;
-            align-items: center;
-            @include remCalc("padding", 15 10);
-
-            // city
-            > .city {
+            // title
+            > .title {
                 display: flex;
                 align-items: center;
-                color: rgba(255, 255, 255, 0.87);
-                @include font-size(16);
-                @include remCalc("margin-right", 9);
+                @include remCalc("padding", 23 15);
+                @include font-size(20);
+                color: $base-text-color;
+                @include remCalc("border-right", (1 solid $base-border-color));
+
+                > .ui_icon {
+                    @include remCalc("margin-right", 5);
+                    @include remCalc("width", 24);
+                    @include remCalc("height", 24);
+                    color: rgba($base-text-color, 0.3);
+                }
+
+                // txt
+                > .txt {
+                    flex: 1;
+                    @include ellipsis(1);
+                }
+                // txt end
 
                 &:after {
                     @include remCalc("margin", 4);
-                    @include triangles("arrow", "bottom", #ffffff, 6, 1);
+                    @include triangles("arrow", "bottom", $base-text-color, 10, 2);
                     content: "";
                 }
             }
-            // city end
+            // title end
 
-            // search
-            > .search {
-                flex: 1;
-                // ui_text
-                .ui_text {
-                    > .input {
-                        border-color: transparent;
-                        @include remCalc("border-radius", 100);
-                        @include remCalc("padding", 6 6 6 28);
-                        @include font-size(12);
-                        height: auto;
-                        line-height: 1.33;
-                    }
-                    > .ui_icon {
-                        @include remCalc("left", 8);
-                        @include remCalc("width", 16);
-                        @include remCalc("height", 16);
-                        color: $base-color;
-                    }
-                }
-                // ui_text end
-            }
-            // search end
-
-            // nav
-            > .nav {
-                // flex: 1;
-                @extend %scroll-x-layout;
-                @include remCalc("margin-left", 36);
+            // content
+            > .content {
+                @extend %wrap-header-main-block-content;
+                // list
                 > .list {
+                    @extend %wrap-header-main-block-content-list;
+                }
+                // list end
+            }
+            // content end
+        }
+        // city end
+
+        // search
+        > .search {
+            flex: 1;
+
+            // form
+            > form {
+                position: relative;
+                @include remCalc("padding", 11 10);
+
+                // searchwrap
+                > .searchwrap {
                     display: flex;
                     align-items: center;
-                    justify-content: flex-end;
-                    > li {
-                        > a {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            color: #ffffff;
 
-                            > .ui_icon {
-                                @include remCalc("width", 24);
-                                @include remCalc("height", 24);
-                            }
+                    // ui_text
+                    > .ui_text {
+                        @include remCalc("margin", 0 20 0 0);
+                        &:last-child {
+                            margin-right: 0;
+                        }
 
-                            &:hover {}
+                        &.ui_text_group {
+                            flex: 1;
+                        }
+
+                        > .input {
+                            border: none;
+                            border-radius: 0;
+                            @include remCalc("padding", 6 6 6 48);
+                            @include font-size(20);
+                            height: auto;
+                            line-height: 1.4;
+                        }
+                        > .ui_icon {
+                            @include remCalc("left", 0);
+                            @include remCalc("width", 28);
+                            @include remCalc("height", 28);
+                            color: rgba($base-text-color, 0.3);
+                        }
+
+                        > .ui_btn {
+                            @include remCalc("padding", 9 30);
+                            @include font-size(20);
+                            line-height: 1.4;
                         }
                     }
+                    // ui_text end
                 }
-            }
-            // nav end
+                // searchwrap end
+                // content
+                > .content {
+                    @extend %wrap-header-main-block-content;
+                    @include remCalc("right", 140);
 
-            // fixed
-            &.fixed {
-                position: fixed;
-                background-color: $base-color;
-                z-index: 9;
+                    // hotsearch
+                    &.hotsearch {
+                        // title
+                        > .title {
+                            @include remCalc("padding", 12 20);
+                            @include font-size(12);
+                            line-height: 1.33;
+                            font-style: italic;
+                            color: #cccccc;
+                        }
+                        // title end
+
+                        // content
+                        > .content {
+                            // list
+                            > .list {
+                                @extend %wrap-header-main-block-content-list;
+                            }
+                            // list end
+                        }
+                        // content end
+                    }
+                    // hotsearch end
+
+                    // shoplist
+                    &.shoplist {
+                        // ui_shoplist
+                        > .ui_shoplist {
+                            > li {
+                                > a {
+                                    @include remCalc("padding", 5 10);
+
+                                    &:hover {
+                                        background-color: #f4f4f4;
+                                    }
+
+                                    // img
+                                    > .img {
+                                        @include remCalc("margin-right", 10);
+                                        @include remCalc("width", 40);
+                                        @include remCalc("height", 40);
+                                    }
+                                    // img end
+
+                                    // content
+                                    > .content {
+                                        // title
+                                        > .title {
+                                            font-weight: normal;
+                                            @include ellipsis(1, 14, 1.43);
+                                        }
+                                        // title end
+
+                                        // comments, info
+                                        > .comments,
+                                        > .info {
+                                            display: none;
+                                        }
+                                        // comments, info end
+
+                                        // region
+                                        > .region {
+                                            @include remCalc("margin-top", 4);
+                                            // address
+                                            > .address {
+                                                margin-right: 0;
+                                                @include ellipsis(1, 12, 1.33);
+                                            }
+                                            // address end
+                                            // position
+                                            > .position {
+                                                display: none;
+                                            }
+                                            // position end
+                                        }
+                                        // region end
+                                    }
+                                    // content end
+                                }
+                            }
+                        }
+                        // ui_shoplist end
+                    }
+                    // shoplist end
+                }
+                // content end
             }
-            // fixed end
+            // form end
         }
-        // main end
+        // search end
     }
-    // container end
+    // main end
 
 
 }

@@ -12,11 +12,11 @@
 > .extcon {
     display: flex;
     align-items: center;
+    @include remCalc("margin-top", 5);
 
     // price
     > .price {
         @include remCalc("margin-left", 10);
-        font-weight: 500;
         line-height: 1.43;
         color: $base-heading-color;
     }

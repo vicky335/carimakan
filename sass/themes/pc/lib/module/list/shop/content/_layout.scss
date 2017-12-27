@@ -15,14 +15,13 @@
             // content
             > .content {
                 flex: 1;
-                @include font-size(12);
 
                 // max-screen
                 @include max-screen($base-max-screen){}
                 // max-screen end
 
                 .block {
-                    @include remCalc("margin-right", 10);
+                    @include remCalc("margin-right", 20);
                     text-transform: capitalize;
 
                     &:last-child {

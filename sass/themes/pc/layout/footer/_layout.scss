@@ -11,6 +11,8 @@
 
 // footer
 > .wrap_footer {
+    @include remCalc("padding", 41 0 38);
+    background-color: #2b2f32;
 
     // max-screen
     @include max-screen($base-max-screen){}

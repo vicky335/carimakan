@@ -10,8 +10,9 @@
 
 // time
 > .time {
-    @include remCalc("margin-bottom", 5);
+    @include remCalc("margin-bottom", 7);
     color: $base-text-color2;
-    @include font-size(12);
+    @include font-size(14);
+    line-height: 1.73;
 }
 // time end

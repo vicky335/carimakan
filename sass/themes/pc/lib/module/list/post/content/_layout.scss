@@ -15,7 +15,7 @@
         > a {
             // content
             > .content {
-                @include remCalc("padding", 10);
+                @include remCalc("padding", 16 11);
 
                 // max-screen
                 @include max-screen($base-max-screen){}

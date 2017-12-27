@@ -117,7 +117,7 @@
                                 @include remCalc("left", 2);
                                 @include remCalc("width", 24);
                                 @include remCalc("height", 24);
-                                background: url($bast-images-path + '/icon_flag.png') no-repeat 0 0;
+                                background: url($bast-images-path + 'mobile/icon_flag.png') no-repeat 0 0;
                                 background-size: 100% 100%;
                                 content: '';
                             }
