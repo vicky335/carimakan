@@ -12,6 +12,6 @@
 // container
 > .wrap_container {
     flex: 1;
-    // @include emCalc("margin-top", 24);
-    // @include remCalc("margin-top", 24);
+    @include remCalc("margin-top", 76);
+    @include remCalc("margin-bottom", 60);
 }

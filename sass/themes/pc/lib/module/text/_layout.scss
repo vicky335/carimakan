@@ -12,7 +12,7 @@
 
 // ui_text
 .ui_text {
-    @include remCalc("margin-bottom", 24);
+    @include remCalc("margin-bottom", 20);
     box-sizing: border-box;
 
     &:last-child {
@@ -35,7 +35,7 @@
     .input,
     .number,
     .textarea,
-    .select, {
+    .select {
         @extend %text-def-layout;
         @extend %text-def-padding;
         @extend %text-def-border;
@@ -109,6 +109,7 @@
         overflow: hidden;
         overflow-y: auto;
         resize: none;
+        vertical-align: middle;
     }
     // textarea end
 

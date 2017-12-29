@@ -26,5 +26,36 @@
         // max-screen end
     }
     // title end
+
+    // header
+    > .header {
+        @include remCalc("margin-bottom", 20);
+
+        // title
+        > .title {
+            @include font-size(32);
+            font-weight: 500;
+            line-height: 1.0;
+
+            // max-screen
+            @include max-screen($base-max-screen){}
+            // max-screen end
+        }
+        // title end
+
+        // tips
+        > .tips {
+            @include remCalc("margin-top", 20);
+            @include font-size(14);
+            line-height: 1.14;
+            color: $base-text-color2;
+
+            // max-screen
+            @include max-screen($base-max-screen){}
+            // max-screen end
+        }
+        // tips end
+    }
+    // header end
 }
 // ui_block end

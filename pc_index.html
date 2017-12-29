@@ -100,6 +100,20 @@
             <div class="site index container">
                 <!-- ui_block postlist -->
                 <section class="ui_block postlist">
+                    <!-- header -->
+                    <header class="header">
+                        <!-- title -->
+                        <h2 class="title">
+                            Collections
+                        </h2>
+                        <!--/ end title -->
+                        <!-- tips -->
+                        <p class="tips">
+                            Explore curated lists of top restaurants, cafes, pubs, and bars in and around Delhi NCR, based on trends
+                        </p>
+                        <!--/ end tips -->
+                    </header>
+                    <!--/ end header -->
                     <!-- content  -->
                     <div class="content">
                         <!-- 請按實際需要渲染頁面 -->
@@ -107,40 +121,77 @@
                         <div class="include" file="_postlist.html"></div>
                         <!--/ end postlist -->
                         <!--/ end 請按實際需要渲染頁面 -->
+
+                        <!-- nav -->
+                        <div class="nav">
+                            <a class="btn left"></a>
+                            <a class="btn right"></a>
+                        </div>
+                        <!--/ end nav -->
                     </div>
                     <!--/ end content -->
                 </section>
                 <!--/ end ui_block postlist -->
 
-                <!-- 請按實際需要渲染頁面 -->
-                <!-- filter -->
-                <div class="include" file="_filter.html"></div>
-                <!--/ end filter -->
-                <!--/ end 請按實際需要渲染頁面 -->
+                <!-- ui_block shoplist -->
+                <section class="ui_block shoplist">
+                    <!-- header -->
+                    <header class="header">
+                        <!-- title -->
+                        <h2 class="title">
+                            Popular restaruants in Jakata
+                        </h2>
+                        <!--/ end title -->
+                        <!-- tips -->
+                        <p class="tips">
+                            Explore restaurants, bars, and cafés by locality
+                        </p>
+                        <!--/ end tips -->
+                    </header>
+                    <!--/ end header -->
 
-                <!-- ui_block -->
-                <section class="ui_block">
-                    <!-- content  -->
-                    <div class="content">
+                    <!-- content grid  -->
+                    <div class="content grid">
 
-                        <!-- 請按實際需要渲染頁面 -->
-                        <!-- shoplist -->
-                        <div class="include" file="_shoplist.html"></div>
-                        <!--/ end shoplist -->
-                        <!--/ end 請按實際需要渲染頁面 -->
+                        <!-- main -->
+                        <div class="main">
+                            <!-- 請按實際需要渲染頁面 -->
+                            <!-- pc_filter -->
+                            <div class="include" file="_pc_filter.html"></div>
+                            <!--/ end pc_filter -->
+                            <!--/ end 請按實際需要渲染頁面 -->
+
+
+                            <!-- 請按實際需要渲染頁面 -->
+                            <!-- shoplist -->
+                            <div class="include" file="_shoplist.html"></div>
+                            <!--/ end shoplist -->
+                            <!--/ end 請按實際需要渲染頁面 -->
+
+                            <!-- ui_notfind -->
+                            <section class="ui_notfind">
+                                <p>
+                                    No data to show
+                                </p>
+                            </section>
+                            <!--/ end ui_notfind -->
+                        </div>
+                        <!--/ end main -->
+
+                        <!-- sidebar -->
+                        <div class="sidebar">
+                            <!-- 請按實際需要渲染頁面 -->
+                            <!-- pc_filter_sidebar -->
+                            <div class="include" file="_pc_filter_sidebar.html"></div>
+                            <!--/ end pc_filter_sidebar -->
+                            <!--/ end 請按實際需要渲染頁面 -->
+                        </div>
+                        <!--/ end sidebar -->
 
                     </div>
-                    <!--/ end content -->
+                    <!--/ end content grid -->
                 </section>
-                <!--/ end ui_block -->
-
-                <!-- ui_notfind -->
-                <section class="ui_notfind">
-                    <p>
-                        No data to show
-                    </p>
-                </section>
-                <!--/ end ui_notfind -->
+                <!--/ end ui_block shoplist -->
             </div>
             <!--/ end site index -->
         </div>

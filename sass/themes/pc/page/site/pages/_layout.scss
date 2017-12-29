@@ -12,11 +12,40 @@
 
 // pages
 .pages{
+    // header
+    > .header {
+        @include remCalc("margin-bottom", 40);
+
+        // title
+        > .title {
+            @include font-size(32);
+            font-weight: bold;
+        }
+        // title end
+
+        // meta
+        > .meta {
+            display: flex;
+            align-items: center;
+            @include remCalc("margin-top", 15);
+
+            // time
+            > .time{
+                color: $base-text-color2;
+                @include font-size(12);
+                line-height: 1.33;
+            }
+            // time end
+        }
+        // meta end
+    }
+    // header end
+
     // content
     > .content {
         // block
         > .block {
-            @include remCalc("margin-bottom", 20);
+            @include remCalc("margin-bottom", 40);
 
             &:last-child {
                 margin-bottom: 0;
@@ -25,9 +54,9 @@
             // title
             > .title {
                 font-weight: 500;
-                @include font-size(14);
+                @include font-size(20);
                 line-height: 1;
-                @include remCalc("margin-bottom", 12);
+                @include remCalc("margin-bottom", 15);
             }
             // title end
 
@@ -35,7 +64,7 @@
             > .content {
                 p {
                     @include font-size(14);
-                    @include remCalc("margin-bottom", 10);
+                    @include remCalc("margin-bottom", 15);
                     line-height: 1.43;
 
                     &.fb {
@@ -50,10 +79,14 @@
                 }
 
                 .list {
+                    @include remCalc("margin-bottom", 15);
                     > li {
                         @include font-size(14);
-                        @include remCalc("margin-bottom", 5);
+                        // @include remCalc("margin-bottom", 5);
                         line-height: 1.43;
+                        list-style: disc;
+                        @include remCalc("margin-left", 25);
+                        // @include remCalc("padding-left", 5);
                     }
 
                     &.url {

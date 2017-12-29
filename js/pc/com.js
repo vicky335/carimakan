@@ -460,58 +460,16 @@ var Com = {
 			$obj = $('.ui_filter');
 
 		if ($obj.length > 0) {
-			var objOffsetTop = $obj.offset().top,
-				objHeight = $obj.outerHeight(true),
-				contentTop = 0;
-
-			// Com.fnOnScroll(function() {
-			// 	var $this = $(this),
-			// 		scrollTop = objOffsetTop - 1,
-			// 		headerHeight = 0;
-			// 	if ($('.wrap_header .scrollfix').length > 0) {
-			// 		headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
-			// 	}
-
-			// 	scrollTop -= headerHeight;
-
-			// 	if ($this.scrollTop() >= scrollTop) {
-			// 		var top = 0;
-			// 		if ($('.wrap_header .scrollfix').length > 0) {
-			// 			top = $('.wrap_header .scrollfix').outerHeight(true);
-			// 		}
-			// 		$obj.addClass('fixed');
-			// 		$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
-			// 	} else {
-			// 		$obj.removeClass('fixed');
-
-			// 		if ($obj.find('.cur').length > 0) {
-			// 			if ($obj.find('.clickscroll').length > 0) {
-			// 				$obj.find('.filter_nav').children('.content').css('top', objHeight);
-			// 			} else {
-			// 				$obj.find('.cur').removeClass('cur');
-			// 			}
-			// 		}
-			// 		// if ($obj.hasClass('fixed')) {
-			// 		// 	$obj.find('.filter_nav').children('.content').css('top', objHeight + headerHeight);
-			// 		// 	$obj.removeClass('fixed');
-			// 		// } else {
-			// 		// 	if ($obj.find('.clickscroll').length > 0) {
-			// 		// 		$obj.find('.cur').removeClass('cur');
-			// 		// 	}
-			// 		// }
-			// 	}
-			// });
 
 			$obj.on('click', '.filter_nav > .title', function() {
 				var $this = $(this),
 					$li = $this.parent(),
 					titleHeight = $this.outerHeight(true),
-					headerHeight = 0,
 					$content = $li.children('.content');
 
 
 				if (!$li.hasClass('cur')) {
-					$li.addClass('cur clickscroll').siblings().removeClass('cur');
+					$li.addClass('cur').siblings().removeClass('cur');
 					if ($content.hasClass('nav')) {
 						var $firstObj = $('.first', $content),
 							$secondObj = $('.second', $content);
@@ -523,28 +481,6 @@ var Com = {
 					}
 				} else {
 					$li.removeClass('cur');
-				}
-
-				if ($('.wrap_header .scrollfix').length > 0) {
-					headerHeight = $('.wrap_header .scrollfix').outerHeight(true);
-				}
-
-				if (!$obj.hasClass('fixed')) {
-					var goTopHeight = objOffsetTop;
-
-					goTopHeight -= headerHeight;
-
-					self.fnGoTop(goTopHeight, function() {
-						var top = objHeight + $obj.children('.content').position().top;
-						if (!$obj.hasClass('fixed')) {
-							top -= $(window).scrollTop();
-						}
-						$content.css('top', top);
-						$li.removeClass('clickscroll');
-					});
-				} else {
-					$content.css('top', objHeight + headerHeight);
-					$li.removeClass('clickscroll');
 				}
 			});
 
@@ -658,31 +594,42 @@ var Com = {
 	 * @description ui filter filter導航效果
 	 */
 	fnHeader: function() {
-		// var $scrollObj = $('.wrap_header .scrollfix');
-		// if ($scrollObj.length > 0) {
-		// 	var objOffsetTop = $scrollObj.offset().top + $scrollObj.outerHeight(true);
-		// 	Com.fnOnScroll(function() {
-		// 		var $this = $(this);
+		var $main = $('.wrap_header .main');
 
-		// 		if ($this.scrollTop() >= objOffsetTop) {
-		// 			$scrollObj.addClass('fixed');
-		// 		} else {
-		// 			$scrollObj.removeClass('fixed');
-		// 		}
-		// 	});
-		// }
-
-		// // btn_search
-		// $('#wrap').on('click', '.btn_search', function() {
-		// 	var $this = $(this);
-		// 	OMIS.dialog({
-		// 		id: 'win_searchBox',
-		// 		html: $.templates("#tpl_search").render(),
-		// 		onShow: function() {
-		// 			$(this.target).find('.input').focus();
-		// 		}
-		// 	});
-		// });
+		$main.on('click', '.city', function() {
+			var $this = $(this);
+			if (!$this.hasClass('cur')) {
+				$this.parents('.block').find('cur').removeClass('cur');
+				$this.addClass('cur');
+			} else {
+				$this.removeClass('cur');
+			}
+		}).on('focus', '.searchwrap .input', function() {
+			var $this = $(this),
+				$parentObj = $this.parents('.search');
+			$parentObj.find('.content.hotsearch').show();
+		}).on('keypress', '.searchwrap .input', function() {
+			var $this = $(this),
+				$parentObj = $this.parents('.search');
+			$parentObj.addClass('cur');
+			// OMIS.doAjax({
+			// 	success: function(html) {
+			$parentObj.find('.content.hotsearch').hide();
+			$parentObj.find('.content.shoplist').show();
+			// 	},
+			// 	options: {
+			// 		type: "GET",
+			// 		url: '/images/icons.svg',
+			// 		dataType: "html"
+			// 	}
+			// });
+		}).on('blur', '.searchwrap .input', function() {
+			var $this = $(this),
+				$parentObj = $this.parents('.search');
+			$parentObj.removeClass('cur');
+			$parentObj.find('.content.hotsearch').hide();
+			$parentObj.find('.content.shoplist').hide();
+		});
 	}
 
 };

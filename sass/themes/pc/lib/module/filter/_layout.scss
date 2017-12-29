@@ -10,110 +10,239 @@
 /*               layout               */
 /**************************************/
 
-$ui-filter-list-height: 52;
-
+// ui_filter
 .ui_filter {
-    @include remCalc("height", $ui-filter-list-height);
-    // content
-    > .content {
-        // list
-        > .list {
-            position: relative;
-            display: flex;
-            @include remCalc("border-top", (1 solid $base-border-color));
-            @include remCalc("border-bottom", (1 solid $base-border-color));
-            background-color: #ffffff;
-            @include remCalc("height", $ui-filter-list-height);
+    // _title.scss
+    @import "layout/title";
 
-            // li
-            > li {
-                flex: 1;
-
-                // title
-                > .title {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    // text-align: center;
-                    @include font-size(14);
-                    line-height: 1.43;
-                    @include remCalc("padding", 15 0);
-                    color: $base-heading-color;
-
-                    &.triangles {
-                        &:after {
-                            @include remCalc("margin-left", 7);
-                            @include remCalc("margin-top", 3);
-                            @include triangles("arrow", "bottom", $base-text-color2, 8, 2);
-                            content: "";
-                        }
-                    }
-
-                    > .ui_icon {
-                        @include remCalc("margin-right", 7);
-                    }
-                }
-                // title end
-
-                // content
-                > .content {
-                    display: none;
-                    // position: absolute;
-                    // @include remCalc("top", $ui-filter-list-height);
-                    // top: 100%;
-                    position: fixed;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background-color: #ffffff;
-                    @include remCalc("box-shadow", (0 10 10 0 rgba(0, 0, 0, 0.24)));
-                    @include remCalc("padding", 0 16);
-                    z-index: 9;
-                    overflow-y: auto;
-                }
-                // content end
-
-                // cur
-                &.cur {
-                    // title
-                    > .title {
-                        color: $base-color;
-                        // triangles
-                        &.triangles {
-                            &:after {
-                                @include remCalc("margin-top", 11);
-                                @include triangles("arrow", "top", $base-color, 8, 2);
-                            }
-                        }
-                        // triangles end
-                    }
-                    // title end
-
-                    // content
-                    > .content {
-                        display: block;
-                    }
-                    // content end
-                }
-                // cur end
-            }
-            // li end
-        }
-        // list end
-    }
-    // content end
-
-    // fixed
-    &.fixed {
-        // content
-        > .content {
-            position: fixed;
-            @include remCalc("top", 59);
-            left: 0;
-            right: 0;
-            z-index: 9;
-        }
-        // content end
-    }
-    // fixed end
+    // _content.scss
+    @import "layout/content";
 }
+// ui_filter end
+
+
+
+
+// $ui-filter-list-height: 52;
+
+// .ui_filter {
+//     @include remCalc("height", $ui-filter-list-height);
+//     // content
+//     > .content {
+//         // list
+//         > .list {
+//             position: relative;
+//             display: flex;
+//             align-items: center;
+//             @include remCalc("border-top", (1 solid $base-border-color));
+//             @include remCalc("border-bottom", (1 solid $base-border-color));
+//             background-color: #ffffff;
+//             @include remCalc("height", $ui-filter-list-height);
+
+//             // li
+//             > li {
+//                 @include remCalc("margin-right", 26);
+
+//                 &:last-child {
+//                     margin-right: 0;
+//                 }
+
+//                 // title
+//                 > .title {
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: center;
+//                     @include font-size(14);
+//                     line-height: 1.43;
+//                     @include remCalc("padding", 16 0);
+//                     color: $base-heading-color;
+
+//                     &.triangles {
+//                         &:after {
+//                             @include remCalc("margin-left", 7);
+//                             @include remCalc("margin-top", 3);
+//                             @include triangles("arrow", "bottom", rgba($base-text-color2, 0.2), 10, 2);
+//                             content: "";
+//                         }
+//                     }
+
+//                     > .ui_icon {
+//                         @include remCalc("margin-right", 7);
+//                     }
+//                 }
+//                 // title end
+
+//                 // content
+//                 > .content {
+//                     display: none;
+//                     position: fixed;
+//                     left: 0;
+//                     right: 0;
+//                     bottom: 0;
+//                     background-color: #ffffff;
+//                     @include remCalc("box-shadow", (0 10 10 0 rgba(0, 0, 0, 0.24)));
+//                     @include remCalc("padding", 0 16);
+//                     z-index: 2;
+//                     overflow-y: auto;
+//                 }
+//                 // content end
+
+//                 // cur
+//                 &.cur {
+//                     // title
+//                     > .title {
+//                         color: $base-color;
+//                         // triangles
+//                         &.triangles {
+//                             &:after {
+//                                 @include remCalc("margin-top", 11);
+//                                 @include triangles("arrow", "top", $base-color, 10, 2);
+//                             }
+//                         }
+//                         // triangles end
+//                     }
+//                     // title end
+
+//                     // content
+//                     > .content {
+//                         display: block;
+//                     }
+//                     // content end
+//                 }
+//                 // cur end
+
+//                 // pagination
+//                 &.pagination {
+//                     flex: 1;
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: flex-end;
+
+//                     // title
+//                     > .title {
+//                         @include remCalc("margin-right", 18);
+//                         @include font-size(14);
+//                         line-height: 1.14;
+//                         color: $base-text-color2;
+//                     }
+//                     // title end
+//                     // pages
+//                     > .pages {
+//                         display: flex;
+//                         align-items: center;
+
+//                         > li {
+//                             @include remCalc("border", (1 solid $base-border-color));
+//                             @include remCalc("border-radius", 3);
+//                             @include remCalc("margin-right", -1);
+
+//                             // :not(:first-child):not(:last-child)
+//                             &:not(:first-child):not(:last-child) {
+//                                 border-radius: 0;
+//                                 border-left: none;
+//                                 border-right: none;
+//                             }
+//                             // :not(:first-child):not(:last-child) end
+
+//                             // first-child
+//                             &:first-child {
+//                                 // border-right: none;
+//                                 @include remCalc("border-radius", 3 0 0 3);
+//                             }
+//                             // first-child end
+
+//                             // last-child
+//                             &:last-child {
+//                                 border-left: none;
+//                                 @include remCalc("border-radius", 0 3 3 0);
+//                             }
+//                             // last-child end
+
+//                             // page
+//                             > .page {
+//                                 display: block;
+//                                 position: relative;
+//                                 line-height: 1;
+//                                 @include remCalc("width", 32);
+//                                 @include remCalc("height", 32);
+//                                 &:before {
+//                                     position: absolute;
+//                                     @include remCalc("top", 13);
+//                                 }
+
+//                                 // prev
+//                                 &.prev {
+//                                     &:before {
+//                                         @include triangles("arrow", "right", $base-text-color, 10, 2);
+//                                         @include remCalc("left", 12);
+//                                     }
+
+//                                     &.disable {
+//                                         &:before {
+//                                             @include triangles("arrow", "right", rgba($base-text-color, 0.5), 10, 2);
+//                                         }
+//                                     }
+//                                 }
+//                                 // prev end
+
+//                                 // next
+//                                 &.next {
+//                                     &:before {
+//                                         @include triangles("arrow", "left", $base-text-color, 10, 2);
+//                                         @include remCalc("right", 12);
+//                                     }
+
+//                                     &.disable {
+//                                         &:before {
+//                                             @include triangles("arrow", "right", rgba($base-text-color, 0.5), 10, 2);
+//                                         }
+//                                     }
+//                                 }
+//                                 // next end
+//                             }
+//                             // page end
+//                         }
+//                     }
+//                     // pages end
+//                 }
+//                 // pagination end
+
+//                 // filter
+//                 &.filter {
+//                     flex: 0 0 100%;
+//                     border: none;
+//                     position: relative;
+//                     padding: 0;
+//                     // title
+//                     > .title {
+//                         @include remCalc("padding", 8 16);
+//                         @include remCalc("border", (1 solid $base-border-color));
+//                         @include remCalc("border-radius", 3 3 0 0);
+//                         background-color: #f6f6f6;
+
+//                         // tools
+//                         > .tools {
+//                             flex: 1;
+//                             text-align: right;
+//                         }
+//                         // tools end
+//                     }
+//                     // title end
+//                     // content
+//                     > .content {
+//                         position: static;
+//                         display: block;
+//                         border-top: none;
+//                         @include remCalc("border", (1 solid $base-border-color));
+//                         @include remCalc("border-radius", 0 0 3 3);
+//                     }
+//                     // content end
+//                 }
+//                 // filter end
+//             }
+//             // li end
+//         }
+//         // list end
+//     }
+//     // content end
+// }

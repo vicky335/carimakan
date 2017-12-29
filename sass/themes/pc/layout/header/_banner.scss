@@ -14,11 +14,9 @@
 
     // banner
     > .banner {
-        @include remCalc("margin-top", -35);
+        @include remCalc("margin-bottom", -36);
 
-        -webkit-overflow-scrolling: touch;
-        white-space: nowrap;
-        overflow: hidden;
+        @extend %js-scroll-layout;
 
         // list
         > .list {

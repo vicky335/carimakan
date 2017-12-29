@@ -44,9 +44,21 @@
             .tips,
             .error,
             .txt {
-                @include remCalc("margin", $base-forms-padding-size + 2 0);
+                @include remCalc("margin", $base-forms-padding-size 0 0);
+            }
+            .error {
+                font-style: italic;
             }
             // tips, error end
+
+            .input,
+            .number,
+            .textarea,
+            .select {
+                &.error {
+                    margin-top: 0;
+                }
+            }
         }
         // content end
     }

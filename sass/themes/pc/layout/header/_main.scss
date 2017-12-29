@@ -10,6 +10,7 @@
 /**************************************/
 
 %wrap-header-main-block-content {
+    display: none;
     position: absolute;
     @include remCalc("top", 71);
     // top: 100%;
@@ -19,6 +20,7 @@
     @include remCalc("box-shadow", (0 4 5 0 rgba(0, 0, 0, 0.2)));
     background-color: #ffffff;
     overflow: hidden;
+    z-index: 9;
 }
 
 %wrap-header-main-block-content-list {
@@ -41,7 +43,8 @@
     // main
     > .main {
         position: relative;
-        @include remCalc("margin-top", -35);
+        @include remCalc("margin-top", -36);
+        @include remCalc("margin-bottom", -36);
         display: flex;
         align-items: center;
         @include remCalc("border", (1 solid $base-border-color));
@@ -62,6 +65,7 @@
                 @include font-size(20);
                 color: $base-text-color;
                 @include remCalc("border-right", (1 solid $base-border-color));
+                cursor: pointer;
 
                 > .ui_icon {
                     @include remCalc("margin-right", 5);
@@ -95,6 +99,26 @@
                 // list end
             }
             // content end
+
+            // cur
+            &.cur {
+                // title
+                > .title {
+                    color: $base-color;
+                    &:after {
+                        @include remCalc("margin-top", 11);
+                        @include triangles("arrow", "top", $base-text-color, 8, 2);
+                    }
+                }
+                // title end
+
+                // content
+                > .content {
+                    display: block;
+                }
+                // content end
+            }
+            // cur end
         }
         // city end
 
@@ -130,6 +154,8 @@
                             @include font-size(20);
                             height: auto;
                             line-height: 1.4;
+                            width: 100%;
+                            max-width: none;
                         }
                         > .ui_icon {
                             @include remCalc("left", 0);
@@ -145,8 +171,17 @@
                         }
                     }
                     // ui_text end
+
+                    &.cur {
+                        // content
+                        &+.content {
+                            display: block;
+                        }
+                        // content end
+                    }
                 }
                 // searchwrap end
+
                 // content
                 > .content {
                     @extend %wrap-header-main-block-content;
@@ -238,6 +273,7 @@
                     // shoplist end
                 }
                 // content end
+
             }
             // form end
         }

@@ -14,12 +14,31 @@
 .pages{
     // contactus
     &.contactus {
+        @include remCalc("padding", 93 0);
+        @include remCalc("margin-bottom", -60);
+        background: url($bast-images-path + 'pc/bg_contact.jpg') no-repeat 0 0;
+        background-size: cover;
+
         // content
         > .content {
-            // block
-            > .block {
-                @include margin-center;
-                @include remCalc("max-width", 510);
+            @include margin-center;
+            @include remCalc("max-width", 720);
+            @include remCalc("padding", 20 135 40);
+            @include remCalc("border-radius", 5);
+            background-color: #ffffff;
+            @include remCalc("box-shadow", 0 5 30 0 rgba(0, 0, 0, 0.2));
+
+            // title
+            > .title {
+                @include remCalc("margin-bottom", 20);
+                @include font-size(32);
+                font-weight: bold;
+                color: $base-text-color;
+            }
+            // title end
+
+            // content
+            > .content {
                 // form
                 > form {
                     // ui_text
@@ -28,6 +47,8 @@
                         &.col {
                             // label
                             > .label {
+                                display: none;
+
                                 // max-screen
                                 @include max-screen($base-max-screen){
                                     @include remCalc("width", 78);
@@ -37,15 +58,40 @@
                             // label
                             // content
                             > .content {
-                                .input {
+                                .input,
+                                .select,
+                                .textarea {
                                     max-width: none;
+                                     @include remCalc("padding", 15 10);
+                                }
+                                .input,
+                                .select {
+                                    @include remCalc("height", 50);
                                 }
                                 .select {
                                     width: 100%;
                                 }
-                                .textarea {
-                                    max-width: none;
+
+                                // ui_text_group
+                                > .ui_text_group {
+                                    // icon
+                                    &.icon {
+                                        > .ui_icon {
+                                            @include remCalc("left", 10);
+                                            @include remCalc("width", 24);
+                                            @include remCalc("height", 24);
+                                        }
+
+                                        // input
+                                        > .input {
+                                            @include remCalc("padding", 13 10 13 49);
+                                        }
+                                        // input end
+                                    }
+                                    // icon end
+
                                 }
+                                // ui_text_group end
                             }
                             // content end
                         }
@@ -55,7 +101,7 @@
                 }
                 // form end
             }
-            // block end
+            // content end
         }
         // content end
     }

@@ -11,6 +11,14 @@
 /*               layout               */
 /**************************************/
 
+// js-scroll-layout
+%js-scroll-layout {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+}
+// js-scroll-layout end
+
 // scroll-x-layout
 %scroll-x-layout {
     overflow-x: auto;
@@ -85,7 +93,7 @@
 
 // post-content
 %post-content {
-    line-height: 1.43;
+    // line-height: 1.43;
     color: $base-text-color;
 
     blockquote {
@@ -104,7 +112,7 @@
 
     p {
         color: $base-text-color;
-        @include remCalc("margin", 0 0 10);
+        @include remCalc("margin", 0 0 20);
 
         // max-screen
         @include max-screen($base-max-screen) {}
@@ -125,6 +133,40 @@
         width: 100%;
         max-height: 100%;
     }
+
+    // post_img & post_video
+    .post_img {
+        display: block;
+        > img {
+            display: block;
+            margin: 0 auto;
+            height: auto;
+            background: url(/images/cover-placehoder.jpg) no-repeat 50%;
+
+            // max-screen
+            @include max-screen($base-max-screen){}
+            // max-screen end
+        }
+    }
+    .post_video {
+        display: block;
+        position: relative;
+        // @include remCalc("margin-bottom", 20);
+        height: 0;
+        padding-bottom: 56.25%;
+
+        > iframe,
+        > object,
+        > embed,
+        > video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    // post_img & post_video end
 }
 // post-content end
 

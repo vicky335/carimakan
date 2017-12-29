@@ -54,6 +54,9 @@
                         @include font-size(14);
                         @include remCalc("margin-bottom", 5);
                         line-height: 1.43;
+                        list-style: disc;
+                        @include remCalc("margin-left", 15);
+                        @include remCalc("padding-left", 5);
                     }
 
                     &.url {

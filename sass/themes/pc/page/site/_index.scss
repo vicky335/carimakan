@@ -11,32 +11,116 @@
 .site {
     // index
     &.index {
-        // postlist
-        > .postlist {
-            position: relative;
-            background-color: transparent;
 
-            // content
-            > .content {
-                // ui_postlist
-                > .ui_postlist {
-                    @extend %scroll-x-layout;
+        // ui_block
+        > .ui_block {
+            @include remCalc("margin-bottom", 40);
 
-                    > li {
-                        @include inline-block(top);
+            &:last-child {
+                margin-bottom: 0;
+            }
 
-                        > a {
-                            // img
-                            > .img {}
-                            // img end
+            // postlist
+            &.postlist {
+
+                // content
+                > .content {
+                    position: relative;
+
+                    // ui_postlist
+                    > .ui_postlist {
+                        @extend %js-scroll-layout;
+
+                        > li {
+                            @include inline-block(top);
+
+                            > a {
+                                // img
+                                > .img {}
+                                // img end
+                            }
                         }
                     }
+                    // ui_postlist end
+
+                    // nav
+                    > .nav {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        @include position-center(top);
+
+                        // btn
+                        > .btn {
+                            position: absolute;
+                            display: block;
+                            line-height: 1;
+                            @include remCalc("width", 45);
+                            @include remCalc("height", 45);
+                            border-radius: 50%;
+                            background-color: #eeeeee;
+                            &:before {
+                                position: absolute;
+                                @include remCalc("top", 17);
+                            }
+
+                            // left
+                            &.left {
+                                @include remCalc("left", -60);
+                                &:before {
+                                    @include triangles("arrow", "right", rgba($base-text-color, 0.5), 14, 2);
+                                    @include remCalc("left", 17);
+                                }
+                            }
+                            // left end
+
+                            // right
+                            &.right {
+                                @include remCalc("right", -60);
+                                &:before {
+                                    @include triangles("arrow", "left", rgba($base-text-color, 0.5), 14, 2);
+                                    @include remCalc("right", 18);
+                                }
+                            }
+                            // right end
+                        }
+                        // btn end
+                    }
+                    // nav end
                 }
-                // ui_postlist end
+                // content end
             }
-            // content end
+            // postlist end
+
+            // shoplist
+            &.shoplist {
+                // content
+                > .content {
+                    // main
+                    > .main {
+                        order: 2;
+                    }
+                    // main end
+
+                    // sidebar
+                    > .sidebar {
+                        order: 1;
+                        margin-left: 0;
+                        @include remCalc("margin-right", $base-sidebar-margin);
+
+                        // max-screen
+                        @include max-screen($base-max-screen) {
+                            margin: 0;
+                        }
+                        // max-screen end
+                    }
+                    // sidebar end
+                }
+                // content end
+            }
+            // shoplist end
         }
-        // postlist end
+        // ui_block end
     }
     // index end
 }

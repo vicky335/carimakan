@@ -19,3 +19,15 @@
     box-sizing: border-box;
 }
 // layout-container end
+
+// page-styles
+%page-styles {
+    @include remCalc("padding", 40 0 60);
+
+    // max-screen
+    @include max-screen($base-max-screen){
+        @include remCalc("padding", 16);
+    }
+    // max-screen end
+}
+// page-styles end

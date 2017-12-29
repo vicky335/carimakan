@@ -9,14 +9,26 @@
 /**************************************/
 // ui_pagination
 .ui_pagination {
-    @include remCalc("margin", 30 auto);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include remCalc("margin", 50 auto);
 
     // max-screen
     @include max-screen($base-max-screen){
         @include remCalc("margin", 20 auto);
-        text-align: left;
+        justify-content: flex-start;
     }
     // max-screen end
+
+    // txt
+    > .txt {
+        @include remCalc("margin-right", 10);
+        @include font-size(14);
+        line-height: 1.14;
+        color: $base-text-color2;
+    }
+    // txt end
 }
 // ui_pagination end

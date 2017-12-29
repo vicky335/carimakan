@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _magicfile.scss
+
+
+
+/**************************************/
+/*              magicfile             */
+/**************************************/
+
+// ui_text
+.ui_text {
+
+    // ui_text_group
+    &.ui_text_group,
+    .ui_text_group {
+        // magic_file
+        &.magic_file {
+            // position: relative;
+            // overflow: hidden;
+            cursor: pointer;
+            // display: flex;
+            // align-items: center;
+
+            > .file {
+                display: none;
+                // position: absolute;
+                // top: 0;
+                // right: 0;
+                // bottom:0;
+                // left: 0;
+                // @include opacity(0);
+                // cursor: pointer;
+                // padding: 0;
+                // height: 100%;
+                // max-width: none;
+            }
+            // magic_file_btn
+            > .magic_file_btn {
+                @extend %text-def-layout;
+                @extend %text-def-padding;
+                @extend %text-def-border;
+                @include inline-block;
+                background-color: #ffffff;
+                border-color: $base-color;
+                color: $base-color;
+                cursor: pointer;
+            }
+            // magic_file_btn end
+            // magic_file_name
+            > .magic_file_name {
+                @extend %text-def-layout;
+                @include inline-block;
+                @include remCalc("margin-left", 16);
+                color: $base-forms-text-color2;
+                cursor: pointer;
+            }
+            // magic_file_name end
+        }
+        // magic_file end
+
+    }
+    // ui_text_group end
+
+}
+// ui_text

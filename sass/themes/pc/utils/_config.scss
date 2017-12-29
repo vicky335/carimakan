@@ -59,7 +59,8 @@ $special-colors: (
 $base-btn-colors: (
     facebook: (background-color: #507bbf),
     line: (background-color: #00b900),
-    wechat: (background-color: #5cb85c)
+    wechat: (background-color: #5cb85c),
+    google: (background-color: #f17569)
 );
 
 // border
@@ -157,7 +158,7 @@ $base-user-img-size: 40;
 
 
 /**** ui_block ****/
-$ui-block-title-font-size: 14;
+$ui-block-title-font-size: 20;
 $ui-block-title-style: (
     color: $base-heading-color,
     font-weight: 500,

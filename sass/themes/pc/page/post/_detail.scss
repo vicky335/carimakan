@@ -13,15 +13,41 @@
 /*              detail                */
 /**************************************/
 
+%post-article-page-style {
+    @include margin-center;
+    @include remCalc("max-width", 720);
 
-// _layout.scss
-@import "detail/_layout";
+    // max-screen
+    @include max-screen($base-max-screen){
+        max-width: none;
+    }
+    // max-screen end
+}
 
-// _header.scss
-@import "detail/_header";
+// post
+.post {
+    // detail
+    &.detail {
+        // article
+        > .article {
 
-// _content.scss
-@import "detail/_content";
+            // banner
+            > .banner {
+                @include remCalc("margin-bottom", 20);
+            }
+            // banner end
 
-// _footer.scss
-@import "detail/_footer";
+            // _header.scss
+            @import "article/_header";
+
+            // _content.scss
+            @import "article/_content";
+
+            // _footer.scss
+            @import "article/_footer";
+        }
+        // article end
+    }
+    // detail end
+}
+// post end

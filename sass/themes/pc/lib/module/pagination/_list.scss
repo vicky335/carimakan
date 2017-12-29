@@ -11,32 +11,123 @@
 .ui_pagination {
 
     > .list {
-        overflow: hidden;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        // overflow: hidden;
 
         > li {
-            @include inline-block;
-            @include remCalc("margin", 5);
             text-align: center;
+            @include remCalc("border", (1 solid $base-border-color));
+            @include remCalc("border-radius", 3);
+            @include remCalc("margin-right", -1);
+
+            // :not(:first-child):not(:last-child)
+            &:not(:first-child):not(:last-child) {
+                border-radius: 0;
+                // border-left: none;
+                // border-right: none;
+            }
+            // :not(:first-child):not(:last-child) end
+
+            // first-child
+            &:first-child {
+                // border-right: none;
+                @include remCalc("border-radius", 3 0 0 3);
+            }
+            // first-child end
+
+            // last-child
+            &:last-child {
+                // border-left: none;
+                @include remCalc("border-radius", 0 3 3 0);
+            }
+            // last-child end
 
             > a,
             > span {
                 display: block;
-                @include remCalc("padding", 0 8);
+                @include remCalc("padding", 0 16);
                 @include remCalc("min-width", 40);
                 @include remCalc("height", 40);
                 @include remCalc("line-height", 40);
-                @include remCalc("border-radius", 3);
                 color: $base-text-color2;
-                background-color: #eeeeee;
-                box-sizing: border-box;
+                background-color: #f8f8f8;
+                @include font-size(14);
             }
+
             > a:hover,
             &.cur > a,
             &.cur > span {
-                color: #ffffff;
+                color: $base-text-color;
                 text-decoration: none;
-                background-color: $base-color;
+                background-color: #ffffff;
             }
+
+
+
+            // previous, next
+            &.previous,
+            &.next {
+                > a {
+                    position: relative;
+                    text-indent: -999em;
+
+                    &:before {
+                        position: absolute;
+                        @include remCalc("top", 17);
+                    }
+                }
+            }
+            // previous, next end
+            // previous
+            &.previous {
+                > a {
+                    &:before {
+                        @include triangles("arrow", "right", $base-text-color2, 10, 2);
+                        @include remCalc("left", 16);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border-color: $base-text-color;
+                        }
+                    }
+                }
+
+                &.disable {
+                    > a {
+                        &:before {
+                            border-color: $base-text-color2;
+                        }
+                    }
+                }
+            }
+            // previous end
+            // next
+            &.next {
+                > a {
+                    &:before {
+                        @include triangles("arrow", "left", $base-text-color2, 10, 2);
+                        @include remCalc("right", 17);
+                    }
+
+                    &:hover {
+                        &:before {
+                            border-color: $base-text-color;
+                        }
+                    }
+                }
+
+                &.disable {
+                    > a {
+                        &:before {
+                            border-color: $base-text-color2;
+                        }
+                    }
+                }
+            }
+            // next end
 
         }
     }
