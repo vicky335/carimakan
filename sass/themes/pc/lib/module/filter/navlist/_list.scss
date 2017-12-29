@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// list.scss
+
+
+
+/**************************************/
+/*                list                */
+/**************************************/
+
+// _layout.scss
+@import "list/layout";
+
+// _pagination.scss
+@import "list/pagination";
+
+// _title.scss
+@import "list/title";
+
+// _content.scss
+@import "list/content";

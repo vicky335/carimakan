@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// sort.scss
+
+
+
+/**************************************/
+/*                sort                */
+/**************************************/
+
+// sort
+&.sort {
+    // list
+    > .list {
+        > li {
+            margin-bottom: 0;
+            @include remCalc("border-bottom", (1 solid #dddddd));
+            &:last-child {
+                border-bottom: none;
+            }
+
+            > a {
+                display: block;
+                @include remCalc("padding", 15 16);
+                @include remCalc("min-width", 240);
+                color: $base-heading-color;
+                line-height: 1.43;
+
+                > .ui_icon {
+                    @include opacity(0);
+                    @include remCalc("margin-right", 13);
+                }
+
+                &:hover {
+                    background-color: #f4f4f4;
+                }
+            }
+
+            &.cur {
+                > a {
+                    color: $base-color;
+
+                    > .ui_icon {
+                        @include opacity(100);
+                    }
+                }
+            }
+
+            // magic_radio
+            > .magic_radio {
+                display: block;
+                padding: 0;
+                margin: 0;
+
+                // radio
+                > .radio {
+
+                    // magin_icon
+                    &+.magin_icon {
+                        position: relative;
+                        @include remCalc("padding", 15 0);
+                        color: $base-heading-color;
+                        line-height: 1.43;
+
+                        // before, after
+                        &:before,
+                        &:after {
+                            display: none;
+                        }
+                        // before, after end
+
+                        > .ui_icon {
+                            @include opacity(0);
+                            @include remCalc("margin-right", 13);
+                        }
+
+                    }
+                    // magin_icon end
+
+                    // checked
+                    &:checked {
+                        // magin_icon
+                        &+.magin_icon {
+                            color: $base-color;
+
+                            > .ui_icon {
+                                @include opacity(100);
+                            }
+                        }
+                        // magin_icon end
+                    }
+                }
+                // radio end
+            }
+            // magic_radio end
+        }
+    }
+    // list end
+}
+// sort end

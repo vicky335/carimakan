@@ -1,0 +1,61 @@
+//sass style
+//-----------------------------------
+// _nav.scss
+
+
+
+/**************************************/
+/*                 nav                */
+/**************************************/
+
+.profile {
+    // detail
+    &.detail {
+
+        // nav
+        > .nav {
+            margin-bottom: 0;
+            @include remCalc("padding", 28 0 0 334);
+            @include remCalc("border", (1 solid #eeeeee));
+            border-top: none;
+
+            // list
+            > .list {
+                display: flex;
+                @extend %scroll-x-layout;
+
+                > li {
+                    @include remCalc("margin-right", 60);
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    > a {
+                        display: block;
+                        @include remCalc("border-bottom", (2 solid transparent));
+                        @include remCalc("padding-bottom", 10);
+                        @include font-size(14);
+                        font-weight: 500;
+                        line-height: 1.43;
+                        color: $base-heading-color;
+                    }
+
+                    &.cur {
+                        > a {
+                            border-bottom-color: $base-color;
+                        }
+                    }
+                }
+            }
+            // list end
+        }
+        // nav end
+    }
+    // detail end
+}
+
+
+
+
+

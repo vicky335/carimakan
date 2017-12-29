@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// list.scss
+
+
+
+/**************************************/
+/*                list                */
+/**************************************/
+
+// ui_filter
+.ui_filter {
+
+    // navlist
+    &.navlist {
+        // content
+        > .content {
+            // list
+            > .list {
+                display: flex;
+                align-items: center;
+
+                // li
+                > li {
+                    position: relative;
+
+                    @include remCalc("margin-right", 26);
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+                // li end
+            }
+            // list end
+        }
+        // content end
+    }
+    // navlist end
+}
+// ui_filter end

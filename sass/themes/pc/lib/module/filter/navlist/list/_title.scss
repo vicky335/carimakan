@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// title.scss
+
+
+
+/**************************************/
+/*               title                */
+/**************************************/
+
+// ui_filter
+.ui_filter {
+
+    // navlist
+    &.navlist {
+        // content
+        > .content {
+            // list
+            > .list {
+                // li
+                > li {
+                    // title
+                    > .title {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @include font-size(14);
+                        line-height: 1.43;
+                        @include remCalc("padding", 16 0);
+                        color: $base-heading-color;
+                        cursor: pointer;
+
+                        &.triangles {
+                            &:after {
+                                @include remCalc("margin-left", 7);
+                                @include remCalc("margin-top", 3);
+                                @include triangles("arrow", "bottom", rgba($base-text-color2, 0.2), 10, 2);
+                                content: "";
+                            }
+                        }
+
+                        > .ui_icon {
+                            @include remCalc("margin-right", 7);
+                        }
+                    }
+                    // title end
+
+                    // cur
+                    &.cur {
+                        // title
+                        > .title {
+                            color: $base-color;
+                            // triangles
+                            &.triangles {
+                                &:after {
+                                    @include remCalc("margin-top", 11);
+                                    @include triangles("arrow", "top", $base-color, 10, 2);
+                                }
+                            }
+                            // triangles end
+                        }
+                        // title end
+                    }
+                    // cur end
+                }
+                // li end
+            }
+            // list end
+        }
+        // content end
+    }
+    // navlist end
+}
+// ui_filter end

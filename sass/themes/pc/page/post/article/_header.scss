@@ -1,0 +1,59 @@
+//sass style
+//-----------------------------------
+// _header.scss
+
+
+
+/**************************************/
+/*                header              */
+/**************************************/
+
+// header
+> .header {
+    @extend %post-article-page-style;
+    @include remCalc("margin-bottom", 20);
+
+    // share
+    > .share {
+        @include remCalc("margin-bottom", 15);
+        text-align: right;
+
+        > .ui_btn {
+            @include remCalc("margin-right", 5);
+            @include remCalc("padding", 6 15 6 5);
+            @include remCalc("border-radius", 3);
+            @include font-size(14);
+            font-weight: 500;
+            line-height: 1.71;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            // ui_icon
+            > .ui_icon {
+                @include remCalc("width", 24);
+                @include remCalc("height", 24);
+            }
+            // ui_icon end
+        }
+    }
+    // share end
+
+    // title
+    > .title {
+        @include font-size(32);
+        font-weight: bold;
+    }
+    // title end
+
+    // time
+    > .time {
+        @include remCalc("margin-top", 10);
+        color: $base-text-color2;
+        @include font-size(12);
+        line-height: 1.33;
+    }
+    // time end
+}
+// header end

@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// list.scss
+
+
+
+/**************************************/
+/*                list                */
+/**************************************/
+
+// ui_filter
+.ui_filter {
+
+    // navlist
+    &.navlist {
+        // content
+        > .content {
+            // list
+            > .list {
+
+                // li
+                > li {
+
+                    // pagination
+                    &.pagination {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+
+                        // title
+                        > .title {
+                            padding: 0;
+                            @include remCalc("margin-right", 18);
+                            @include font-size(14);
+                            line-height: 1.14;
+                            color: $base-text-color2;
+                        }
+                        // title end
+                        // pages
+                        > .pages {
+                            display: flex;
+                            align-items: center;
+
+                            > li {
+                                @include remCalc("border", (1 solid $base-border-color));
+                                @include remCalc("border-radius", 3);
+                                @include remCalc("margin-right", -1);
+
+                                // :not(:first-child):not(:last-child)
+                                &:not(:first-child):not(:last-child) {
+                                    border-radius: 0;
+                                    border-left: none;
+                                    border-right: none;
+                                }
+                                // :not(:first-child):not(:last-child) end
+
+                                // first-child
+                                &:first-child {
+                                    // border-right: none;
+                                    @include remCalc("border-radius", 3 0 0 3);
+                                }
+                                // first-child end
+
+                                // last-child
+                                &:last-child {
+                                    border-left: none;
+                                    @include remCalc("border-radius", 0 3 3 0);
+                                }
+                                // last-child end
+
+                                // page
+                                > .page {
+                                    display: block;
+                                    position: relative;
+                                    line-height: 1;
+                                    @include remCalc("width", 32);
+                                    @include remCalc("height", 32);
+                                    &:before {
+                                        position: absolute;
+                                        @include remCalc("top", 13);
+                                    }
+
+                                    // prev
+                                    &.prev {
+                                        &:before {
+                                            @include triangles("arrow", "right", $base-text-color, 10, 2);
+                                            @include remCalc("left", 12);
+                                        }
+
+                                        &.disable {
+                                            &:before {
+                                                border-color: rgba($base-text-color, 0.5);
+                                            }
+                                        }
+                                    }
+                                    // prev end
+
+                                    // next
+                                    &.next {
+                                        &:before {
+                                            @include triangles("arrow", "left", $base-text-color, 10, 2);
+                                            @include remCalc("right", 12);
+                                        }
+
+                                        &.disable {
+                                            &:before {
+                                                border-color: rgba($base-text-color, 0.5);
+                                            }
+                                        }
+                                    }
+                                    // next end
+                                }
+                                // page end
+                            }
+                        }
+                        // pages end
+                    }
+                    // pagination end
+                }
+                // li end
+            }
+            // list end
+        }
+        // content end
+    }
+    // navlist end
+}
+// ui_filter end

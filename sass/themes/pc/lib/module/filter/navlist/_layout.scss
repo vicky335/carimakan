@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+
+// ui_filter
+.ui_filter {
+
+    // navlist
+    &.navlist {
+        // content
+        > .content {
+            @include remCalc("border-top", (1 solid $base-border-color));
+            @include remCalc("border-bottom", (1 solid $base-border-color));
+            background-color: #ffffff;
+        }
+        // content end
+    }
+    // navlist end
+}
+// ui_filter end

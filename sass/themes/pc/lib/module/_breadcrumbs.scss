@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// breadcrumbs.scss
+
+
+
+/**************************************/
+/*           breadcrumbs             */
+/**************************************/
+// ui_breadcrumbs
+.ui_breadcrumbs{
+    @include remCalc("margin-bottom", 20);
+
+    // list
+    > .list {
+        display: flex;
+        align-items: center;
+
+        // li
+        > li {
+            display: flex;
+            align-items: center;
+            @include remCalc("margin-right", 10);
+            line-height: 1.14;
+            @include font-size(14);
+
+            &:after {
+                @include remCalc("margin-left", 10);
+                @include triangles("arrow", "left", #666666, 6, 2);
+            }
+
+            &:last-child {
+                margin-right: 0;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            > a,
+            > span {
+                display: block;
+                color: #666666;
+            }
+        }
+        // li end
+    }
+    // list end
+}
+// ui_breadcrumbs end

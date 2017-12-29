@@ -1,0 +1,16 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// content
+> .content {
+    @extend %post-article-page-style;
+    @extend %post-content;
+}
+// content end

@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// form.scss
+
+
+
+/**************************************/
+/*                form                */
+/**************************************/
+
+// filter
+&.filter {
+    // form
+    > form {
+        // block
+        > .block {
+            @include remCalc("margin-bottom", 40);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            // title
+            > .title {
+                @include font-size(14);
+                line-height: 1.14;
+                color: $base-text-color2;
+                @include remCalc("margin-bottom", 15);
+            }
+            // title end
+
+            // content
+            > .content {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                // magic_checkbox, magic_radio
+                > .magic_checkbox,
+                > .magic_radio {
+                    padding: 0;
+                    @include remCalc("margin", 0 10 12 0);
+                    @include font-size(14);
+                    line-height: 1.43;
+
+                    // radio, checkbox
+                    > .checkbox,
+                    > .radio {
+
+                        // magin_icon
+                        &+.magin_icon {
+                            display: flex;
+                            align-items: center;
+                            @include remCalc("padding", 6 5);
+                            @include remCalc("border", (1 solid #eeeeee));
+                            @include remCalc("border-radius", 3);
+                            color: #666666;
+                            line-height: 1.43;
+
+                            // before, after
+                            &:before,
+                            &:after {
+                                display: none;
+                            }
+                            // before, after end
+
+                            > .ui_icon {
+                                @include remCalc("margin-right", 5);
+                            }
+
+                        }
+                        // magin_icon end
+
+                        // checked
+                        &:checked {
+                            // magin_icon
+                            &+.magin_icon {
+                                border-color: $base-color;
+                                color: $base-color;
+                            }
+                            // magin_icon end
+                        }
+                    }
+                    // radio, checkbox end
+                }
+                // magic_radio end
+            }
+            // content end
+        }
+        // block end
+    }
+    // form end
+}
+// filter end

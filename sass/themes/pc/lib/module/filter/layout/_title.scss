@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// title.scss
+
+
+
+/**************************************/
+/*                title               */
+/**************************************/
+
+// title
+> .title {
+    display: flex;
+    align-items: center;
+
+    // ui_icon
+    > .ui_icon {
+        @include remCalc("margin-right", 7);
+        @include remCalc("width", 24);
+        @include remCalc("height", 24);
+    }
+    // ui_icon end
+
+    // tools
+    > .tools {
+        flex: 1;
+        @include font-size(14);
+        text-align: right;
+        line-height: 1.14;
+    }
+    // tools end
+}
+// title end

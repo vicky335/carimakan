@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// filter.scss
+
+
+
+/**************************************/
+/*               filter               */
+/**************************************/
+
+// ui_filter
+.ui_filter {
+
+    // filter
+    &.filter {
+        @include remCalc("border", (1 solid $base-border-color));
+        @include remCalc("border-radius", 3);
+
+        // title
+        > .title {
+            @include remCalc("padding", 8 16);
+            @include remCalc("border-bottom", (1 solid $base-border-color));
+            background-color: #f6f6f6;
+        }
+        // title end
+
+        // content
+        > .content {
+            @include remCalc("padding", 20 16);
+            background-color: #ffffff;
+
+            // _filter.scss
+            @import "components/filter";
+        }
+        // content end
+    }
+    // filter end
+}
+// ui_filter end
