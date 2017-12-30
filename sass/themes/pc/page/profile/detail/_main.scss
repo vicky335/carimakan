@@ -1,0 +1,65 @@
+//sass style
+//-----------------------------------
+// _list.scss
+
+
+
+/**************************************/
+/*                list                */
+/**************************************/
+// _layout.scss
+@import "list/layout";
+
+.profile {
+    // detail
+    &.detail {
+
+        // main
+        > .main {
+
+            // content
+            > .content {
+
+                // main
+                > .main {
+                    order: 2;
+                }
+                // main end
+
+                // sidebar
+                > .sidebar {
+                    order: 1;
+                    margin-left: 0;
+                    @include remCalc("margin-right", $base-sidebar-margin);
+
+                    // max-screen
+                    @include max-screen($base-max-screen) {
+                        margin: 0;
+                    }
+                    // max-screen end
+                }
+                // sidebar end
+
+
+                @include remCalc("padding-top", 49);
+                background-color: #f6f6f6;
+
+                // block
+                > .block {
+                    // _postlist.scss
+                    @import "list/postlist";
+
+                    // _photoslist.scss
+                    @import "list/photoslist";
+
+                    // _shoplist.scss
+                    @import "list/shoplist";
+                }
+                // block end
+            }
+            // content end
+        }
+        // main end
+    }
+    // detail end
+}
