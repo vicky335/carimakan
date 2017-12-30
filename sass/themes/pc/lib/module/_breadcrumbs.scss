@@ -44,6 +44,12 @@
                 display: block;
                 color: #666666;
             }
+
+            > a {
+                &:hover {
+                    color: $base-color;
+                }
+            }
         }
         // li end
     }

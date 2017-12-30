@@ -594,28 +594,36 @@ var Com = {
 	 * @description ui filter filter導航效果
 	 */
 	fnHeader: function() {
-		var $main = $('.wrap_header .main');
+		var $main = $('.wrap_header .main'),
+			$search = $main.children('.search'),
+			$city = $main.children('.city');
 
 		$main.on('click', '.city', function() {
 			var $this = $(this);
+
 			if (!$this.hasClass('cur')) {
 				$this.parents('.block').find('cur').removeClass('cur');
 				$this.addClass('cur');
 			} else {
 				$this.removeClass('cur');
 			}
+
+			$search.find('.content.hotsearch').hide();
+			$search.find('.content.shoplist').hide();
+
 		}).on('focus', '.searchwrap .input', function() {
-			var $this = $(this),
-				$parentObj = $this.parents('.search');
-			$parentObj.find('.content.hotsearch').show();
+			var $this = $(this);
+			$search.addClass('cur');
+			$search.find('.content.hotsearch').show();
+			$search.find('.content.shoplist').hide();
+			$city.removeClass('cur');
 		}).on('keypress', '.searchwrap .input', function() {
-			var $this = $(this),
-				$parentObj = $this.parents('.search');
-			$parentObj.addClass('cur');
+			var $this = $(this);
+			$search.addClass('cur');
 			// OMIS.doAjax({
 			// 	success: function(html) {
-			$parentObj.find('.content.hotsearch').hide();
-			$parentObj.find('.content.shoplist').show();
+			$search.find('.content.hotsearch').hide();
+			$search.find('.content.shoplist').show();
 			// 	},
 			// 	options: {
 			// 		type: "GET",
@@ -624,11 +632,11 @@ var Com = {
 			// 	}
 			// });
 		}).on('blur', '.searchwrap .input', function() {
-			var $this = $(this),
-				$parentObj = $this.parents('.search');
-			$parentObj.removeClass('cur');
-			$parentObj.find('.content.hotsearch').hide();
-			$parentObj.find('.content.shoplist').hide();
+			var $this = $(this);
+			$this.val('');
+			$search.removeClass('cur');
+			$search.find('.content.hotsearch').hide();
+			$search.find('.content.shoplist').hide();
 		});
 	}
 

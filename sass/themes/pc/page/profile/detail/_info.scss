@@ -20,11 +20,23 @@
             @include remCalc("border", (1 solid #eeeeee));
             border-bottom: none;
 
+            // max-screen
+            @include max-screen($base-max-screen){
+                @include remCalc("padding", 20 16);
+            }
+            // max-screen end
+
             // user_img
             > .user_img {
                 @include remCalc("margin-right", 108);
                 @include remCalc("width", 120);
                 @include remCalc("height", 120);
+
+                // max-screen
+                @include max-screen($base-max-screen){
+                    @include remCalc("margin-right", 16);
+                }
+                // max-screen end
             }
             // user_img end
 
