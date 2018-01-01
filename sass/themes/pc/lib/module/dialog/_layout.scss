@@ -36,7 +36,7 @@
     @include opacity(100);
     transition: opacity .15s linear;
     width: 100%;
-    @include remCalc("max-width", 500);
+    @include remCalc("max-width", 600);
 
     // max-screen
     @include max-screen($base-max-screen){}

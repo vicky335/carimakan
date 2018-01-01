@@ -13,71 +13,104 @@
 /*                photos              */
 /**************************************/
 
+body {
+    background-color: #f3f5f7;
+}
+
 // photos
 .photos {
-    // nav
-    > .nav {
-        background-color: #ffffff;
-        @include remCalc("padding", 0 10);
-        @include remCalc("box-shadow", (0 0.5 0 0 rgba(0, 0, 0, 0.3)));
+    // list
+    > .list {
+        @include remCalc("padding", 15 20);
+        @include remCalc("border", (1 solid #eeeeee));
 
-        // list
-        > .list {
-            display: flex;
-            @extend %scroll-x-layout;
+        // title
+        > .title {
+            text-align: center;
+        }
+        // title end
 
-            > li {
-                @include remCalc("margin-right", 20);
+        // nav
+        > .nav {
+            @include remCalc("margin-top", 24);
+            @include remCalc("border-bottom", (1 solid #eeeeee));
 
-                &:last-child {
-                    margin-right: 0;
-                }
+            // max-screen
+            @include max-screen($base-max-screen){}
+            // max-screen end
 
-                > a {
-                    display: block;
-                    @include remCalc("border-bottom", (2 solid transparent));
-                    @include remCalc("padding", 13 7 11);
-                    font-weight: 500;
-                    line-height: 1.71;
-                    color: $base-text-color;
-                }
+            // list
+            > .list {
+                display: flex;
+                justify-content: center;
+                @extend %scroll-x-layout;
 
-                &.cur {
+                > li {
+                    @include remCalc("margin-right", 60);
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
                     > a {
-                        color: $base-color;
-                        border-bottom-color: $base-color;
+                        display: block;
+                        @include remCalc("border-bottom", (2 solid transparent));
+                        @include remCalc("padding-bottom", 10);
+                        @include font-size(14);
+                        font-weight: 500;
+                        line-height: 1.43;
+                        color: $base-heading-color;
+                    }
+
+                    &.cur {
+                        > a {
+                            border-bottom-color: $base-color;
+                        }
                     }
                 }
             }
+            // list end
         }
-        // list end
-    }
-    // nav end
-
-    // photoslist
-    > .photoslist {
-        background-color: transparent;
+        // nav end
 
         // content
         > .content {
+            @include remCalc("padding", 20 0);
+
             // list
             > .list {
                 display: flex;
                 flex-wrap: wrap;
 
                 > li {
-                    flex: 0 0 floor((100 - ((5 / $base-font-size) * 3)) / 3) * 1%;
-                    @include remCalc("margin", 0 5 6 0);
+                    flex: 0 0 floor((100 - ((10 / $base-font-size) * 4)) / 4) * 1%;
+                    @include remCalc("margin", 0 10 10 0);
 
-                    &:nth-child(3n) {
+                    &:nth-child(4n) {
                         margin-right: 0;
                     }
                 }
             }
             // list end
+
+            // more
+            > .more {
+                @include remCalc("margin", 40 0 20);
+                text-align: center;
+
+                // ui_btn
+                > .ui_btn {
+                    @include remCalc("min-width", 320);
+                    @include font-size(14);
+                    line-height: 1.43;
+                    border-radius: 0;
+                }
+                // ui_btn end
+            }
+            // more end
         }
         // content end
     }
-    // photoslist end
+    // list end
 }
 // photos end

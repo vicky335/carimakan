@@ -12,6 +12,8 @@
 
 // sort
 &.sort {
+    @include remCalc("min-width", 240);
+
     // list
     > .list {
         > li {
@@ -24,7 +26,6 @@
             > a {
                 display: block;
                 @include remCalc("padding", 15 16);
-                @include remCalc("min-width", 240);
                 color: $base-heading-color;
                 line-height: 1.43;
 

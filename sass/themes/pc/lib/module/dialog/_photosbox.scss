@@ -11,49 +11,104 @@
 /**************************************/
 // win_photosBox
 #win_photosBox {
-    height: 100%;
-    width: 100%;
-    // background-color: #000000;
+    @include remCalc("max-width", 825);
+    // @include remCalc("border-radius", 3);
 
     // btn_close
     > .btn_close {
         position: absolute;
-        @include remCalc("top", 16);
-        @include remCalc("right", 10);
+        @include remCalc("top", 0);
+        @include remCalc("right", -28);
+        background-color: #000000;
+        @include remCalc("border-radius", 0 5 5 0);
         color: #ffffff;
-        z-index: 1;
 
         // ui_icon
         > .ui_icon {
             @include remCalc("width", 28);
             @include remCalc("height", 28);
+            @include remCalc("padding", 4);
         }
         // ui_icon end
     }
     // btn_close end
 
-    // img
-    > .img {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        overflow: hidden;
+    // imgs
+    > .imgs {
+        position: relative;
+        background-color: #000000;
+        @include remCalc("height", 530);
+        @extend %js-scroll-layout;
+
+        // img
+        > .img {
+            height: 100%;
+            @include remCalc("border-radius", 3 3 0 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        // img end
+
+
+
+        // nav
+        > .nav {
+            @include position-center(top);
+            left: 0;
+            right: 0;
+
+            // btn
+            > .btn {
+                position: absolute;
+                display: block;
+                line-height: 1;
+                @include remCalc("width", 45);
+                @include remCalc("height", 45);
+                border-radius: 50%;
+                background-color: rgba(#ffffff, 0.7);
+                &:before {
+                    position: absolute;
+                    @include remCalc("top", 17);
+                }
+
+                // left
+                &.left {
+                    @include remCalc("left", 10);
+                    &:before {
+                        @include triangles("arrow", "right", rgba($base-text-color, 0.5), 14, 2);
+                        @include remCalc("left", 18);
+                    }
+                }
+                // left end
+
+                // right
+                &.right {
+                    @include remCalc("right", 10);
+                    &:before {
+                        @include triangles("arrow", "left", rgba($base-text-color, 0.5), 14, 2);
+                        @include remCalc("right", 19);
+                    }
+                }
+                // right end
+            }
+            // btn end
+        }
+        // nav end
     }
-    // img end
+    // imgs end
 
     // content
     > .content {
-        position: absolute;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        @include remCalc("padding", 24 16);
+        @include remCalc("padding", 20);
+        background-color: #ffffff;
+        @include remCalc("border-radius", 0 0 3 3);
 
         // title
         > .title {
-            @include font-size(16);
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.87);
+            font-weight: 500;
+            color: $base-text-color;
         }
         // title end
 
@@ -66,6 +121,7 @@
 
                 > li {
                     @include remCalc("margin-right", 10);
+                    @include font-size(14);
                     line-height: 1.43;
                     color: $base-text-color2;
 
@@ -103,7 +159,3 @@
 
 }
 // win_photosBox end
-
-#win_photosBox_mask {
-    background-color: #000000;
-}

@@ -470,7 +470,7 @@ var Com = {
 
 				if (!$li.hasClass('cur')) {
 					$li.addClass('cur').siblings().removeClass('cur');
-					if ($content.hasClass('nav')) {
+					if ($content.find('nav').length > 0) {
 						var $firstObj = $('.first', $content),
 							$secondObj = $('.second', $content);
 						if (!$firstObj.hasClass('cur')) {
@@ -485,10 +485,28 @@ var Com = {
 			});
 
 			// nav
-			var $nav = $('.content.nav', $obj),
+			var $nav = $('.content > .nav', $obj),
 				$firstObj = $('.first', $nav),
 				$secondObj = $('.second', $nav),
 				$thirdObj = $('.third', $nav);
+
+			$firstObj.on('click', '.list > li', function() {
+				var $this = $(this),
+					$parentObj = $this.parents('.first'),
+					curIndex = $this.index(),
+					$second = $parentObj.siblings('.second').find('.list').eq(curIndex);
+
+				$firstObj.find('.list').removeClass();
+				$secondObj.find('.list').removeClass('cur');
+				$thirdObj.find('.list').removeClass('cur');
+
+				if ($second.length > 0) {
+					$this.addClass('cur');
+					$this.parent().addClass('cur');
+				}
+			});
+
+
 			$nav.on('click', '.first > li', function() {
 				var $this = $(this),
 					$list = $this.parent(),

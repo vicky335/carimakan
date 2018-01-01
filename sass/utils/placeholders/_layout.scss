@@ -13,6 +13,7 @@
 
 // layout-container
 %layout-container{
+    width: 100%;
     max-width: $base-pages-max-width * 1px;
     // @include remCalc("max-width", $base-pages-max-width);
     @include margin-center;

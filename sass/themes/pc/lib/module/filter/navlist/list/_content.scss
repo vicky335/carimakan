@@ -23,11 +23,12 @@
                 > li {
                     // content
                     > .content {
-                        // display: none;
+                        display: none;
                         position: absolute;
                         top: 100%;
                         left: 0;
-                        right: -1000em;
+                        @include remCalc("right", -700);
+                        z-index: 9;
 
                         > .main {
                             position: absolute;

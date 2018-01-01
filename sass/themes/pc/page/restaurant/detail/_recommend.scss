@@ -14,18 +14,21 @@
     &.detail {
         // recommend
         > .recommend {
+            @include remCalc("margin-top", 40);
+
             // content
             > .content {
                 // ui_shoplist
                 > .ui_shoplist {
                     display: flex;
                     flex-wrap: wrap;
+
                     > li {
-                        flex: 0 0 48.5%;
-                        @include remCalc("margin", 0 10 20 0);
+                        flex: 0 0 floor((100 - ((20 / $base-font-size) * 4)) / 4) * 1%;
+                        @include remCalc("margin", 0 20 20 0);
                         border: none;
 
-                        &:nth-child(2n) {
+                        &:nth-child(4n) {
                             margin-right: 0;
                         }
 
@@ -38,6 +41,7 @@
                                 width: 100%;
                                 height: auto;
                                 margin-right: 0;
+                                @include remCalc("margin-bottom", 15);
                             }
                             // img end
 
@@ -46,11 +50,13 @@
                                 flex: 0 0 100%;
                                 // title
                                 > .title {
-                                    @include ellipsis(2, 14, 1.43);
+                                    @include ellipsis(2);
                                 }
                                 // title end
                                 // comments
                                 > .comments {
+                                    @include remCalc("margin-top", 5);
+
                                     // comment
                                     > .comment {
                                         display: none;
@@ -60,7 +66,7 @@
                                 // comments end
                                 // info
                                 > .info {
-                                    @include remCalc("margin-top", 7);
+                                    @include remCalc("margin-top", 5);
                                     // price
                                     > .price {
                                         color: #666666;

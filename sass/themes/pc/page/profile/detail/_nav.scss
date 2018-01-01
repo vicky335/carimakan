@@ -14,8 +14,7 @@
 
         // nav
         > .nav {
-            margin-bottom: 0;
-            @include remCalc("padding", 28 0 0 334);
+            @include remCalc("padding", 28 0 0);
             @include remCalc("border", (1 solid #eeeeee));
             border-top: none;
 
@@ -29,6 +28,7 @@
             // list
             > .list {
                 display: flex;
+                justify-content: center;
                 @extend %scroll-x-layout;
 
                 > li {

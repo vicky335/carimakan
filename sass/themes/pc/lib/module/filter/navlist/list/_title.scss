@@ -29,7 +29,7 @@
                         @include font-size(14);
                         line-height: 1.43;
                         @include remCalc("padding", 16 0);
-                        color: $base-heading-color;
+                        color: #666666;
                         cursor: pointer;
 
                         &.triangles {

@@ -1,14 +1,12 @@
 //sass style
 //-----------------------------------
-// _list.scss
+// _main.scss
 
 
 
 /**************************************/
-/*                list                */
+/*                main                */
 /**************************************/
-// _layout.scss
-@import "list/layout";
 
 .profile {
     // detail
@@ -16,48 +14,74 @@
 
         // main
         > .main {
-
-            // content
-            > .content {
-
-                // main
-                > .main {
-                    order: 2;
-                }
-                // main end
-
-                // sidebar
-                > .sidebar {
-                    order: 1;
-                    margin-left: 0;
-                    @include remCalc("margin-right", $base-sidebar-margin);
-
-                    // max-screen
-                    @include max-screen($base-max-screen) {
-                        margin: 0;
-                    }
-                    // max-screen end
-                }
-                // sidebar end
-
-
-                @include remCalc("padding-top", 49);
-                background-color: #f6f6f6;
+            // main
+            > .main {
+                order: 2;
 
                 // block
                 > .block {
                     // _postlist.scss
-                    @import "list/postlist";
-
-                    // _photoslist.scss
-                    @import "list/photoslist";
+                    @import "main/postlist";
 
                     // _shoplist.scss
-                    @import "list/shoplist";
+                    @import "main/shoplist";
+
+                    // _photoslist.scss
+                    @import "main/photoslist";
+
+                    // photoslist
+                    &.photoslist {
+                        @include remCalc("padding", 18 27);
+                        background-color: #ffffff;
+
+                        // more
+                        > .more {
+                            @include remCalc("margin", 40 0 20);
+                            text-align: center;
+                            > .ui_btn {
+                                @include remCalc("min-width", 320);
+                                @include font-size(14);
+                                line-height: 1.43;
+                                border-radius: 0;
+                            }
+                        }
+                        // more end
+                    }
+                    // photoslist end
                 }
                 // block end
             }
-            // content end
+            // main end
+
+            // sidebar
+            > .sidebar {
+                order: 1;
+                margin-left: 0;
+                @include remCalc("margin-right", $base-sidebar-margin);
+
+                // max-screen
+                @include max-screen($base-max-screen) {
+                    margin: 0;
+                }
+                // max-screen end
+
+                // ui_block
+                > .ui_block {
+                    @include remCalc("padding", 15 10);
+
+                    // content
+                    > .content {
+                        // _overview.scss
+                        @import "main/overview";
+
+                        // _photoslist.scss
+                        @import "main/photoslist";
+                    }
+                    // content end
+                }
+                // ui_block end
+            }
+            // sidebar end
         }
         // main end
     }
