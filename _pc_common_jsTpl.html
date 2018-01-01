@@ -1,0 +1,126 @@
+<!-- tpl -->
+<!-- tpl_ui_popup_window -->
+<script id="tpl_ui_popup_window" type="text/x-jsrender">
+    <section class="ui_dialog_popup">
+        {{if title}}
+        <!-- header -->
+        <header class="header">
+            <h2 class="title">
+                {{:title}}
+            </h2>
+        </header>
+        <!--/ end header -->
+        {{/if}}
+        <!-- main -->
+        <div class="main">
+            {{:content}}
+        </div>
+        <!--/ end main -->
+        {{if doneBtn ||  cancelBtn}}
+        <!-- footer -->
+        <footer class="footer">
+            <div class="btn">
+                {{if doneBtn}}
+                <a class="ui_btn btn1 dialog_done">
+                    {{:doneBtnText}}
+                </a>
+                {{/if}}
+                {{if cancelBtn}}
+                <a class="ui_btn btn_cancel btn_close dialog_cancel">
+                    {{:cancelBtnText}}
+                </a>
+                {{/if}}
+            </div>
+        </footer>
+        <!--/ end footer -->
+        {{/if}}
+    </section>
+</script>
+<!-- /end tpl_ui_popup_window -->
+
+
+<!-- tpl_photosbox -->
+<script id="tpl_photosbox" type="text/x-jsrender">
+    <!-- img -->
+    <div class="img">
+        <img src="{{:src}}" />
+        <img src="{{:src}}" />
+        <img src="{{:src}}" />
+        <img src="{{:src}}" />
+    </div>
+    <!--/ end img -->
+
+    <!-- content -->
+    <div class="content">
+        <!-- title -->
+        <h3 class="title">
+            {{:title}}
+        </h3>
+        <!--/ end title -->
+        <!-- meta -->
+        <div class="meta">
+            <ul class="list">
+                <li class="name">
+                    {{:name}}
+                </li>
+                <li class="time">
+                    {{:time}}
+                </li>
+                <li class="tools">
+                    <a class="btn_like">
+                        <svg class="ui_icon ui_icon_svg like">
+                            <use xlink:href="#icon_like"></use>
+                        </svg>
+                    </a>
+                    <a href="{{:src}}" download target="_blank">
+                        <svg class="ui_icon ui_icon_svg">
+                            <use xlink:href="#icon_download"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--/ end meta -->
+    </div>
+    <!-- content -->
+
+    <a class="btn_close dialog_close">
+        <svg class="ui_icon ui_icon_svg">
+            <use xlink:href="#icon_close"></use>
+        </svg>
+    </a>
+</script>
+<!-- /end tpl_photosbox -->
+
+
+<!-- tpl_getAppsDialog -->
+<script id="tpl_getAppsDialog" type="text/x-jsrender">
+    <div class="getappsdialog">
+        <!-- header -->
+        <div class="header">
+            <h2 class="title">
+                Fitur ini hanya ada di Aplikasi
+            </h2>
+
+            <a class="btn_close dialog_close">
+                <svg class="ui_icon ui_icon_svg">
+                    <use xlink:href="#icon_close"></use>
+                </svg>
+            </a>
+        </div>
+        <!--/ end header -->
+
+        <!-- content -->
+        <div class="content">
+            <div class="downloadapp">
+                <a href="#" class="btn appstore" target="_blank">appstore</a>
+                <a href="#" class="btn googleplay" target="_blank"> googleplay</a>
+            </div>
+        </div>
+        <!-- content -->
+    </div>
+</script>
+<!-- /end tpl_getAppsDialog -->
+
+
+<!--/ end tpl -->

@@ -1,0 +1,113 @@
+//sass style
+//-----------------------------------
+// _footer.scss
+
+
+
+/**************************************/
+/*                footer              */
+/**************************************/
+
+// footer
+> .footer {
+    @include remCalc("margin", 40 0);
+
+    // title
+    > .title {
+        color: $base-text-color;
+        line-height: 1.25;
+        text-align: center;
+    }
+    // title end
+
+    // content
+    > .content {
+        @include remCalc("margin-top", 10);
+        @include remCalc("padding", 10 18);
+        background-color: #f4f4f4;
+        display: flex;
+        align-items: center;
+
+        // ui_shoplist
+        > .ui_shoplist {
+            flex: 1;
+            // li
+            > li {
+                border: none;
+                margin: 0;
+
+                > a {
+                    padding: 0;
+
+                    // img
+                    > .img {
+                        @include remCalc("width", 80);
+                        @include remCalc("height", 80);
+                    }
+                    // img end
+
+                    // content
+                    > .content {
+                        // title
+                        > .title {
+                            @include ellipsis(1, 16, 1.25);
+                        }
+                        // title end
+
+                        // comments
+                        > .comments {
+                            display: none;
+                        }
+                        // comments end
+                        // info
+                        > .info {
+                            display: none;
+                        }
+                        // info end
+                        // region
+                        > .region {
+                            // position
+                            > .position {
+                                display: none;
+                            }
+                            // position end
+                        }
+                        // region end
+                    }
+                    // content end
+                }
+            }
+            // li end
+        }
+        // ui_shoplist end
+
+        // tools
+        > .tools {
+            @include remCalc("margin-left", 10);
+            // btn
+            > .btn {
+                @include inline-block;
+                border-radius: 50%;
+                background-color: #ffffff;
+                color: #000000;
+                @include remCalc("padding", 8);
+
+                > .ui_icon {
+                    @include remCalc("width", 24);
+                    @include remCalc("height", 24);
+                }
+            }
+            // btn end
+        }
+        // tools end
+    }
+    // content end
+
+    // share
+    > .share {
+        @include remCalc("margin-top", 40);
+        @extend %review-footer;
+    }
+    // share end
+}
+// footer end

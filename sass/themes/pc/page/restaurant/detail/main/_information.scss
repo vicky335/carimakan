@@ -1,0 +1,111 @@
+//sass style
+//-----------------------------------
+// _information.scss
+
+
+
+/**************************************/
+/*             information            */
+/**************************************/
+
+// information
+&.information {
+    // content
+    > .content {
+        // top
+        > .top {
+            display: flex;
+
+            // left
+            > .left {
+                flex: 1;
+
+                // block
+                > .block {
+                    @include remCalc("margin-bottom", 15);
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    // title
+                    > .title {
+                        @include font-size(12);
+                        color: $base-text-color2;
+                        line-height: 1.33;
+                    }
+                    // title end
+
+                    // content
+                    > .content {
+                        @include font-size(14);
+                        line-height: 1.43;
+                        color: $base-heading-color;
+                    }
+                    // content end
+                }
+                // block end
+            }
+            // left end
+
+            // map
+            > .map {
+                position: relative;
+                @include remCalc("margin-left", 10);
+                @include remCalc("width", 318);
+                @include remCalc("height", 212);
+                overflow: hidden;
+
+                // googlemaps
+                > .googlemaps {
+                    position: absolute;
+                    @include position-center;
+                    @include remCalc("width", 318*2);
+                    @include remCalc("height", 212*2);
+                    overflow: hidden;
+                }
+                // googlemaps end
+            }
+            // map end
+        }
+        // top end
+
+        // bottom
+        > .bottom {
+            @include remCalc("margin-top", 30);
+            @include remCalc("padding-top", 20);
+            @include remCalc("border-top", (1 solid #eeeeee));
+
+            // list
+            > .list {
+                display: flex;
+                flex-wrap: wrap;
+
+                > li {
+                    flex: 0 0 floor((100 - ((22 / $base-font-size) * 3)) / 3) * 1%;
+                    @include remCalc("margin", 0 20 15 0);
+                    @include font-size(14);
+                    line-height: 1.71;
+                    color: $base-heading-color;
+
+                    &:nth-child(3n) {
+                        margin-right: 0;
+                    }
+
+                    // ui_icon
+                    > .ui_icon {
+                        @include remCalc("margin-right", 10);
+                        @include remCalc("width", 24);
+                        @include remCalc("height", 24);
+                        color: $base-color;
+                    }
+                    // ui_icon end
+                }
+            }
+            // list end
+        }
+        // bottom end
+    }
+    // content end
+}
+// information end

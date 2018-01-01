@@ -1,0 +1,69 @@
+//sass style
+//-----------------------------------
+// _main.scss
+
+
+
+/**************************************/
+/*                 main               */
+/**************************************/
+
+// restaurant
+.restaurant {
+    // detail
+    &.detail {
+        // main
+        > .main {
+            background-color: #f5f6f8;
+            @include remCalc("padding", 20 0 40);
+
+            // container
+            > .container {
+
+                // main
+                > .main {
+                    // ui_block
+                    > .ui_block {
+                        @include remCalc("padding", 15 20);
+                        @include remCalc("border", (1 solid #eeeeee));
+
+                        // _information.scss
+                        @import "main/_information";
+
+                        // _reviews.scss
+                        @import "main/_reviews";
+                    }
+                    // ui_block end
+                }
+                // main end
+
+                // sidebar
+                > .sidebar {
+                    // ui_block
+                    > .ui_block {
+
+                        // title
+                        > .title {
+                            @include remCalc("padding", 10);
+                            @include remCalc("border-bottom", (1 solid #eeeeee));
+                        }
+                        // title end
+
+                        // content
+                        > .content {}
+                        // content end
+
+                        // _dishes.scss
+                        @import "main/_dishes";
+                    }
+                    // ui_block end
+                }
+                // sidebar end
+            }
+            // container end
+        }
+        // main end
+    }
+    // detail end
+}
+// restaurant end

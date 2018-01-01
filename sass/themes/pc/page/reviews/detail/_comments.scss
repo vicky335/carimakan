@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// detail.scss
+
+
+
+// _utils.scss
+// @import "utils/_utils";
+
+/**************************************/
+/*              detail                */
+/**************************************/
+
+// reviews
+.reviews {
+    // detail
+    &.detail {
+        // comments
+        > .comments {
+            @include remCalc("margin-bottom", -60);
+            @include remCalc("padding", 20 0 40);
+            background-color: #f3f5f7;
+
+            // ui_block
+            > .ui_block {
+                @include remCalc("max-width", 720);
+                background-color: transparent;
+
+                // content
+                > .content {
+                    // list
+                    > .list {
+                        > li {
+                            @include remCalc("padding", 15);
+                            @include remCalc("border-radius", 5);
+                            background-color: #ffffff;
+
+                            // header
+                            > .header {
+                                display: flex;
+                                align-items: center;
+
+                                // user_img
+                                > .user_img {
+                                    @include remCalc("margin-right", 10);
+                                    @include remCalc("width", 40);
+                                    @include remCalc("height", 40);
+                                }
+                                // user_img end
+
+                                // content
+                                > .content {
+                                    // title
+                                    > .title {
+                                        @include font-size(16);
+                                        line-height: 1.0;
+
+                                        > a {
+                                            color: $base-text-color;
+                                        }
+                                    }
+                                    // title end
+                                    // time
+                                    > .time {
+                                        @include remCalc("margin-top", 8);
+                                        @include font-size(12);
+                                        line-height: 1.33;
+                                        color: $base-text-color2;
+                                    }
+                                    // time end
+                                }
+                                // content end
+                            }
+                            // header end
+
+                            // content
+                            > .content {
+                                @include remCalc("margin-top", 10);
+                                line-height: 1.43;
+
+                                // p
+                                > p {
+                                    @include remCalc("margin-bottom", 10);
+                                }
+                                // p end
+
+                                // more
+                                > .more {
+                                    @include font-size(14);
+                                    line-height: 1.43;
+                                    color: $base-text-color2;
+                                }
+                                // more end
+                            }
+                            // content end
+                        }
+                    }
+                    // list end
+                    // more
+                    > .more {
+                        @include remCalc("margin-top", 15);
+                        > .ui_btn {
+                            display: block;
+                            background-color: #ffffff;
+                            border-radius: 0;
+                            @include remCalc("padding", 15 0);
+                            @include remCalc("border", (1 solid #eeeeee));
+                            color: $base-heading-color;
+                        }
+                    }
+                    // more end
+                }
+                // content end
+            }
+            // ui_block end
+        }
+        // comments end
+    }
+    // detail end
+}
+// reviews end
+

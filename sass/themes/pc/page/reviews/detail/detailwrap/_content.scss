@@ -1,0 +1,51 @@
+//sass style
+//-----------------------------------
+// _content.scss
+
+
+
+/**************************************/
+/*               content              */
+/**************************************/
+
+// content
+> .content {
+    // con
+    > .con {
+        @extend %post-content;
+    }
+    // con end
+
+    // imgs
+    > .imgs {
+        @include remCalc("margin-top", 15);
+
+        // block
+        > .block {
+            @include remCalc("margin-bottom", 15);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            // img
+            > .img {}
+            // img end
+
+            // title
+            > .title {
+                @include remCalc("padding", 15);
+                @include remCalc("border", (1 solid #dddddd));
+                @include remCalc("border-radius", 3);
+                @include remCalc("box-shadow", (0 2 2 0 #f4f4f4));
+                background-color: #ffffff;
+                text-align: center;
+                line-height: 1.43;
+            }
+            // title end
+        }
+        // block end
+    }
+    // imgs end
+}
+// content end

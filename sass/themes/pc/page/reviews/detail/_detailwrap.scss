@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// detailwrap.scss
+
+
+
+// _utils.scss
+// @import "utils/_utils";
+
+/**************************************/
+/*            detailwrap              */
+/**************************************/
+
+// reviews
+.reviews {
+    // detail
+    &.detail {
+        // detailwrap
+        > .detailwrap {
+
+            @include remCalc("max-width", 720);
+
+            // _header.scss
+            @import "detailwrap/_header";
+
+            // _content.scss
+            @import "detailwrap/_content";
+
+            // _footer.scss
+            @import "detailwrap/_footer";
+        }
+        // detailwrap end
+    }
+    // detail end
+}
+// reviews end
+

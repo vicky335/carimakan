@@ -1,0 +1,128 @@
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*                layout              */
+/**************************************/
+
+// dishes
+&.dishes {
+    @include remCalc("border", (1 solid #eeeeee));
+
+    // content
+    > .content {
+        // list
+        > .list {
+
+            > li {
+                display: flex;
+                align-items: flex-start;
+                @include remCalc("padding", 15 10);
+                @include remCalc("border-bottom", (1 solid #eeeeee));
+
+                &:last-child {
+                    border: none;
+                }
+
+                &.more {
+                    padding: 0;
+                    border: none;
+                    > a {
+                        flex: 1;
+                        display: block;
+                        @include remCalc("padding", 15 0);
+                        text-align: center;
+                        line-height: 1.43;
+                        color: $base-heading-color;
+                    }
+                }
+
+                // img
+                > .img {
+                    position: relative;
+                    @include remCalc("margin-right", 15);
+                    @include remCalc("width", 100);
+                    @include remCalc("height", 64);
+                }
+                // img end
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
+                    counter-increment: list;
+
+                    // img
+                    > .img {
+                        &:before {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            @include remCalc("padding", 0 5);
+                            @include font-size(12);
+                            font-weight: 600;
+                            line-height: 1.33;
+                            background-color: $base-color;
+                            color: #ffffff;
+                            content: " Top " counter(list) " ";
+                            text-align: center;
+                        }
+                    }
+                    // img end
+                }
+
+                // content
+                > .content {
+                    flex: 1;
+
+                    // title
+                    > .title {
+                        @include font-size(14);
+                        font-weight: 500;
+                        line-height: 1.71;
+                    }
+                    // title end
+
+                    // recommended
+                    > .recommended {
+                        @include remCalc("margin-top", 10);
+                        @include font-size(12);
+                        line-height: 1.33;
+                        color: $base-text-color2;
+                    }
+                    // recommended end
+                }
+                // content end
+
+                // like
+                > .like {
+                    display: block;
+                    @include remCalc("margin-left", 8);
+                    @include remCalc("border", (1 solid $base-border-color));
+                    border-radius: 50%;
+                    overflow: hidden;
+                    color: $base-text-color;
+
+                    > .ui_icon {
+                        @include remCalc("padding", 6);
+                        @include remCalc("width", 28);
+                        @include remCalc("height", 28);
+                    }
+
+                    &.cur {
+                        color: $base-text-color;
+                        border-color: $base-color;
+                        background-color: $base-color;
+                        color: #ffffff;
+                    }
+                }
+                // like end
+            }
+        }
+        // list
+    }
+    // content end
+}
+// dishes end
