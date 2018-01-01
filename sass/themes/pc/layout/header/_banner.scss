@@ -16,13 +16,19 @@
     > .banner {
         position: relative;
         @include remCalc("margin-bottom", -36);
+        @include remCalc("height", 302);
         overflow: hidden;
 
         // list
         > .list {
+            position: relative;
             white-space: nowrap;
+            height: 100%;
 
             > li {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
                 @include inline-block(top);
 
