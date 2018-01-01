@@ -56,11 +56,7 @@ var Index = {
             var self = this,
                 listLen = self.data.bannerObj.find('.list > li').length;
             this.data.timer = setInterval(function() {
-                self.data.curIndex++;
-                if (self.data.curIndex >= listLen) {
-                    self.data.curIndex = 0;
-                }
-                // self.data.curIndex = ++self.data.curIndex % listLen;
+                self.data.curIndex = ++self.data.curIndex % listLen;
                 self.effect();
             }, this.data.intervalTime);
         },
@@ -71,34 +67,7 @@ var Index = {
                 $flag = this.data.bannerObj.find('.flag'),
                 scroollWidth = this.data.width * cur;
 
-            // $list.css({
-            //     'margin-left': '-' + scroollWidth + 'px',
-            //     "transition": "all .5s ease"
-            // });
-
-            // if (cur >= $list.find('li').length) {
-            //     $list.
-            // }
-
-            // $list.animate({
-            //     'margin-left': '-' + scroollWidth + 'px'
-            // }, this.data.duration, function() {
-            //     // if (cur > 0) {
-            //     //     $(this).css({
-            //     //         'margin-left': '-' + scroollWidth - self.data.width + 'px'
-            //     //     });
-            //     //     $(this).children('li:first').appendTo(this);
-            //     // }
-            // });
-
-            // $list.css({
-            //     opacity: 0
-            // }).eq(cur).animate({
-            //     opacity: 1
-            // }, this.data.duration);
-
             $list.stop().fadeOut(this.data.duration).eq(cur).fadeIn(this.data.duration);
-
 
             $flag.eq(cur).addClass('cur').siblings().removeClass('cur');
         }
