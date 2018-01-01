@@ -29,7 +29,7 @@
 
                     // ui_postlist
                     > .ui_postlist {
-                        @extend %js-scroll-layout;
+                        @extend %scroll-x-layout;
 
                         > li {
                             @include inline-block(top);

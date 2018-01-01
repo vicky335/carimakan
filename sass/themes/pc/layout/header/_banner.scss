@@ -14,13 +14,16 @@
 
     // banner
     > .banner {
+        position: relative;
         @include remCalc("margin-bottom", -36);
-
-        @extend %js-scroll-layout;
+        overflow: hidden;
 
         // list
         > .list {
+            white-space: nowrap;
+
             > li {
+                width: 100%;
                 @include inline-block(top);
 
                 > a {
@@ -29,6 +32,29 @@
             }
         }
         // list end
+
+        > .nav {
+            @include position-center(left);
+            @include remCalc("bottom", 29);
+
+            > li {
+                @include inline-block;
+                @include remCalc("margin-right", 7);
+                @include remCalc("width", 12);
+                @include remCalc("height", 12);
+                @include remCalc("border", (2 solid #ffffff));
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &.cur {
+                    background-color: #ffffff;
+                }
+            }
+        }
     }
     // banner end
 
