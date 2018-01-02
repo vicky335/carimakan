@@ -156,7 +156,17 @@
                     &:last-child {
                         margin-right: 0;
                     }
-                    // text-indent: -9999em;
+                    text-indent: -9999em;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: contain;
+
+                    &.applestore {
+                        background-image: url($bast-images-path + 'bg_download_applestore.png');
+                    }
+                    &.googleplay {
+                        background-image: url($bast-images-path + 'bg_download_googleplay.png');
+                    }
                 }
                 // btn end
             }

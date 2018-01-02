@@ -12,7 +12,8 @@
 
 // ui_shopblock
 .ui_shopblock {
-    @include remCalc("margin", 15 0);
+    @include remCalc("padding", 10 25);
+    @include remCalc("border-left", (4 solid #666666));
 
     // &:last-child {
     //     margin-bottom: 0;

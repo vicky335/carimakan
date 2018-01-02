@@ -31,12 +31,6 @@ var Com = {
 
 		// bindActionClick
 		this.bindActionClick();
-
-		// bindGoTo
-		this.bindGoTo();
-
-		// bindGoBlack
-		this.bindGoBlack();
 	},
 
 	/**
@@ -49,26 +43,6 @@ var Com = {
 			scrollTop: top || 1
 		}, "fast", function() {
 			(typeof fn === "function") && fn.call(this);
-		});
-	},
-
-	/**
-	 * @author VickyHuang
-	 * @param {Object} "args":
-	 * @description bindActionClick 綁定滑動到...事件
-	 */
-	bindGoTo: function(args) {
-		var self = this;
-		$('#wrap').on('click', '.btn_goTo', function() {
-			var $this = $(this),
-				obj = $this.attr('data-obj');
-			if ($(obj)) {
-				var top = $(obj).offset().top;
-				// if ($('.scrollBar')) {
-				// 	var $scrollBars = $('.scrollBar');
-				// }
-				self.fnGoTop(top);
-			}
 		});
 	},
 
@@ -485,85 +459,10 @@ var Com = {
 			});
 
 			// nav
-			var $nav = $('.content > .nav', $obj),
-				$firstObj = $('.first', $nav),
-				$secondObj = $('.second', $nav),
-				$thirdObj = $('.third', $nav);
-
-			$firstObj.on('click', '.list > li', function() {
-				var $this = $(this),
-					$parentObj = $this.parents('.first'),
-					curIndex = $this.index(),
-					$second = $parentObj.siblings('.second').find('.list').eq(curIndex);
-
-				$firstObj.find('.list').removeClass();
-				$secondObj.find('.list').removeClass('cur');
-				$thirdObj.find('.list').removeClass('cur');
-
-				if ($second.length > 0) {
-					$this.addClass('cur');
-					$this.parent().addClass('cur');
-				}
-			});
-
-
-			$nav.on('click', '.first > li', function() {
-				var $this = $(this),
-					$list = $this.parent(),
-					curIndex = $this.index(),
-					$second = $list.siblings('.second').eq(curIndex);
-
-				$firstObj.removeClass('selected active');
-				$secondObj.removeClass('selected active cur');
-				$thirdObj.removeClass('selected active cur');
-
-				if ($second.length > 0) {
-					$this.addClass('cur').siblings('li').removeClass('cur');
-					$second.children('li').removeClass('active cur');
-					$second.addClass('active').siblings('.second').removeClass('active');
-				}
-			});
-			$nav.on('click', '.second > li', function() {
-				var $this = $(this),
-					$list = $this.parent(),
-					curIndex = $this.index(),
-					$third = $list.siblings('.third').eq(curIndex);
-
-				$firstObj.addClass('selected');
-
-				if ($third.length > 0) {
-					$this.addClass('cur').siblings('li').removeClass('cur');
-					$third.children('li').removeClass('active cur');
-					$third.addClass('active').siblings('.third').removeClass('active');
-				}
-			});
-			$nav.on('click', '.second > li', function() {
-				var $this = $(this),
-					$list = $this.parent(),
-					curIndex = $this.index(),
-					$third = $list.siblings('.third').eq(curIndex);
-
-				$firstObj.addClass('selected');
-
-				if ($third.length > 0) {
-					$this.addClass('cur').siblings('li').removeClass('cur');
-					$third.addClass('active').siblings('.third').removeClass('active');
-				}
+			$('.content > .nav', $obj).on('click', '.first > li', function() {
+				var $this = $(this);
 			});
 		}
-	},
-
-	/**
-	 * @author VickyHuang
-	 * @param {Object} "args":
-	 * @description 回退
-	 */
-	bindGoBlack: function() {
-		var self = this;
-		$('#wrap').on('click', '.btn_goblack', function() {
-			var $this = $(this);
-			history.go(-1);
-		});
 	},
 
 	/**
