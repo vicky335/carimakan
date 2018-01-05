@@ -107,16 +107,16 @@ $base-ellipsis-set-mobile-height-auto: false;
 $base-forms-title-color: $base-heading-color;
 $base-forms-text-color: $base-text-color;
 $base-forms-text-color2: $base-text-color2;
-$base-forms-placeholder-color: #666666;
-$base-forms-error-color: #c13a3a;
+$base-forms-placeholder-color: #999999;
+$base-forms-error-color: $base-color;
 $base-forms-border-color: $base-border-color;
 
 // padding size
 $base-forms-padding-size: 10;
-$base-forms-border-radius: 5;
+$base-forms-border-radius: 3;
 
 // tips font size
-$base-forms-tips-font-size: 14;
+$base-forms-tips-font-size: $base-font-size;
 
 // col label margin
 $base-forms-col-title-width: 100;

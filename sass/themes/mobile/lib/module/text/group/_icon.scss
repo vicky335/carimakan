@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _icon.scss
+
+
+
+/**************************************/
+/*                icon                */
+/**************************************/
+
+// ui_text
+.ui_text {
+
+    // ui_text_group
+    &.ui_text_group,
+    .ui_text_group {
+
+        // icon
+        &.icon {
+            > .ui_icon {
+                position: absolute;
+                @include position-center(top);
+                @include remCalc("left", $base-forms-padding-size);
+                @include remCalc("width", 20);
+                @include remCalc("height", 20);
+                color: $base-forms-placeholder-color;
+            }
+
+            // input
+            > .input {
+                @include remCalc("padding", $base-forms-padding-size $base-forms-padding-size $base-forms-padding-size 36);
+            }
+            // input end
+        }
+        // icon end
+
+    }
+    // ui_text_group end
+
+}
+// ui_text

@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _magiccheck.scss
+
+
+
+/**************************************/
+/*             magiccheck             */
+/**************************************/
+
+// ui_text
+.ui_text {
+
+    // ui_text_group
+    &.ui_text_group,
+    .ui_text_group {
+        // magic_radio, magic_checkbox
+        &.magic_radio,
+        &.magic_checkbox {
+            @extend %text-def-layout;
+            @include inline-block;
+            // position: relative;
+            @include remCalc("padding", $base-forms-padding-size + 2 0);
+
+            // radio, checkbox
+            > .radio,
+            > .checkbox {
+                position: absolute;
+                display: none;
+
+                // magin_icon
+                &+.magin_icon {
+                    @extend %text-def-layout;
+                    @include inline-block;
+                    position: relative;
+                    @include remCalc("padding-left", 16 + 8);
+                    cursor: pointer;
+
+                    // before, after
+                    &:before,
+                    &:after {
+                        @include position-center(top);
+                        left: 0;
+                        content: "";
+                        border-radius: 50%;
+                        box-sizing: border-box;
+
+                        @include remCalc("width", 16);
+                        @include remCalc("height", 16);
+                        background-color: #ffffff;
+                        @include remCalc("border", (1 solid $base-forms-border-color));
+                    }
+                    // before, after end
+
+                    // before
+                    &:before {
+                        @include remCalc("border", (1 solid $base-forms-border-color));
+
+                        // hover
+                        &:hover {
+                            border-color: #04a0ea;
+                        }
+                        // hover end
+                    }
+                    // before end
+
+                    // after
+                    &:after {
+                        display: none;
+                        // @include remCalc("border", (5 solid #04a0ea));
+                    }
+                    // after end
+                }
+                // magin_icon end
+
+                // checked
+                &:checked {
+
+                    // magin_icon
+                    &+.magin_icon {
+
+                        // before, after
+                        &:before,
+                        &:after,
+                        &:hover {}
+                        // before, after end
+
+                        // before
+                        &:before {
+                            @include remCalc("border", (5 solid #04a0ea));
+                        }
+                        // before end
+
+                        // after
+                        &:after {
+                            // display: block;
+                        }
+                        // after end
+
+                        // hover
+                        &:hover {}
+                        // hover end
+                    }
+                    // magin_icon end
+                }
+                // checked end
+
+                // disabled
+                &[disabled] {
+                    cursor: not-allowed;
+
+                    // magin_icon
+                    &+.magin_icon {
+                        cursor: not-allowed;
+                        color: #e4e4e4;
+
+                        // before, after
+                        &:before,
+                        &:after,
+                        &:hover {
+                            cursor: not-allowed;
+                        }
+                        // before, after end
+
+                        // before
+                        &:before {
+                            border-color: #e4e4e4;
+                        }
+                        // before end
+
+                        // after
+                        &:after {}
+                        // after end
+
+                        // hover
+                        &:hover {}
+                        // hover end
+                    }
+                    // magin_icon end
+                }
+                // disabled end
+            }
+            // radio, checkbox end
+            // radio
+            > .checkbox {
+                // magin_icon
+                &+.magin_icon {
+                    // before, after
+                    &:before,
+                    &:after {
+                        @include remCalc("border-radius", 3);
+                    }
+                    // before, after end
+                }
+                // magin_icon end
+            }
+            // checkbox end
+        }
+        // magic_radio, magic_checkbox end
+
+    }
+    // ui_text_group end
+
+}
+// ui_text

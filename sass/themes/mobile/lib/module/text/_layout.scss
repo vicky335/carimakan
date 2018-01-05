@@ -12,7 +12,7 @@
 
 // ui_text
 .ui_text {
-    @include remCalc("margin-bottom", 24);
+    @include remCalc("margin-bottom", 20);
     box-sizing: border-box;
 
     &:last-child {
@@ -35,7 +35,7 @@
     .input,
     .number,
     .textarea,
-    .select, {
+    .select {
         @extend %text-def-layout;
         @extend %text-def-padding;
         @extend %text-def-border;
@@ -45,8 +45,9 @@
         // error
         &.error {
             @extend %test-def-font-size;
-            border-color: $base-forms-error-color;
             color: $base-text-color;
+            background-color: #fffcf9;
+            @include remCalc("border", (1 solid #ffcc91));
         }
         // error end
     }
@@ -108,6 +109,7 @@
         overflow: hidden;
         overflow-y: auto;
         resize: none;
+        vertical-align: middle;
     }
     // textarea end
 
@@ -163,6 +165,7 @@
         @extend %text-def-layout;
         color: $base-forms-text-color2;
         @include font-size($base-forms-tips-font-size);
+        line-height: 1.25;
 
         .ui_icon {
             @include remCalc("width", 16);

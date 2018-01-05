@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _layout.scss
+
+
+
+/**************************************/
+/*               layout               */
+/**************************************/
+
+// ui_text
+.ui_text {
+
+    // ui_text_group
+    &.ui_text_group,
+    .ui_text_group {
+        position: relative;
+    }
+    // ui_text_group end
+
+}
+// ui_text

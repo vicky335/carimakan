@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _triangles.scss
+
+
+
+/**************************************/
+/*              triangles             */
+/**************************************/
+
+// ui_text
+.ui_text {
+
+    // ui_text_group
+    &.ui_text_group,
+    .ui_text_group {
+        // triangles
+        &.triangles {
+            &:after {
+                @include position-center(top);
+                @include remCalc("margin-top", 2.5);
+                @include remCalc("right", $base-forms-padding-size);
+                @include inline-block;
+                @include triangles("solid", "down", #666666, 5);
+                content: "";
+            }
+
+            // control
+            > .control {
+                @include remCalc("padding", $base-forms-padding-size 26 $base-forms-padding-size $base-forms-padding-size);
+
+                &.select {
+                    @include remCalc("padding", 0 26 0 $base-forms-padding-size);
+                }
+            }
+            // control end
+        }
+        // triangles end
+
+    }
+    // ui_text_group end
+
+}
+// ui_text

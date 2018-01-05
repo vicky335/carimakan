@@ -14,48 +14,93 @@
 .pages{
     // contactus
     &.contactus {
+        @include remCalc("padding", 10 0);
+        background-color: transparent;
+
         // content
         > .content {
-            // block
-            > .block {
-                @include margin-center;
-                @include remCalc("max-width", 510);
-                // form
-                > form {
-                    // ui_text
-                    > .ui_text {
-                        // col
-                        &.col {
+            // form
+            > form {
+                // ui_text
+                > .ui_text {
+                    // col
+                    &.col {
+                        flex-wrap: wrap;
+                        margin-bottom: 0;
+
+                        // label
+                        > .label {
+                            display: none;
+                        }
+                        // label
+
+                        &.message {
+                            @include remCalc("margin", 0 0 10);
+
                             // label
                             > .label {
-                                // max-screen
-                                @include max-screen($base-max-screen){
-                                    @include remCalc("width", 78);
-                                }
-                                // max-screen end
+                                display: block;
+                                flex: 0 0 100%;
+                                @include remCalc("margin", 0 0 5);
+                                @include remCalc("padding", 0 10);
+                                text-align: left;
                             }
                             // label
-                            // content
-                            > .content {
-                                .input {
-                                    max-width: none;
-                                }
-                                .select {
-                                    width: 100%;
-                                }
-                                .textarea {
-                                    max-width: none;
-                                }
-                            }
-                            // content end
                         }
-                        // col end
+
+                        // content
+                        > .content {
+                            .error,
+                            .tips {
+                                @include remCalc("padding", 0 10);
+                            }
+
+                            .input,
+                            .select,
+                            .textarea {
+                                max-width: none;
+                                @include remCalc("padding", 20 10);
+                                border: none;
+                            }
+                            .input,
+                            .select {
+                                @include remCalc("height", 50);
+                            }
+                            .select {
+                                width: 100%;
+                            }
+                            .textarea {
+                                @include remCalc("height", 182);
+                            }
+
+                            // ui_text_group
+                            > .ui_text_group {
+                                // icon
+                                &.icon {
+                                    > .ui_icon {
+                                        @include remCalc("left", 10);
+                                        @include remCalc("width", 24);
+                                        @include remCalc("height", 24);
+                                    }
+
+                                    // input
+                                    > .input {
+                                        @include remCalc("padding", 18 10 18 49);
+                                    }
+                                    // input end
+                                }
+                                // icon end
+
+                            }
+                            // ui_text_group end
+                        }
+                        // content end
                     }
-                    // ui_text end
+                    // col end
                 }
-                // form end
+                // ui_text end
             }
-            // block end
+            // form end
         }
         // content end
     }

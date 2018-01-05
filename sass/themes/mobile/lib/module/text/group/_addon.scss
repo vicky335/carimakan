@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+//sass style
+//-----------------------------------
+// _addon.scss
+
+
+
+/**************************************/
+/*                addon               */
+/**************************************/
+
+// ui_text
+.ui_text {
+
+    // ui_text_group
+    &.ui_text_group,
+    .ui_text_group {
+
+        // addon
+        &.addon {
+            display: flex;
+
+            // addon
+            > .addon {
+                @include remCalc("padding", 0 $base-forms-padding-size);
+                @include remCalc("border", (1 solid $base-border-color));
+                color: $base-color;
+                background-color: #f8f8f8;
+                line-height: 1;
+                // ui_icon
+                > .ui_icon {
+                    @include remCalc("width", 20);
+                    @include remCalc("height", 20);
+                }
+                // ui_icon end
+
+                // :not(:first-child):not(:last-child)
+                &:not(:first-child):not(:last-child) {
+                    border-radius: 0;
+                    border-left: none;
+                    border-right: none;
+                }
+                // :not(:first-child):not(:last-child) end
+
+                // first-child
+                &:first-child {
+                    border-right: none;
+                    @include remCalc("border-radius", $base-forms-border-radius 0 0 $base-forms-border-radius);
+                }
+                // first-child end
+
+                // last-child
+                &:last-child {
+                    border-left: none;
+                    @include remCalc("border-radius", 0 $base-forms-border-radius $base-forms-border-radius 0);
+                }
+                // last-child end
+            }
+            // addon
+
+            // control
+            > .control {
+                flex: 1;
+
+                // :not(:first-child):not(:last-child)
+                &:not(:first-child):not(:last-child) {
+                    border-radius: 0;
+                }
+                // :not(:first-child):not(:last-child) end
+
+                // first-child
+                &:first-child {
+                    @include remCalc("border-radius", $base-forms-border-radius 0 0 $base-forms-border-radius);
+                }
+                // first-child end
+
+                // last-child
+                &:last-child {
+                    @include remCalc("border-radius", 0 $base-forms-border-radius $base-forms-border-radius 0);
+                }
+                // last-child end
+            }
+            // control end
+        }
+        // addon end
+
+    }
+    // ui_text_group end
+
+}
+// ui_text
