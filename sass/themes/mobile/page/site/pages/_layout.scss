@@ -25,28 +25,27 @@
             // title
             > .title {
                 font-weight: 500;
-                @include font-size(14);
-                line-height: 1;
-                @include remCalc("margin-bottom", 12);
+                @include font-size(20);
+                line-height: 1.4;
+                @include remCalc("margin-bottom", 10);
             }
             // title end
 
             // content
             > .content {
+                // title
+                > .title {
+                    font-weight: 500;
+                    @include font-size(14);
+                    line-height: 1;
+                    @include remCalc("margin-bottom", 12);
+                }
+                // title end
+
                 p {
                     @include font-size(14);
                     @include remCalc("margin-bottom", 10);
                     line-height: 1.43;
-
-                    &.fb {
-                        font-weight: bold;
-                    }
-
-                    &.time{
-                        color: $base-text-color2;
-                        @include font-size(12);
-                        @include remCalc("margin-bottom", 10);
-                    }
                 }
 
                 .list {
@@ -69,6 +68,16 @@
                             }
                         }
                     }
+                }
+
+                .fb {
+                    font-weight: bold;
+                }
+
+                .time{
+                    color: $base-text-color2;
+                    @include font-size(12);
+                    @include remCalc("margin-bottom", 10);
                 }
             }
             // content end

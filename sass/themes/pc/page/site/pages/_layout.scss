@@ -62,20 +62,20 @@
 
             // content
             > .content {
+
+                // title
+                > .title {
+                    font-weight: 500;
+                    @include font-size(20);
+                    line-height: 1;
+                    @include remCalc("margin-bottom", 15);
+                }
+                // title end
+
                 p {
                     @include font-size(14);
                     @include remCalc("margin-bottom", 15);
                     line-height: 1.43;
-
-                    &.fb {
-                        font-weight: bold;
-                    }
-
-                    &.time{
-                        color: $base-text-color2;
-                        @include font-size(12);
-                        @include remCalc("margin-bottom", 10);
-                    }
                 }
 
                 .list {
@@ -99,6 +99,16 @@
                             }
                         }
                     }
+                }
+
+                .fb {
+                    font-weight: bold;
+                }
+
+                .time{
+                    color: $base-text-color2;
+                    @include font-size(12);
+                    @include remCalc("margin-bottom", 10);
                 }
             }
             // content end
