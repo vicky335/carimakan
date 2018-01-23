@@ -1,0 +1,66 @@
+//sass style
+//-----------------------------------
+// _menu.scss
+
+
+
+/**************************************/
+/*                 menu               */
+/**************************************/
+
+// menu
+&.menu {
+    @include remCalc("border", (1 solid #eeeeee));
+
+    // content
+    > .content {
+        @include remCalc("padding", 0 10);
+
+        // list
+        > .list {
+            display: flex;
+
+            > li {
+                flex: 0 0 floor((100 - ((10 / $base-font-size) * 3)) / 3) * 1%;
+                @include remCalc("margin", 0 5 5 0);
+
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+
+                // img
+                > .img {
+                    position: relative;
+                    // @include remCalc("margin-right", 15);
+                    // @include remCalc("width", 100);
+                    @include remCalc("height", 100);
+                    overflow: hidden;
+
+                    > img {
+                        max-width: none;
+                        max-height: none;
+                        @include position-center;
+                    }
+
+                    > .tips {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        @include remCalc("padding", 2);
+                        text-align: center;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        @include font-size(12);
+                        font-weight: 500;
+                        line-height: 1.33;
+                        color: rgba(255, 255, 255, 0.87);
+                    }
+                }
+                // img end
+            }
+        }
+        // list
+    }
+    // content end
+}
+// menu end
