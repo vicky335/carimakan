@@ -25,8 +25,9 @@
 
         > a {
             display: block;
-            @include remCalc("border-radius", 2.7);
+            @include remCalc("border-radius", 0 0 2.7 2.7);
             @include remCalc("border", (1 solid $base-border-color));
+            // overflow: hidden;
         }
     }
     // li end

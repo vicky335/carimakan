@@ -27,6 +27,22 @@
                     &:last-child {
                         margin-right: 0;
                     }
+
+                    // content
+                    > .content {
+                        display: flex;
+
+                        > .title {
+                            @include remCalc("width", 80);
+                            color: $base-text-color2;
+                        }
+
+                        > .txt {
+                            flex: 1;
+                            color: $base-text-color;
+                        }
+                    }
+                    // content end
                 }
             }
             // content end

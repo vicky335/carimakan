@@ -53,7 +53,7 @@
                 position: relative;
                 @include remCalc("margin-left", 10);
                 @include remCalc("width", 318);
-                @include remCalc("height", 212);
+                @include remCalc("height", 160);
                 overflow: hidden;
 
                 // googlemaps
@@ -61,7 +61,7 @@
                     position: absolute;
                     @include position-center;
                     @include remCalc("width", 318*2);
-                    @include remCalc("height", 212*2);
+                    @include remCalc("height", 160*2);
                     overflow: hidden;
                 }
                 // googlemaps end

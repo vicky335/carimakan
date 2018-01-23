@@ -11,6 +11,9 @@ var Restaurant = {
         Api.init({
             "appId": $.trim($("meta[property='fb:app_id']").attr("content"))
         });
+
+        // resetImgSize
+        this.resetImgSize();
     },
 
     /**
@@ -48,6 +51,45 @@ var Restaurant = {
             mapObj.setCenter(marker.getPosition());
             infowindow.open(mapObj, marker);
             OMIS.debug('click', this, mapObj, marker);
+        });
+    },
+
+    /**
+     * @author VickyHuang
+     * @param {Object} "args":
+     * @description 計算圖片尺寸
+     */
+    resetImgSize: function() {
+        var $items = $('.shoppics').find('.img');
+        $items.each(function(index, item) {
+            var $this = $(this),
+                data = {
+                    width: $this.width(),
+                    height: $this.height()
+                },
+                ratio = data.width / data.height,
+                $img = $this.find('img'),
+                imgSrc = $img.attr("src");
+            $img.removeAttr('width').removeAttr('height');
+
+            imgReady(imgSrc, function() {
+                if (this.width / this.height > ratio) {
+                    $img.css({
+                        height: '100%',
+                        width: ''
+                    });
+                } else {
+                    $img.css({
+                        width: '100%',
+                        height: ''
+                    });
+                }
+            });
+        });
+
+        var self = this;
+        $(window).resize(function() {
+            self.resetImgSize();
         });
     }
 };

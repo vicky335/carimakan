@@ -19,8 +19,9 @@
             // shoppics
             > .shoppics {
                 @include remCalc("margin-right", 26);
-                flex: 1;
+                @include remCalc("width", 700);
                 display: flex;
+                justify-content: space-between;
 
                 // block
                 > .block {
@@ -29,16 +30,30 @@
 
                     &:first-child {
                         flex: 2;
+                        // @include remCalc("width", 464);
                         margin-left: 0;
                     }
 
                     &:nth-child(2) {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
                         // img
                         > .img {
                             position: relative;
+                            flex: 0 0 49.5%;
                             @include remCalc("margin-bottom", 3);
+                            overflow: hidden;
+
                             &:last-child {
                                 margin-bottom: 0;
+                            }
+
+                            > img {
+                                width: 100%;
+                                max-width: none;
+                                max-height: none;
                             }
 
                             > .more {
@@ -101,7 +116,7 @@
 
             // info
             > .info {
-                @include remCalc("width", 300);
+                flex: 1;
                 display: flex;
                 flex-direction: column;
 

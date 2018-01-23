@@ -21,3 +21,19 @@
 @import "list/voucher";
 
 
+.ui_list {
+    > li {
+        > a {
+            > .img {
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    max-width: none;
+                    max-height: none;
+                    @include position-center;
+                }
+            }
+        }
+    }
+}

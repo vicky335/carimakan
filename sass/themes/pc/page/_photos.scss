@@ -89,6 +89,18 @@ body {
                     &:nth-child(4n) {
                         margin-right: 0;
                     }
+
+                    > .img {
+                        position: relative;
+                        overflow: hidden;
+                        @include remCalc("height", 240);
+
+                        > img {
+                            max-width: none;
+                            max-height: none;
+                            @include position-center;
+                        }
+                    }
                 }
             }
             // list end

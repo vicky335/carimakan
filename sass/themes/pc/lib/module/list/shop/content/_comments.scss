@@ -19,5 +19,11 @@
         color: $base-text-color2;
     }
     // comment end
+
+    > .score {
+        color: $base-color;
+        font-weight: 500;
+        line-height: 1;
+    }
 }
 // comments end
