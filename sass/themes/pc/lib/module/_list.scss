@@ -37,3 +37,14 @@
         }
     }
 }
+
+.rsimg {
+    position: relative;
+    overflow: hidden;
+
+    img {
+        max-width: none;
+        max-height: none;
+        @include position-center;
+    }
+}

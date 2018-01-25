@@ -7,8 +7,8 @@ var Com = {
 		// load svg
 		this.loadSvg();
 
-		// listResetImgSize
-		this.listResetImgSize();
+		// resetImgSize
+		this.resetImgSize();
 
 		// share btn
 		this.showShare();
@@ -470,17 +470,56 @@ var Com = {
 	 * @param {Object} "args":
 	 * @description 計算列表圖片尺寸
 	 */
-	listResetImgSize: function() {
-		var $items = $('.ui_list').find('li').not('.ad');
+	// listResetImgSize: function() {
+	// 	var $items = $('.ui_list').find('li').not('.ad');
+	// 	$items.each(function(index, item) {
+	// 		var $this = $(this),
+	// 			$imgObj = $('.img', $this),
+	// 			data = {
+	// 				width: $imgObj.width(),
+	// 				height: $imgObj.height()
+	// 			},
+	// 			ratio = data.width / data.height,
+	// 			$img = $imgObj.find('img'),
+	// 			imgSrc = $img.attr("src");
+	// 		$img.removeAttr('width').removeAttr('height');
+
+	// 		imgReady(imgSrc, function() {
+	// 			if (this.width / this.height > ratio) {
+	// 				$img.css({
+	// 					height: '100%',
+	// 					width: ''
+	// 				});
+	// 			} else {
+	// 				$img.css({
+	// 					width: '100%',
+	// 					height: ''
+	// 				});
+	// 			}
+	// 		});
+	// 	});
+
+	// 	var self = this;
+	// 	$(window).resize(function() {
+	// 		self.listResetImgSize();
+	// 	});
+	// },
+
+	/**
+	 * @author VickyHuang
+	 * @param {Object} "args":
+	 * @description 計算圖片尺寸
+	 */
+	resetImgSize: function() {
+		var $items = $('.rsimg');
 		$items.each(function(index, item) {
 			var $this = $(this),
-				$imgObj = $('.img', $this),
 				data = {
-					width: $imgObj.width(),
-					height: $imgObj.height()
+					width: $this.width(),
+					height: $this.height()
 				},
 				ratio = data.width / data.height,
-				$img = $imgObj.find('img'),
+				$img = $this.find('img'),
 				imgSrc = $img.attr("src");
 			$img.removeAttr('width').removeAttr('height');
 
@@ -501,59 +540,7 @@ var Com = {
 
 		var self = this;
 		$(window).resize(function() {
-			self.listResetImgSize();
-		});
-	},
-
-	/**
-	 * @author VickyHuang
-	 * @param {Object} "args":
-	 * @description ui filter filter導航效果
-	 */
-	fnHeader: function() {
-		var $main = $('.wrap_header .main'),
-			$search = $main.children('.search'),
-			$city = $main.children('.city');
-
-		$main.on('click', '.city', function() {
-			var $this = $(this);
-
-			if (!$this.hasClass('cur')) {
-				$this.parents('.block').find('cur').removeClass('cur');
-				$this.addClass('cur');
-			} else {
-				$this.removeClass('cur');
-			}
-
-			$search.find('.content.hotsearch').hide();
-			$search.find('.content.shoplist').hide();
-
-		}).on('focus', '.searchwrap .input', function() {
-			var $this = $(this);
-			$search.addClass('cur');
-			$search.find('.content.hotsearch').show();
-			$search.find('.content.shoplist').hide();
-			$city.removeClass('cur');
-		}).on('keypress', '.searchwrap .input', function() {
-			var $this = $(this);
-			$search.addClass('cur');
-			// OMIS.doAjax({
-			// 	success: function(html) {
-			$search.find('.content.hotsearch').hide();
-			$search.find('.content.shoplist').show();
-			// 	},
-			// 	options: {
-			// 		type: "GET",
-			// 		url: '/images/icons.svg',
-			// 		dataType: "html"
-			// 	}
-			// });
-		}).on('blur', '.searchwrap .input', function() {
-			var $this = $(this);
-			$this.val('');
-			$search.removeClass('cur');
-			$search.find('.content.hotsearch').hide();
-			$search.find('.content.shoplist').hide();
+			self.resetImgSize();
 		});
 	}
 
