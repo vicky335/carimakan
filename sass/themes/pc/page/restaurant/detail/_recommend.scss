@@ -39,9 +39,11 @@
                             // img
                             > .img {
                                 width: 100%;
-                                @include remCalc("height", 154);
+                                height: 0;
+                                // @include remCalc("height", 154);
                                 margin-right: 0;
                                 @include remCalc("margin-bottom", 15);
+                                padding-bottom: 63%;
                             }
                             // img end
 

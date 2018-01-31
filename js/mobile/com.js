@@ -658,12 +658,12 @@ var Com = {
 	 * @description 計算圖片尺寸
 	 */
 	resetImgSize: function() {
-		var $items = $('.rsimg');
+		var $items = $('.rsimg', $('#wrap'));
 		$items.each(function(index, item) {
 			var $this = $(this),
 				data = {
-					width: $this.width(),
-					height: $this.height()
+					width: $this.outerWidth(),
+					height: $this.outerHeight()
 				},
 				ratio = data.width / data.height,
 				$img = $this.find('img'),
@@ -689,7 +689,7 @@ var Com = {
 		$(window).resize(function() {
 			self.resetImgSize();
 		});
-	}
+	},
 
 	/**
 	 * @author VickyHuang

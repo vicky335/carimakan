@@ -71,6 +71,7 @@
                             > .img {
                                 position: relative;
                                 @include remCalc("margin-bottom", 5);
+                                padding-bottom: 100%;
 
                                 // like
                                 > .like {

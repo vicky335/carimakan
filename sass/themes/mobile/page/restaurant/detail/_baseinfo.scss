@@ -98,6 +98,7 @@
                 // shoppics
                 > .shoppics {
                     display: flex;
+                    justify-content: space-between;
 
                     // block
                     > .block {
@@ -107,16 +108,35 @@
                         &:first-child {
                             flex: 2;
                             margin-left: 0;
+
+                            // img
+                            > .img {
+                                padding-bottom: 100%;
+                            }
                         }
 
                         &:nth-child(2) {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+
                             // img
                             > .img {
                                 position: relative;
-                                @include remCalc("margin-bottom", 3);
+                                flex: 0 0 49.5%;
+                                // @include remCalc("margin-bottom", 3);
+                                overflow: hidden;
+
                                 &:last-child {
                                     margin-bottom: 0;
                                 }
+
+
+                                // > img {
+                                //     width: 100%;
+                                //     max-width: none;
+                                //     max-height: none;
+                                // }
 
                                 > .more {
                                     position: absolute;

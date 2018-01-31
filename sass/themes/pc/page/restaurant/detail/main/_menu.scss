@@ -33,7 +33,8 @@
                     position: relative;
                     // @include remCalc("margin-right", 15);
                     // @include remCalc("width", 100);
-                    @include remCalc("height", 100);
+                    // @include remCalc("height", 100);
+                    padding-bottom: 100%;
                     overflow: hidden;
 
                     > img {

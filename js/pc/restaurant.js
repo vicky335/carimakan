@@ -13,7 +13,7 @@ var Restaurant = {
         });
 
         // resetImgSize
-        this.resetImgSize();
+        // this.resetImgSize();
     },
 
     /**

@@ -14,9 +14,6 @@ var Com = {
 		this.showShare();
 		this.bindShare();
 
-		// 頭部
-		this.fnHeader();
-
 		// bindFilter
 		this.bindFilter();
 
@@ -511,12 +508,12 @@ var Com = {
 	 * @description 計算圖片尺寸
 	 */
 	resetImgSize: function() {
-		var $items = $('.rsimg');
+		var $items = $('.rsimg', $('#wrap'));
 		$items.each(function(index, item) {
 			var $this = $(this),
 				data = {
-					width: $this.width(),
-					height: $this.height()
+					width: $this.outerWidth(),
+					height: $this.outerHeight()
 				},
 				ratio = data.width / data.height,
 				$img = $this.find('img'),
@@ -524,7 +521,7 @@ var Com = {
 			$img.removeAttr('width').removeAttr('height');
 
 			imgReady(imgSrc, function() {
-				if (this.width / this.height > ratio) {
+				if (this.width / this.height >= ratio) {
 					$img.css({
 						height: '100%',
 						width: ''

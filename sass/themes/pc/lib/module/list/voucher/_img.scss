@@ -31,14 +31,14 @@
                     > img {
                         // transition: all .7s;
 
-                        &.lazyload {}
+                        // &.lazyload {}
 
-                        &.lazyloaded {}
+                        // &.lazyloaded {}
 
-                        &:hover {
-                            transition: all .7s;
-                            transform: scale(1.05);
-                        }
+                        // &:hover {
+                        //     transition: all .7s;
+                        //     transform: scale(1.05);
+                        // }
                     }
 
                     > .txt {

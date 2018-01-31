@@ -93,7 +93,9 @@ body {
                     > .img {
                         position: relative;
                         overflow: hidden;
-                        @include remCalc("height", 240);
+                        // @include remCalc("height", 240);
+                        height: 0;
+                        padding-bottom: 100%;
 
                         > img {
                             max-width: none;

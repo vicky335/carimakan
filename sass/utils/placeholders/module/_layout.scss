@@ -180,6 +180,7 @@
     > .img {
         flex: 0 0 floor((100 - ((6 / $base-font-size) * 3)) / 3) * 1%;
         @include remCalc("margin", 0 5 5 0);
+        padding-bottom: floor((100 - ((6 / $base-font-size) * 3)) / 3) * 1%;
 
         &:nth-child(3n) {
             margin-right: 0;
@@ -191,12 +192,14 @@
         > .img {
             flex: 0 0 100%;
             margin-right: 0;
+            padding-bottom: 100%;
         }
     }
 
     &.two {
         > .img {
             flex: 0 0 floor((100 - ((5 / $base-font-size) * 2)) / 2) * 1%;
+            padding-bottom: floor((100 - ((5 / $base-font-size) * 2)) / 2) * 1%;
             &:nth-child(2n) {
                 margin-right: 0;
             }

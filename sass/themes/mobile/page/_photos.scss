@@ -72,6 +72,11 @@
                     &:nth-child(3n) {
                         margin-right: 0;
                     }
+
+                    > .img {
+                        height: 0;
+                        padding-bottom: 100%;
+                    }
                 }
             }
             // list end
